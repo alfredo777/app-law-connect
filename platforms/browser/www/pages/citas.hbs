@@ -1,0 +1,41 @@
+<ons-page>
+	<ons-list-header>Citas</ons-list-header>
+	{{#each data as |cita citaID|}}
+	<ons-list-item onclick="showModal('{{cita.token}}')" tappable>
+	      <div class="left">
+	        <img class="list-item__thumbnail" src="{{cita.abogado.avatar}}">
+	      </div>
+	      <div class="center">
+	        <span class="list-item__title">{{cita.abogado.nombre}} {{cita.abogado.apellidos}}</span><span class="list-item__subtitle">{{cita.token}}</span>
+	      </div>
+	</ons-list-item>
+	<ons-modal direction="up" id="{{cita.token}}" onclick="hideModal('{{cita.token}}')">
+	  <div style="text-align: center">
+	    <p>
+	    	<i> Fecha de la cita: </i> {{cita.fecha}}<br/>
+	    	{{#if cita.llamada}}
+	    	<i> Tipo de cita: </i><br/>Llamada<br/>
+	    	{{else}}
+	        <i> Tipo de cita: </i><br/> Cita presencial<br/>
+	    	{{/if}}
+	    	<i> Abogado: </i><br/>{{cita.abogado.nombre}} {{cita.abogado.apellidos}}<br/>
+	    	<i> Cliente: </i><br/>{{cita.cliente.nombre}} {{cita.cliente.apellidos}}<br/>
+	    	<i> Token: </i><br/>{{cita.token}}<br/>
+	    	<i> Celular para contacto: </i><br/>{{cita.cliente.celular}}<br/>
+	    	<i> Asunto: </i><br/>{{cita.asunto}}<br/>
+	    </p>
+	  </div>
+	</ons-modal>
+	{{/each}}
+</ons-page>
+
+<script type="text/javascript">
+	function showModal(token) {
+	  var modal = $("#"+token);
+	  modal.show();
+	}
+	function hideModal(token){
+	  var modal = $("#"+token);
+	  modal.hide();
+	}
+</script>

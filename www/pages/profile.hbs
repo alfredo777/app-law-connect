@@ -1,0 +1,13 @@
+<ons-page id="userinfo">
+</ons-page>
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		var userSession = window.localStorage.getItem("userSession");
+	    var data = JSON.parse(userSession);
+	    console.log(data);
+		loadView(data, 'user', 'userinfo');
+	});
+    
+
+</script>

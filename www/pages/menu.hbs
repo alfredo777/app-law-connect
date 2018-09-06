@@ -1,0 +1,41 @@
+<ons-navigator swipeable id="myNavigator"></ons-navigator>
+
+<ons-progress-bar value="0" id="progress"></ons-progress-bar>
+<ons-tabbar swipeable position="bottom" modifire="top-border" id="tabbar" animation-options="{duration: 0.2, delay: 1, timing: 'ease-in'}">
+  {{#foreach compose}}
+      {{#if $first }}
+      <ons-tab page="tab{{id}}" id="xtab{{id}}" label="{{Title}}" icon="{{Icon}}" topbar="{{topbar}}"  active>
+      </ons-tab>
+      {{#sessionFalse}}
+      <ons-tab page="logginit.html" id="xtabloggin.html" label="Loggin" icon="ion-ios-locked" topbar="{{topbar}}"></ons-tab>
+      {{/sessionFalse}}
+      {{else}}
+      {{#sessionTrue}}
+      <ons-tab page="tab{{id}}" id="xtab{{id}}" label="{{Title}}" icon="{{Icon}}" topbar="{{topbar}}">
+      </ons-tab>
+      {{/sessionTrue}}
+      {{/if}}
+  {{/foreach}}
+</ons-tabbar>
+{{#each compose}}
+<template id="tab{{id}}">
+<ons-page id="tabcompose{{id}}" >
+
+</ons-page>
+</template>
+{{/each}}
+{{#each compose}}
+<script type="text/javascript">
+$(document).ready(function(){
+   	console.log(Handlebars);
+    var tpl, json, idx;
+    tpl = "{{Render}}";
+    json = "js/json/{{Render}}.json";
+    idx = "tabcompose{{id}} .page__content";
+    console.log(tpl);
+    console.log(json);
+    console.log(idx);
+    loadpage(tpl,idx,json);
+});
+</script>
+{{/each}}

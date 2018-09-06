@@ -1,0 +1,47 @@
+<div class="head-box">
+  <img src="{{headimage}}" width="100%;">
+  <p style="text-align: center; margin-top: -15px;">
+    <ons-search-input id="ssearch"
+    placeholder="{{buscar}}"
+    onchange="searchIN('searched.html')"
+    style="width: 80%"
+    ></ons-search-input>
+  </p>
+</div>
+<br/><br/>
+<div class="bluebox">
+  <br>
+  <center>
+  <div class="absolutebox">
+    {{#each categorias}}
+    <div class="plural-box {{class}}" onclick="serachTab('searched.html', '{{search}}')">
+      <center>
+      <br/><br/>
+      <ons-icon icon="{{icon}}" style="color: #fff;" size="40px"></ons-icon>
+      <p>{{title}}</p>
+      <br/>
+      </center>
+    </div>
+    {{/each}}
+  </div>
+  </center>
+  {{#sessionFalse}}
+  <div style="padding: 20px;">
+    <ons-button  modifier="large" style="background:#01DF3A;" onclick="changeTab()" ripple="true">¡Quero Registrarme!</ons-button>
+  </div>
+
+  <script type="text/javascript">
+      function changeTab() {
+        document.getElementById('tabbar').setActiveTab(1);
+      }
+  </script>
+  {{/sessionFalse}}
+
+</div>
+<div class="bluebox">
+  <center>
+
+  <a href="">{{legend}}</a>
+  </center>
+</div>
+

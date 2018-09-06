@@ -1,0 +1,68 @@
+<ons-toolbar class="toolbar" modifire="top-border">
+		<div class="left"><ons-back-button></ons-back-button></div>
+		<div class="center">Buscar</div>
+</ons-toolbar>
+<ons-page>
+<br/><br/><br/><br/>
+
+<ons-list modifier="inset">
+<ons-list-header>Resultados de la busqueda</ons-list-header>
+	{{#each data as |user userId| }}
+		<ons-list-item modifier="chevron" id="{{userId}}tabprofile" data-especialidades="" tappable>
+			<div class="left">
+				{{#if user.avatar}}
+				<img class="list-item__thumbnail" src="{{user.avatar}}">
+				{{else}}
+				<img class="list-item__thumbnail" src="img/avatar.png">
+				{{/if}}
+			</div>
+			<div class="center">
+				<span class="list-item__title">{{user.nombre}} {{user.apellidos}}</span><span class="list-item__subtitle">On the Internet</span>
+			</div>
+			<script type="text/javascript">
+			var public_especialidad = [];
+			</script>
+			{{#each user.especialidades as |especialidad especialidadId|}}
+			  <script type="text/javascript">
+			  	public_especialidad.push({
+			  		id: "{{especialidad.id}}",
+			  		nombre: "{{especialidad.nombre}}"
+			  	});
+			  </script>
+			{{/each}}
+		</ons-list-item>
+		<script type="text/javascript">
+		   console.log('************>'+public_especialidad);
+		   var especialidad = JSON.stringify(public_especialidad);
+		   $("#{{userId}}tabprofile").data('especialidades', especialidad);
+		   $("#{{userId}}tabprofile").click(function(){
+		   	    var especialidad = $("#{{userId}}tabprofile").data('especialidades');
+			    var share = {
+		    		nombre: "{{user.nombre}}",
+		    		apellidos: "{{user.apellidos}}",
+		    		acerca_de_mi: "{{user.acerca_de_mi}}",
+		    		curriculum: "{{user.curriculum}}",
+		    		email: "{{user.email}}",
+		    		telefono: "{{user.telefono}}",
+		    		ext: "{{user.ext}}",
+		    		celular:"{{user.celular}}",
+		    		evaluacion: "{{user.evaluacion}}",
+		    		destacar: "{{user.destacar}}",
+		    		direccion: "{{user.direccion}}",
+		    		avatar: "{{user.avatar}}",
+		            especialidades: JSON.parse(especialidad)
+	    	    }
+	    	    console.log('------------>'+especialidad);
+			var json = {user: share, abogado: true, return: true};
+	        var tpl = "user";
+	        var idx = "searcheduser .page__content";
+	        console.log(json);
+	        loadView(json,tpl,idx);
+	        changePage("searcheduser.html");
+        });
+		</script>
+	{{/each}}
+</ons-list>
+</ons-page>
+
+

@@ -1,0 +1,21 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "phonegap-plugin-push": {
+      "PACKAGE_NAME": "com.laconnect.www"
+    },
+    "cordova-plugin-sim": {
+      "PACKAGE_NAME": "com.laconnect.www"
+    },
+    "com.vliesaputra.deviceinformation": {
+      "PACKAGE_NAME": "com.laconnect.www"
+    }
+  },
+  "dependent_plugins": {}
+}

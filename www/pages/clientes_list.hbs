@@ -1,0 +1,81 @@
+<script type="text/javascript">
+  var array_clientes = [];
+  var array_list_clientes = [];
+</script>
+<ons-list modifier="inset" id="listquestclientes" style="margin-top: 20px;">
+<ons-list-header>Resultados de la busqueda</ons-list-header>
+	{{#each data as |user userId| }}
+		<ons-list-item  id="{{userId}}tabclient" data-avatar="{{avatar}}" data-nombre="{{nombre}}" data-apellidos="{{apellidos}}"  tappable>
+			<div class="left">
+				{{#if user.avatar}}
+				<img class="list-item__thumbnail" src="{{user.avatar}}">
+				{{else}}
+				<img class="list-item__thumbnail" src="img/avatar.png">
+				{{/if}}
+			</div>
+			<div class="center">
+				<span class="list-item__title">{{user.nombre}} {{user.apellidos}}</span><span class="list-item__subtitle">{{user.celular}}</span>
+			</div>
+			<div class="right">
+				 <ons-checkbox input-id="check-{{userId}}" value="{{email}}" class="checkincheck"
+				 onclick="checkedcliente('check-{{userId}}', '{{userId}}tabclient');"></ons-checkbox>
+			</div>
+		</ons-list-item>
+	{{/each}}
+</ons-list>
+
+<script type="text/javascript">
+ function checkedcliente(id, xid){
+  var valueCB = document.querySelector('ons-checkbox #'+id).value;
+  var chechkedx = document.querySelector('ons-checkbox #'+id).checked;
+
+  var user_data = {
+  	 nombre: $('#'+xid).data('nombre'),
+  	 apellidos: $('#'+xid).data('apellidos'),
+  	 avatar:$('#'+xid).data('avatar'),
+  	 email: document.querySelector('ons-checkbox #'+id).value
+  }
+
+  console.log(user_data);
+  if(chechkedx == true){
+  	var arrayx = $('#casoclientes').val();
+  	var dataclientes = $('#datalistcasoclientes').val(); 
+  	arrayx = arrayx.split(",");
+  	array_list_clientes.join(";");
+  	dataclientes = dataclientes.split(";");
+  	array_clientes.push(valueCB);
+  	stringxx = JSON.stringify(user_data);
+  	array_list_clientes.push(stringxx);
+  	console.log(array_list_clientes);
+  	if (arrayx == ''){
+    arrayx = array_clientes;
+    dataclientes = array_list_clientes;
+  	}else{
+  	arrayx = arrayx +','+ array_clientes;	
+  	arrayx = arrayx.split(",");
+    console.log(dataclientes);
+    array_list_clientes.join(";");
+  	dataclientes = dataclientes + ';'+ array_list_clientes;
+	  dataclientes = dataclientes.split(";");
+  	}
+    
+  	var uniqueUsers = [];
+		$.each(arrayx, function(i, el){
+		    if($.inArray(el, uniqueUsers) === -1) uniqueUsers.push(el);
+		});
+
+		var uniquedataclientes = [];
+		$.each(dataclientes, function(i, el){
+		    if($.inArray(el, uniquedataclientes) === -1) uniquedataclientes.push(el);
+		});
+    
+    console.log(uniquedataclientes);
+    $('#casoclientes').val(uniqueUsers);
+    $('#datalistcasoclientes').val(uniquedataclientes);
+  } 
+  arrayx = $('#casoclientes').val();
+  console.log(arrayx);
+  console.log(chechkedx);
+  console.log(valueCB);
+ }
+</script>	

@@ -1,0 +1,62 @@
+{
+  "_from": "cordova-device-information-plugin@^1.0.1",
+  "_id": "cordova-device-information-plugin@1.0.1",
+  "_inBundle": false,
+  "_integrity": "sha1-xGOFDHFtdsO665Yhgs7QvS5xsRM=",
+  "_location": "/cordova-device-information-plugin",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "cordova-device-information-plugin@^1.0.1",
+    "name": "cordova-device-information-plugin",
+    "escapedName": "cordova-device-information-plugin",
+    "rawSpec": "^1.0.1",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.1"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-device-information-plugin/-/cordova-device-information-plugin-1.0.1.tgz",
+  "_shasum": "c463850c716d76c3baeb962182ced0bd2e71b113",
+  "_spec": "cordova-device-information-plugin@^1.0.1",
+  "_where": "/Users/macdejarda/Developer/lawconnect/app-law-connect",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/vliesaputra/DeviceInformationPlugin/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "com.vliesaputra.deviceinformation",
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "AKA DeviceInformation Plugin, this plugin will get most of the information available through Android's Telephony Manager and Account Manager classes. Adapted for npm",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/vliesaputra/DeviceInformationPlugin#readme",
+  "keywords": [
+    "android",
+    "telephony manager",
+    "phone number",
+    "device information",
+    "account details",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "MIT",
+  "name": "cordova-device-information-plugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vliesaputra/DeviceInformationPlugin.git"
+  },
+  "version": "1.0.1"
+}

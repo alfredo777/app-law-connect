@@ -1,0 +1,377 @@
+function loadView(data, tpln, divloadtpl){
+    getTemplate(tpln, data, function(output, err) {
+    		$("#"+divloadtpl).html(output);
+    });  
+}
+
+
+function appendView(data, tpln, divloadtpl){
+    getTemplate(tpln, data, function(output, err) {
+        $("#"+divloadtpl).append(output);
+    });  
+}
+
+function getTemplate(name, context, callback) {
+  $.ajax({
+    url: 'pages/'+name+'.hbs',
+    cache: true,
+    success: function(data) {
+      var tpl = Handlebars.compile(data),
+      output = tpl(context);
+      callback(output, null);
+    },
+    error: function(err) {
+      callback(null, err);
+    }
+  });
+}
+
+function loadPartial(data, partial,divloadtpl){
+  getPartial(partial, data, function(output, err) {
+    $('#'+divloadtpl).addClass('animated fadeOut');
+    setTimeout(function(){
+      $("#"+divloadtpl).html(output);
+      $('#'+divloadtpl).addClass('animated slideInDown');
+    }, 2);
+  }); 
+}
+
+function getPartial(name, context, callback){
+  $.ajax({
+    url: 'pages/'+name+'.hbs',
+    cache: true,
+    success: function(data) {
+      var tpl = Handlebars.compile(data),
+      output = tpl(context);
+      console.log(tpl);
+      callback(output, null);
+    },
+    error: function(err) {
+      callback(null, err);
+    }
+  });
+}
+
+function loadpage(tpln, divloadtpl, jsonroute) {
+  $.ajax({
+    url: jsonroute,
+    cache: true,
+    success: function(data) {
+    console.log('Respuesta satisfactoria');
+    loadView(data, tpln, divloadtpl);
+    },
+    error: function(err) {
+    console.log(err);
+    }
+  });
+  
+}
+
+
+function appendpage(tpln, divloadtpl, jsonroute) {
+  $.ajax({
+    url: jsonroute,
+    cache: true,
+    success: function(data) {
+    console.log('Respuesta satisfactoria');
+    appendView(data, tpln, divloadtpl);
+    },
+    error: function(err) {
+    console.log(err);
+    }
+  });
+  
+}
+
+function externalpageload(tpln, divloadtpl, url, paramsx, methodx) {
+  $.ajax({
+    url: url,
+    cache: true,
+    data: paramsx,
+    method: methodx,
+    success: function(data) {
+    console.log(data.notice);
+    data = JSON.parse(data.abogados);
+    console.log(data);
+    loadView({"data": data}, tpln, divloadtpl);
+    },
+    error: function(err) {
+    console.log(err);
+    }
+  });
+  
+}
+
+
+function externalpageloadSimplifyToCitas(tpln, divloadtpl, url, paramsx, methodx) {
+  $.ajax({
+    url: url,
+    cache: true,
+    data: paramsx,
+    method: methodx,
+    success: function(data) {
+    data = JSON.stringify(data);
+    data = JSON.parse(data);
+    citas = JSON.parse(data.citas)
+    console.log(citas)
+    loadView({"data": citas}, tpln, divloadtpl);
+    },
+    error: function(err) {
+    console.log(err);
+    }
+  });
+  
+}
+
+function externalpageloadAbogados(tpln, divloadtpl, url, paramsx, methodx) {
+  $.ajax({
+    url: url,
+    cache: true,
+    data: paramsx,
+    method: methodx,
+    success: function(data) {
+    data = JSON.stringify(data);
+    data = JSON.parse(data);
+    owner = data.owner;
+    data = JSON.parse(data.abogados);
+    console.log(data);
+    console.log(owner);
+    loadView({"data": data, "owner": owner}, tpln, divloadtpl);
+    },
+    error: function(err) {
+    console.log(err);
+    }
+  });
+  
+}
+
+function externalpageloadAbogadosConEquipos(tpln, divloadtpl, url, paramsx, methodx) {
+  $.ajax({
+    url: url,
+    cache: true,
+    data: paramsx,
+    method: methodx,
+    success: function(data) {
+    data = JSON.stringify(data);
+    data = JSON.parse(data);
+    console.log(data);
+    loadView({"data": data}, tpln, divloadtpl);
+   /* owner = data.owner;
+    data = JSON.parse(data.abogados);
+    console.log(data);
+    console.log(owner);
+    */
+    },
+    error: function(err) {
+    console.log(err);
+    }
+  });
+  
+}
+
+function appenddexternalpageload(tpln, divloadtpl, url, paramsx, methodx) {
+  $.ajax({
+    url: url,
+    cache: true,
+    data: paramsx,
+    method: methodx,
+    success: function(data) {
+    console.log(data.notice);
+    data = JSON.parse(data.abogados);
+    console.log(data);
+    appendView({"data": data}, tpln, divloadtpl);
+    },
+    error: function(err) {
+    console.log(err);
+    }
+  });
+  
+}
+
+function appenddexternalpageloadClientes(tpln, divloadtpl, url, paramsx, methodx) {
+  $.ajax({
+    url: url,
+    cache: true,
+    data: paramsx,
+    method: methodx,
+    success: function(data) {
+    console.log(data.notice);
+    data = JSON.parse(data.clientes);
+    console.log(data);
+    appendView({"data": data}, tpln, divloadtpl);
+    },
+    error: function(err) {
+    console.log(err);
+    }
+  });
+  
+}
+
+Handlebars.registerHelper("foreach",function(arr,options) {
+    if(options.inverse && !arr.length)
+        return options.inverse(this);
+
+    return arr.map(function(item,index) {
+        item.$index = index;
+        item.$first = index === 0;
+        item.$last  = index === arr.length-1;
+        return options.fn(item);
+    }).join('');
+});
+
+
+
+Handlebars.registerHelper('favoriteButton', function(producto_id) {
+    
+
+});
+
+
+Handlebars.registerHelper('equalx', function(val,val2,validate,context) {
+    if(val == val2){
+      validate = true;
+    }else{
+      validate = false;
+    }
+
+    if(validate) {
+      return context;
+    }else{
+      return '';
+    }
+});
+
+
+Handlebars.registerHelper('equal', function(lvalue, rvalue, options) {
+    if (arguments.length < 3)
+        throw new Error("Handlebars Helper equal needs 2 parameters");
+    if( lvalue!=rvalue ) {
+        return options.inverse(this);
+    } else {
+        return options.fn(this);
+    }
+});
+
+
+
+Handlebars.registerHelper('renderStaticPartial', function(context) {
+    return JSON.stringify(context);
+});
+
+
+Handlebars.registerHelper('host', function(url) {
+    var host = "https://www.urgarden.com.mx"+ url;
+    return host;
+});
+
+
+
+Handlebars.registerHelper('session_token', function(url) {
+    var session_token = window.localStorage.getItem("session_token"); 
+
+    return session_token;
+});
+
+
+Handlebars.registerHelper('link', function(text, url) {
+  text = Handlebars.Utils.escapeExpression(text);
+  url  = Handlebars.Utils.escapeExpression(url);
+
+  var result = '<a href="' + url + '">' + text + '</a>';
+
+  return new Handlebars.SafeString(result);
+});
+
+
+Handlebars.registerHelper('reverse', function (arr) {
+    arr.reverse();
+});
+
+Handlebars.registerHelper("xif", function (expression, options) {
+    return Handlebars.helpers["x"].apply(this, [expression, options]) ? options.fn(this) : options.inverse(this);
+});
+
+Handlebars.registerHelper("sessionTrue", function (options) {
+  var Xsessioning = window.sessionIN;
+  Xsessioning = String(Xsessioning);
+  console.log(Xsessioning);
+  if(Xsessioning == "true"){
+   var result = options.fn(this);
+  }else{
+   var result = '';
+  }
+  return result;
+});
+
+
+Handlebars.registerHelper("sessionFalse", function (options) {
+  var Xsessioning = window.sessionIN;
+  Xsessioning = String(Xsessioning);
+  if(Xsessioning != "true"){
+    var result = options.fn(this);
+  }else{
+    var result = '';
+  }
+  return result;
+});
+
+Handlebars.registerHelper('ifCurrentUser', function(userID, options) {
+  var v1 = String(userID);
+  var userSession = window.localStorage.getItem("userSession");
+  userSession = JSON.parse(userSession);
+  console.log(userSession);
+  userSession = userSession.user.email;
+  console.log("usuario en session:"+ userSession);
+  console.log("usuario comparado:"+ v1);
+  if(v1 === userSession){
+    console.log('is current user');
+    return options.fn(this);
+  }else{
+    console.log('not currrent user '+v1);
+    return options.inverse(this);
+  }
+});
+
+Handlebars.registerHelper('ifnotOwner', function(userID, options) {
+  var v1 = String(userID);
+  var userSession = window.localStorage.getItem("userSession");
+  userSession = JSON.parse(userSession);
+  console.log(userSession);
+  userSession = userSession.user.email;
+  console.log("usuario en session:"+ userSession);
+  console.log("usuario comparado:"+ v1);
+  if(v1 === userSession){
+    console.log('is  owner user');
+    return options.inverse(this);
+  }else{
+    console.log('not owner user '+v1);
+    return options.fn(this);
+  }
+});
+
+Handlebars.registerHelper('eachWhitJSONparse', function(context, options) {
+  var context = JSON.parse(context)
+  var ret = "";
+
+  for(var i=0, j=context.length; i<j; i++) {
+    ret = ret + options.fn(context[i]);
+  }
+
+  return ret;
+});
+
+
+
+Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+  v1 = String(v1);
+  v2 = String(v2);
+  if(v1 == v2) {
+    console.log('equal');
+    return options.fn(this);
+  }else{
+    console.log('not equal '+v1 +' '+ v2 );
+    return options.inverse(this);
+  }
+  
+});
+  

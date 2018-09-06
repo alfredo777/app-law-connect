@@ -1,0 +1,22 @@
+{
+  "name": "com.laconnect.www",
+  "version": "1.0.0",
+  "displayName": "app-law-connect",
+  "cordova": {
+    "platforms": [
+      "browser"
+    ],
+    "plugins": {
+      "phonegap-plugin-push": {},
+      "cordova-plugin-sim": {},
+      "com.vliesaputra.deviceinformation": {}
+    }
+  },
+  "dependencies": {
+    "cordova-browser": "~5.0.4",
+    "cordova-device-information-plugin": "^1.0.1",
+    "cordova-plugin-sim": "^1.3.3",
+    "phonegap-plugin-push": "~2.2.3",
+    "com.vliesaputra.deviceinformation": "~1.0.1"
+  }
+}
