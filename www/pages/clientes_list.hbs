@@ -5,7 +5,7 @@
 <ons-list modifier="inset" id="listquestclientes" style="margin-top: 20px;">
 <ons-list-header>Resultados de la busqueda</ons-list-header>
 	{{#each data as |user userId| }}
-		<ons-list-item  id="{{userId}}tabclient" data-avatar="{{avatar}}" data-nombre="{{nombre}}" data-apellidos="{{apellidos}}"  tappable>
+		<ons-list-item  id="{{userId}}tabclient" data-avatar="{{avatar}}" data-nombre="{{nombre}}" data-apellidos="{{apellidos}}" >
 			<div class="left">
 				{{#if user.avatar}}
 				<img class="list-item__thumbnail" src="{{user.avatar}}">
@@ -28,35 +28,16 @@
  function checkedcliente(id, xid){
   var valueCB = document.querySelector('ons-checkbox #'+id).value;
   var chechkedx = document.querySelector('ons-checkbox #'+id).checked;
-
-  var user_data = {
-  	 nombre: $('#'+xid).data('nombre'),
-  	 apellidos: $('#'+xid).data('apellidos'),
-  	 avatar:$('#'+xid).data('avatar'),
-  	 email: document.querySelector('ons-checkbox #'+id).value
-  }
-
-  console.log(user_data);
   if(chechkedx == true){
   	var arrayx = $('#casoclientes').val();
-  	var dataclientes = $('#datalistcasoclientes').val(); 
   	arrayx = arrayx.split(",");
-  	array_list_clientes.join(";");
-  	dataclientes = dataclientes.split(";");
   	array_clientes.push(valueCB);
-  	stringxx = JSON.stringify(user_data);
-  	array_list_clientes.push(stringxx);
-  	console.log(array_list_clientes);
+
   	if (arrayx == ''){
     arrayx = array_clientes;
-    dataclientes = array_list_clientes;
   	}else{
   	arrayx = arrayx +','+ array_clientes;	
   	arrayx = arrayx.split(",");
-    console.log(dataclientes);
-    array_list_clientes.join(";");
-  	dataclientes = dataclientes + ';'+ array_list_clientes;
-	  dataclientes = dataclientes.split(";");
   	}
     
   	var uniqueUsers = [];
@@ -64,15 +45,10 @@
 		    if($.inArray(el, uniqueUsers) === -1) uniqueUsers.push(el);
 		});
 
-		var uniquedataclientes = [];
-		$.each(dataclientes, function(i, el){
-		    if($.inArray(el, uniquedataclientes) === -1) uniquedataclientes.push(el);
-		});
-    
-    console.log(uniquedataclientes);
+		$('#counterusers').html(uniqueUsers.length);
     $('#casoclientes').val(uniqueUsers);
-    $('#datalistcasoclientes').val(uniquedataclientes);
   } 
+
   arrayx = $('#casoclientes').val();
   console.log(arrayx);
   console.log(chechkedx);

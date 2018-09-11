@@ -28,26 +28,15 @@
 	<br/><br/><br/>
     <center>
     <input type="text" id="casotitulo" name="casotitulo" class="text-input text-input--material" placeholder="Título del caso" style="width:90%;"><br/><br/><br/>
-
     <textarea id="casoresumen" name="casoresumen" class="textarea" style="width:90%;" rows="20" placeholder="Resumen del caso"></textarea><br/><br/>
-
     <input type="status_del_caso" name="status_del_caso"  style="width:90%;" class="text-input text-input--material" placeholder="Estatus del caso"><br/><br/>
     </center>
-
-    <input type="text" id="casoclientes" name="casoclientes" class="text-input text-input--material" placeholder="Título del caso" style="width:90%;"><br/><br/><br/>
-    
-    <ons-list modifier="inset" id="listcasoclientes" style="margin-top: 20px;">
-
-    <input type="text"  id="datalistcasoclientes" name="datalistcasoclientes" style="margin-top: 5px;">
-
-
-
-    <select>
-    </select>
-
+    <input type="text" id="casoclientes" name="casoclientes" class="text-input text-input--material" placeholder="Título del caso" style="width:90%; display:none;"><br/>
+    <center>
+    <p style="font-size:16px;"><i>Usuarios Agregados al caso </i> <span class="notification notification--material" id="counterusers"> 0 </span><br/> <button class="button--quiet" onclick="viewusersincasebeforecreate();"> Usuarios por agregar </butto></p>
+   </center>
 </ons-page>
 </template>
-
 
 <template id="usuarioencasos.html" side="right">
 <ons-page id="usuarioencasos">
@@ -68,11 +57,33 @@
 </ons-page>
 </template>
 
+<template id="verusuarioencasosantesdecrear.html" side="right">
+<ons-page id="verusuarioencasosantesdecrear">
+<ons-toolbar class="toolbar" static="true">
+	<div class="left"><ons-back-button></ons-back-button></div>
+	<div class="center">Usuarios</div>
+    <div class="right">
+    </div>
+</ons-toolbar>
+     <br/><br/><br/>
+     <center>
+     <ons-search-input id="csearch"
+     placeholder="Buscar"
+     onchange="searchINCliente();"
+     style="width: 80%; background: #eee; border: solid 1px #000;"
+     ></ons-search-input>
+   	</center>
+</ons-page>
+</template>
+
 <script type="text/javascript">
 function changePageCasos(pushpage){
 	document.querySelector('#casosNavigator').pushPage(pushpage);
 }
 
+function viewusersincasebeforecreate(){
+  alert('usuarios antes de crear');
+}
 
 function searchINCliente(){
 	var search = $('#csearch .search-input').val();
