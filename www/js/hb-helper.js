@@ -207,6 +207,7 @@ function appenddexternalpageloadClientes(tpln, divloadtpl, url, paramsx, methodx
   
 }
 
+
 Handlebars.registerHelper("foreach",function(arr,options) {
     if(options.inverse && !arr.length)
         return options.inverse(this);
@@ -332,6 +333,24 @@ Handlebars.registerHelper('ifCurrentUser', function(userID, options) {
   }
 });
 
+Handlebars.registerHelper('notCurrentUser', function(userID, options) {
+  var v1 = String(userID);
+  var userSession = window.localStorage.getItem("userSession");
+  userSession = JSON.parse(userSession);
+  console.log(userSession);
+  userSession = userSession.user.email;
+  console.log("usuario en session:"+ userSession);
+  console.log("usuario comparado:"+ v1);
+  if(v1 != userSession){
+    console.log('not current user');
+    return options.fn(this);
+  }else{
+    console.log('is currrent user '+v1);
+    return options.inverse(this);
+  }
+});
+
+
 Handlebars.registerHelper('ifnotOwner', function(userID, options) {
   var v1 = String(userID);
   var userSession = window.localStorage.getItem("userSession");
@@ -345,6 +364,21 @@ Handlebars.registerHelper('ifnotOwner', function(userID, options) {
     return options.inverse(this);
   }else{
     console.log('not owner user '+v1);
+    return options.fn(this);
+  }
+});
+
+Handlebars.registerHelper('ifAbogado', function(options) {
+  var userSession = window.localStorage.getItem("userSession");
+  userSession = JSON.parse(userSession);
+  console.log(userSession);
+  userSession = userSession.abogado;
+  console.log('abogado >>>>'+ userSession)
+  if(userSession === false){
+    console.log('no es abogado');
+    return options.inverse(this);
+  }else{
+    console.log('es abogado');
     return options.fn(this);
   }
 });
@@ -373,5 +407,11 @@ Handlebars.registerHelper('ifCond', function(v1, v2, options) {
     return options.inverse(this);
   }
   
+});
+
+
+Handlebars.registerHelper('trimString', function(passedString) {
+    var theString = passedString.substring(0,250);
+    return new Handlebars.SafeString(theString)
 });
   

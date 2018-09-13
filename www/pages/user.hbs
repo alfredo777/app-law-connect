@@ -8,13 +8,11 @@
     document.getElementById("myusertabbar{{user.id}}").setActiveTab(0);
   }
 
-	$(document).ready(function(){
-		  setTimeout(function(){
-		  	$( "#datepicker" ).datepicker();
-		  },500);
-	  
-	});
-
+  $(document).ready(function(){
+	  setTimeout(function(){
+	  	$( "#datepicker" ).datepicker();
+	  },500);
+  });
 </script>
 <ons-page>
 	<ons-tabbar id="myusertabbar{{user.id}}" visible="false" animation-options="{duration: 0.2, delay: 1, timing: 'ease-in'}">
@@ -60,20 +58,21 @@
 		    </ons-speed-dial-item>
 		 </ons-speed-dial>
 	  	<img src="{{user.avatar}}" width="100%;" style="margin-top:-45px;">
-	  	<ons-list>
-	  		 {{#ifCurrentUser user.email}}
-	  		 <ons-list-item>
-	  		 	     <ons-button modifier="quiet" onclick="changeCitas();">Citas</ons-button>
-	  		 	     <ons-button modifier="quiet" onclick="editarPerfil();">Editar</ons-button>
-	  		 	      {{#ifCond abogado true }}
-	  		 	     <ons-button modifier="quiet" onclick="teams();">Equipo</ons-button>
-	  		 	      {{/ifCond}}
-	  		 	     <ons-button modifier="quiet" onclick="exit();">Salir</ons-button>
-	  		 </ons-list-item>
-	  		 {{/ifCurrentUser}}
-	    </ons-list>
+	    <div class="profile-header-name">
+	    	<h1>{{user.nombre}} {{user.apellidos}}</h1>
+	    </div>
+	  	{{#ifCurrentUser user.email}}
+	  	     <div class="profile-menu">
+	 	     <ons-button modifier="quiet" onclick="changeCitas();">Citas</ons-button>
+	 	     <ons-button modifier="quiet" onclick="editarPerfil();">Editar</ons-button>
+	 	      {{#ifCond abogado true }}
+	 	     <ons-button modifier="quiet" onclick="teams();">Equipo</ons-button>
+	 	      {{/ifCond}}
+	 	     <ons-button modifier="quiet" onclick="exit();">Salir</ons-button>
+	 	     </div>
+	    {{/ifCurrentUser}}
 	    {{#ifCond abogado true}}
-		 <ons-list>
+		 <ons-list style="{{#notCurrentUser user.email}}margin-top: 40px;{{/notCurrentUser}}">
 		  <ons-list-item>
 		  	<p><center>Especialidades</center></p>
 		  	<p>
@@ -84,18 +83,24 @@
 		  	{{/each}}
 		    </p>
 		  </ons-list-item>
-		  <ons-list-item>{{user.nombre}} {{user.apellidos}}</ons-list-item>
-		  <ons-list-item>{{user.almamater}}</ons-list-item>
+		  <ons-list-item>
+          	<div style="width: 200px;">
+          	<div class="w3-section w3-dark-grey" style="width:220px;">
+			  <div class="w3-green w3-green w3-center" style="width:55%">55%</div>
+		    </div>
+		    </div>
+		  </ons-list-item>
 		  <ons-list-item>{{user.acerca_de_mi}}</ons-list-item>
 		  <ons-list-item>{{user.curriculum}}</ons-list-item>
-		  <ons-list-item>{{user.email}}</ons-list-item>
 		</ons-list>
 		{{else}}
+		<div style="margin-top:10px;">
 		<ons-list>
 	     <ons-list-item>{{user.nombre}} {{user.apellidos}}</ons-list-item>
 	     <ons-list-item>{{user.email}}</ons-list-item>
 	     <ons-list-item>{{user.celular}}</ons-list-item>
 		</ons-list>
+	    </div>
 		{{/ifCond}}
 	  </ons-page >
 	</template>

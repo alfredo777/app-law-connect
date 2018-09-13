@@ -59,3 +59,19 @@
     margin: 3px;
 }
 
+.profile-header-name{
+	color: #fff;
+	margin-top: -150px;
+	padding: 20px;
+}
+
+.profile-menu{
+	margin-top: -30px;
+	background: transparent;
+	position: absolute;
+	color: #fff !important;
+}
+.profile-menu .button--quiet{
+	color: #fff !important;
+	font-size: 12px;
+}
