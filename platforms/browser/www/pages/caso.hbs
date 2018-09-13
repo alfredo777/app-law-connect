@@ -1,0 +1,54 @@
+<ons-toolbar class="toolbar" static="true">
+	<div class="left"><ons-back-button></ons-back-button></div>
+	<div class="center">{{data.titulo}}</div>
+    <div class="right">
+    </div>
+</ons-toolbar>
+{{#ifAbogado}}
+<ons-fab position="bottom right" onclick="loadCreateToDO();">
+    <ons-icon icon="md-plus"></ons-icon>
+</ons-fab>
+{{/ifAbogado}}
+<br/><br/>
+<ons-card modifier="material modifier2" style="overflow:auto; min-height:300px; max-height: 3850px; ">
+	 <div class="content">
+			<i>{{data.numero_expediente}}</i><br/><br/>
+		    <button class="button--quiet" onclick="showTabs('tab1')"> Pendientes</button>
+		    <button class="button--quiet" onclick="showTabs('tab3')"> Cumplidos</button>
+		    <button class="button--quiet" onclick="showTabs('tab2')"> Resumen </button>
+	        <button class="button--quiet" onclick="showTabs('tab4')"> Clientes</button>
+	        <button class="button--quiet" onclick="showTabs('tab5')"> Abogados</button>
+			<div id="tab1" class="tab">
+			</div>
+			<div id="tab2" class="tab" style="display:none;">
+			<p style="text-align:justify;">{{data.resumen_del_caso}}</p>
+		    </div>
+		    <div id="tab3" class="tab" style="display:none;">
+		    </div>
+		    <div id="tab4" class="tab" style="display:none;">
+		    	{{#each data.clientes as |cliente|}}
+				    <div style="width:33%; float:left; height: 200px;">
+			   		<img src="{{cliente.avatar}}" width="100%" height="auto" >
+			   		<p style="font-size:12px;">{{cliente.nombre}} {{cliente.apellidos}}</p>
+			        </div>
+				{{/each}}
+		    </div>
+		    <div id="tab5" class="tab" style="display:none;">
+		    	{{#each data.equipos as |equipo|}}
+				{{#each equipo.equipo as |abogado|}}
+				    <div style="width:33%; float:left; height: 200px;">
+			   		<img src="{{abogado.avatar}}" width="100%" height="auto" >
+			   		<p style="font-size:12px;">{{abogado.nombre}} {{abogado.apellidos}}</p>
+			        </div>
+				{{/each}}
+			    {{/each}}
+		    </div>
+	 </div>
+</ons-card>
+
+<script>
+   function showTabs(tab){
+   	  $('.tab').hide();
+   	  $('#'+tab).show();
+   }
+</script>
