@@ -8,7 +8,7 @@
 			<div style="width: 100%;">
 	          <button class="button--quiet" onclick="viewCaso('{{caso.numero_expediente}}')"> Ver </button>
 	          {{#ifAbogado}}
-	          <button class="button--quiet" onclick=""> Editar </button>
+	          <button class="button--quiet" onclick="edit_caso('{{caso.numero_expediente}}', '{{caso.titulo}}', '{{{oneLineString caso.resumen_del_caso}}}')"> Editar </button>
 	          <button class="button--quiet" onclick="destroyCaso('{{caso.numero_expediente}}')"> Eliminar </button>
 	          {{/ifAbogado}}
 		    </div>
@@ -48,14 +48,18 @@
 {{/each}}
 
 <script type="text/javascript">
-var showModal = function(id) {
-  var modal = document.getElementById(id);
-  modal.show();
-};
+ function edit_caso(token, titulo, resumen_del_caso){
+ 	data = {
+ 		token: token,
+ 		titulo: titulo,
+ 		resumen_del_caso: resumen_del_caso
+ 	}
 
-var HideModal = function(id) {
-  document
-    .getElementById(id)
-    .hide();
-};
+ 	console.log(data);
+
+ 	loadView({"data": data}, "edit_caso", "editarcaso .page__content");
+ 	changePageCasos('editarcaso.html');
+
+
+ }
 </script>

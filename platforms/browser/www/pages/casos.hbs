@@ -32,7 +32,7 @@
     <textarea id="casoresumen" name="casoresumen" class="textarea" style="width:90%;" rows="20" placeholder="Resumen del caso"></textarea><br/><br/>
     <input type="status_del_caso" name="status_del_caso" id="status_del_caso" style="width:90%;" class="text-input text-input--material" placeholder="Estatus del caso"><br/><br/>
     </center>
-    <input type="text" id="casoclientes" name="casoclientes" class="text-input text-input--material" placeholder="Título del caso" style="width:90%; display:none;"><br/>
+    <input type="text" id="casoclientes" name="casoclientes" class="text-input text-input--material" placeholder="clientes" style="width:90%; display:none;"><br/>
     <center>
     <p style="font-size:16px;"><i>Usuarios Agregados al caso </i> <span class="notification notification--material" id="counterusers"> 0 </span><br/> <button class="button--quiet" onclick="viewusersincasebeforecreate();"> Usuarios por agregar </butto></p>
    </center><br/>
@@ -74,6 +74,11 @@
 
 <template id="vercaso.html" side="right">
 <ons-page id="vercaso">
+</ons-page>
+</template>
+
+<template id="editarcaso.html" side="right">
+<ons-page id="editarcaso">
 </ons-page>
 </template>
 

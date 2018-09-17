@@ -431,4 +431,9 @@ Handlebars.registerHelper('trimString', function(passedString) {
     var theString = passedString.substring(0,250);
     return new Handlebars.SafeString(theString)
 });
+
+Handlebars.registerHelper('oneLineString', function(passedString) {
+    var theString = passedString.replace(/\n/g, "");
+    return new Handlebars.SafeString(theString)
+});
   
