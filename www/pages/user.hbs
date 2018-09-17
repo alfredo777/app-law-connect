@@ -34,9 +34,11 @@
 				<div class="center"></div>
 			    <div class="right">
 			    	{{#sessionTrue}}
+			    	{{#ifCliente}}
 			    	<div id="contactButton">
 	                <ons-button-toolbar style="font-size: 12px; margin-left:-40px; color: #fff;" onclick="changeTabContact();"> CONTACTAR <ons-icon icon="fa-comment" style="font-size:30px; color:#fff;" ripple> </ons-icon></ons-toolbar-button>
 	                </div>
+	                {{/ifCliente}}
 	                {{/sessionTrue}}
 	                {{#sessionFalse}}
 	                <div id="contactButton">
@@ -90,8 +92,8 @@
 		    </div>
 		    </div>
 		  </ons-list-item>
-		  <ons-list-item>{{user.acerca_de_mi}}</ons-list-item>
-		  <ons-list-item>{{user.curriculum}}</ons-list-item>
+		  <ons-list-item><b>Acerca de mí:</b> <br/> {{user.acerca_de_mi}}</ons-list-item>
+		  <ons-list-item><b>Curriculum:</b> <br/> {{user.curriculum}}</ons-list-item>
 		</ons-list>
 		{{else}}
 		<div style="margin-top:10px;">

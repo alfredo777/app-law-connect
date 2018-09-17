@@ -383,6 +383,23 @@ Handlebars.registerHelper('ifAbogado', function(options) {
   }
 });
 
+
+Handlebars.registerHelper('ifCliente', function(options) {
+  var userSession = window.localStorage.getItem("userSession");
+  userSession = JSON.parse(userSession);
+  console.log(userSession);
+  userSession = userSession.abogado;
+  console.log('abogado >>>>'+ userSession)
+  if(userSession === false){
+    console.log('no es abogado');
+    return options.fn(this);
+    
+  }else{
+    console.log('es abogado');
+    return options.inverse(this);
+  }
+});
+
 Handlebars.registerHelper('eachWhitJSONparse', function(context, options) {
   var context = JSON.parse(context)
   var ret = "";

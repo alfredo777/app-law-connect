@@ -1,5 +1,5 @@
 {{#each data as |caso casoID|}}
-	<ons-card modifier="material modifier2" style="overflow:auto; min-height:300px; max-height: 850px;" id="{{caso.numero_expediente}}-caso">
+	<ons-card modifier="material modifier2" style="overflow:auto; min-height:100px; max-height: 850px;" id="{{caso.numero_expediente}}-caso">
 		<div class="title">
 	      {{caso.titulo}}
 	    </div >
@@ -12,6 +12,7 @@
 	          <button class="button--quiet" onclick="destroyCaso('{{caso.numero_expediente}}')"> Eliminar </button>
 	          {{/ifAbogado}}
 		    </div>
+		    <!--
 			<p style="text-align:justify;">{{{trimString resumen_del_caso}}}</p>
 			<div style="float:none; position:relative; width: 100%;">
 			<p>Abogado asignado</p>
@@ -41,7 +42,7 @@
 			        </div>
 				{{/each}}
 			{{/each}}
-			</div><br/><br/>
+			</div><br/><br/>-->
 	    </div>
 	</ons-card>
 {{/each}}

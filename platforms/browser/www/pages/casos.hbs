@@ -72,35 +72,17 @@
 </ons-page>
 </template>
 
-
 <template id="vercaso.html" side="right">
 <ons-page id="vercaso">
 </ons-page>
 </template>
 
-
 <template id="addtodo.html" side="right">
 <ons-page id="addtodo">
 	<ons-toolbar class="toolbar" modifire="top-border">
-		<div class="left"><ons-back-button></ons-back-button></div>
+		<div class="left"><ons-back-button id="addtodoback"></ons-back-button></div>
 		<div class="center">Agregar actividad</div>
     </ons-toolbar>
-    <center>
-     <ons-card modifier="material modifier2" style="overflow:auto; min-height:300px; max-height: 3850px; ">
-	 <div class="content">
-	  <input type="text" id="title" name="title" class="text-input text-input--material " placeholder="Título de la actividad" style="width:90%;"><br/><br/><br/>
-     <input type="text" id="datepickerinicio" name="datepickerinicio" class="text-input text-input--material " placeholder="Fecha de inicio" style="width:90%;"><br/><br/><br/>
-     <input type="text" id="datepickerfinal" name="datepickerfinal" class="text-input text-input--material " placeholder="Fecha de termino" style="width:90%;"><br/><br/><br/>
-     <textarea id="description" name="description" class="textarea" style="width:90%;" placeholder="Descripcción de la actividad"></textarea><br/><br/>
-     <ons-button class="button--cta" onclick="createToDo();" modifier="large">Crear Avtividad</ons-button>
-     </div>
-
-    </ons-card>
-     
-     
-
-    </center>
-
 </ons-page>
 </template>
 <script type="text/javascript">
@@ -113,21 +95,73 @@ $(document).ready(function(){
 });
 
 
-function loadCreateToDO(){
+function loadCreateToDO(token){
+	  $('#form-actividad').remove();
+	  sessiontoken =  window.localStorage.getItem("TokenToDo");
+	  if (sessiontoken != token){
+	  data = {};
+	  tpln = 'crear_actividad';
+	  divloadtpl = 'addtodo .page__content';
+	  appendView(data, tpln, divloadtpl);
+	  var token = token;
 	  setTimeout(function(){
-	    $( "#datepickerinicio" ).datepicker();
-	  	$( "#datepickerfinal" ).datepicker();
+	    token = window.localStorage.setItem("TokenToDo", token);
+	    var viewtoken = window.localStorage.getItem("TokenToDo");
+	    console.log(viewtoken);
 	  },500);
 	  changePageCasos('addtodo.html');
+	  }else{
+	  console.log('Token´s iguales');
+	  setTimeout(function(){
+	  data = {};
+	  tpln = 'crear_actividad';
+	  divloadtpl = 'addtodo .page__content';
+	  appendView(data, tpln, divloadtpl);
+	  },100);
+	  changePageCasos('addtodo.html');
+	  }
 }
 
 function createToDo(){
-	
+	var token = window.localStorage.getItem("TokenToDo");
+	var title = document.getElementById('title').value; 
+	var init_date = document.getElementById('datepickerinicio').value; 
+	var finish_date = document.getElementById('datepickerfinal').value; 
+	var description = document.getElementById('description').value; 
+	var params_to_send = {
+		token: token,
+		title: title,
+		init_date: init_date,
+		finish_date: finish_date,
+		description: description
+	};
+    var url = "http://localhost:3000/api/global/caso/create_todo";
+
+    $.ajax({
+	    url: url,
+	    cache: true,
+	    data: params_to_send,
+	    method: 'POST',
+	    success: function(data) {
+	      var caso = JSON.parse(data.caso);
+	      ons.notification.alert(data.notice);
+	      console.log(caso);
+	      setTimeout(function(){
+	         loadView({"data": caso}, "caso", "vercaso .page__content");
+	         $('#addtodoback').trigger( "click" );
+	      },100);
+	    },
+	    error: function(err) {
+	      callback(null, err);
+	    }
+    });
+
 }
 
 function viewCaso(token){
 	var params_to_send = {token: token};
     var url = "http://localhost:3000/api/global/caso";
+
 
     $.ajax({
 	    url: url,
@@ -179,7 +213,6 @@ function updateCasos(push){
    userSession = JSON.parse(userSession);
    var params_to_send = { user: userSession.user.email};
    var url = "http://localhost:3000/api/global/casos";
-
    $.ajax({
 	    url: url,
 	    cache: true,
@@ -187,9 +220,10 @@ function updateCasos(push){
 	    method: 'POST',
 	    success: function(data) {
 	      console.log(data);
-	      //ons.notification.alert(data.notice);
 	      var casos = JSON.parse(data.casos);
+	      setTimeout(function(){
 	      appendView({"data": casos}, "list_of_casos", "casospage .page__content");
+	      }, 1000);
 	    },
 	    error: function(err) {
 	      callback(null, err);
