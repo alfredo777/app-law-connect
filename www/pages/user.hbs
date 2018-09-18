@@ -225,7 +225,7 @@
   		 	usuario_contactado: usercontact,
   		 	cliente_email: userSession.user.email
   		 }
-         var url = "http://localhost:3000/api/global/contact";
+         var url = "{{{productionServer}}}/api/global/contact";
 
          $.ajax({
 		    url: url,
@@ -247,7 +247,7 @@
 
     function changeCitas(){
 	  	document.getElementById("myusertabbar{{user.id}}").setActiveTab(4);
-	  	var url = "http://localhost:3000/api/global/contacts";
+	  	var url = "{{{productionServer}}}/api/global/contacts";
 		var paramsx = {email: "{{user.email}}", abogado: "{{abogado}}"};
 		var idx = "page5user .page__content";
 		externalpageloadSimplifyToCitas("citas", idx, url, paramsx, 'GET');
@@ -259,7 +259,7 @@
 
 	function teams(){
 	  	document.getElementById("myusertabbar{{user.id}}").setActiveTab(6);
-	  	var url = "http://localhost:3000/api/law/team";
+	  	var url = "{{{productionServer}}}/api/law/team";
 	  	var userSession = window.localStorage.getItem("userSession");
 		userSession = JSON.parse(userSession);
 		var paramsx = {user: userSession.user.email};
@@ -269,7 +269,7 @@
 
 	function formteams(){
 	  	document.getElementById("myusertabbar{{user.id}}").setActiveTab(7);
-	  	var url = "http://localhost:3000/api/law/all";
+	  	var url = "{{{productionServer}}}/api/law/all";
 	  	var userSession = window.localStorage.getItem("userSession");
 		userSession = JSON.parse(userSession);
 		var paramsx = {user: userSession.user.email};
@@ -296,7 +296,7 @@
   		 	ext: ext,
   		 	abogado: abogado
   		 }
-         var url = "http://localhost:3000/api/global/edit";
+         var url = "{{{productionServer}}}/api/global/edit";
 
          $.ajax({
 		    url: url,
