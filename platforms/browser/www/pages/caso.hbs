@@ -19,11 +19,13 @@
 	        <button class="button--quiet" onclick="showTabs('tab4')"> Clientes</button>
 	        <button class="button--quiet" onclick="showTabs('tab5')"> Abogados</button>
 			<div id="tab1" class="tab">
+				{{#ifCond data.variables.chart true}}
 			    <div style="width: 300px;">
 	          	<div class="w3-section w3-dark-grey" style="width:220px;">
 				  <div class="w3-green w3-green w3-center" style="width:{{ data.variables.porcentaje_de_cumplimiento}}%">{{ data.variables.porcentaje_de_cumplimiento}}% - de {{ data.variables.actividades_del_caso}} actividades.</div>
 			    </div>
 			    </div>
+			    {{/ifCond}}
 			   <ons-list style="max-height:400px; overflow:auto;">
 			   <ons-list-header>Pendientes <span class="notification notification--material">{{ data.variables.actividades_pendientes}}</span></ons-list-header>
 				{{#each data.todos as |todo|}}
@@ -54,7 +56,7 @@
     				 		var valcheck = this.value;
 	    				        if(checkedt == true){
 	    				 			var params_to_send = {id: valcheck}
-	    				 			var url = "http://localhost:3000/api/global/caso/update_todo_true";
+	    				 			var url = "{{{productionServer}}}/api/global/caso/update_todo_true";
 								    $.ajax({
 									    url: url,
 									    cache: true,
@@ -191,7 +193,7 @@
    	  var r = confirm("¿Esta seguro que desea eliminar el cliente del caso?");
 	    if (r == true) {
 	   	    var params_to_send = {email: email, token: token}
-			var url = "http://localhost:3000/api/global/caso/delete_cliente";
+			var url = "{{{productionServer}}}/api/global/caso/delete_cliente";
 		    $.ajax({
 			    url: url,
 			    cache: true,
@@ -214,7 +216,7 @@
    	    var r = confirm("¿Esta seguro que desea eliminar la actividad de la lista del caso?");
 	    if (r == true) {
 	   	    var params_to_send = {id: id}
-			var url = "http://localhost:3000/api/global/caso/delete_todo";
+			var url = "{{{productionServer}}}/api/global/caso/delete_todo";
 		    $.ajax({
 			    url: url,
 			    cache: true,

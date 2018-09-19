@@ -232,7 +232,7 @@
 
 			console.log(params_to_send);
 
-			var url = "http://localhost:3000/api/law/register"
+			var url = "{{{productionServer}}}/api/law/register"
 
 			$.ajax({
 		    url: url,
@@ -312,7 +312,7 @@
 
 			console.log(params_to_send);
 
-			var url = "http://localhost:3000/api/client/register"
+			var url = "{{{productionServer}}}/api/client/register"
 
 			$.ajax({
 		    url: url,
@@ -404,7 +404,6 @@
 			 	 <ons-input id="descriptionbad" style="width: 100%" modifier="underbar" placeholder="{{Problem}}" float></ons-input>
 			 	</p>
 			 	<ons-button onclick="problemsend()" modifier="large">{{Button6}}</ons-button>
-
 		   </ons-card >
 		</ons-page>
 	</template>
@@ -413,7 +412,7 @@
 function login(){
   var username = document.getElementById('username').value;
   var password = document.getElementById('password').value;
-  var url = "http://localhost:3000/api/global/loggin";
+  var url = "{{{productionServer}}}/api/global/loggin";
   //var url = "http://192.168.15.156:3000/api/global/loggin";
 	  $.ajax({
 	    url: url,

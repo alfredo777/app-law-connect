@@ -70,7 +70,8 @@
 	 	      {{#ifCond abogado true }}
 	 	     <ons-button modifier="quiet" onclick="teams();">Equipo</ons-button>
 	 	      {{/ifCond}}
-	 	     <ons-button modifier="quiet" onclick="exit();">Salir</ons-button>
+	 	      <ons-button modifier="quiet" onclick="exit();">Salir</ons-button>
+	 	      <ons-button modifier="quiet" onclick="cameraAvatar();" style="font-size: 50px; margin-top: -10px;"><ons-icon icon="ion-camera"></ons-icon></ons-button>
 	 	     </div>
 	    {{/ifCurrentUser}}
 	    {{#ifCond abogado true}}
@@ -320,6 +321,21 @@
 		    }
 		 });;
 
+	}
+
+	function cameraAvatar(){
+		navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+		    destinationType: Camera.DestinationType.FILE_URI });
+
+		function onSuccess(imageURI) {
+			alert(imageURI);
+		    //var image = document.getElementById('myImage');
+		    //image.src = imageURI;
+		}
+
+		function onFail(message) {
+		    alert('Failed because: ' + message);
+		}
 	}
 </script>
 
