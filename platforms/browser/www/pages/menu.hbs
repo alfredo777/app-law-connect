@@ -1,6 +1,6 @@
 <ons-navigator swipeable id="myNavigator"></ons-navigator>
 
-<ons-progress-bar value="0" id="progress"></ons-progress-bar>
+<ons-progress-bar value="20" id="progress"></ons-progress-bar>
 <ons-tabbar swipeable position="bottom" modifire="top-border" id="tabbar" animation-options="{duration: 0.2, delay: 1, timing: 'ease-in'}">
   {{#foreach compose}}
       {{#if $first }}
@@ -39,3 +39,35 @@ $(document).ready(function(){
 });
 </script>
 {{/each}}
+
+<script type="text/javascript">
+var oldXHR = window.XMLHttpRequest;
+
+function newXHR() {
+    var realXHR = new oldXHR();
+    realXHR.addEventListener("readystatechange", function() {
+        if(realXHR.readyState==1){
+            console.log('server connection established');
+            $('#progress').attr('value',20);
+        }
+        if(realXHR.readyState==2){
+            console.log('request received');
+            $('#progress').attr('value',40);
+        }
+        if(realXHR.readyState==3){
+            console.log('processing request');
+            $('#progress').attr('value',60);
+        }
+        if(realXHR.readyState==4){
+            console.log('request finished and response is ready');
+            $('#progress').attr('value',100);
+            setTimeout(function(){
+              $('#progress').attr('value',0);
+            },1000)
+        }
+    }, false);
+    return realXHR;
+}
+window.XMLHttpRequest = newXHR;
+
+</script>

@@ -54,12 +54,14 @@
 		    </ons-fab>
 		    <ons-speed-dial-item>
 		      <ons-icon icon="md-twitter"></ons-icon>
+
+
 		    </ons-speed-dial-item>
 		    <ons-speed-dial-item>
-		      <ons-icon icon="md-facebook"></ons-icon>
+		    	<a onclick="window.plugins.socialsharing.shareViaFacebook('Message via Facebook', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="md-facebook"></ons-icon></a>
 		    </ons-speed-dial-item>
 		 </ons-speed-dial>
-	  	<img src="{{user.avatar}}" width="100%;" style="margin-top:-45px;">
+	  	<img src="{{user.avatar}}" width="100%;" style="margin-top:-45px;" id="profile-{{user.email}}">
 	    <div class="profile-header-name">
 	    	<h1>{{user.nombre}} {{user.apellidos}}</h1>
 	    </div>
@@ -78,6 +80,7 @@
 		 <ons-list style="{{#notCurrentUser user.email}}margin-top: 40px;{{/notCurrentUser}}">
 		  <ons-list-item>
 		  	<p><center>Especialidades</center></p>
+		  	<a href="{{user.avatar}}" target="_blank"> Avatar </a>
 		  	<p>
 		  	{{#each user.especialidades}}
 		  	   <span class="uk-label">
@@ -328,9 +331,50 @@
 		    destinationType: Camera.DestinationType.FILE_URI });
 
 		function onSuccess(imageURI) {
-			alert(imageURI);
-		    //var image = document.getElementById('myImage');
-		    //image.src = imageURI;
+			
+
+		    var url = "{{{productionServer}}}/api/global/update_avatar";
+		    //var url = "{{{developmentServer}}}/api/global/update_avatar";
+		    var options = new FileUploadOptions();
+            options.fileKey="avatar";
+            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options.mimeType="image/jpeg";
+
+            var params = {};
+            params.email = "{{user.email}}";
+            options.params = params;
+
+            function win(r) {
+			    console.log("Code = " + r.responseCode);
+			    console.log("Response = " + r.response);
+			    console.log("Sent = " + r.bytesSent);
+			    data = r.response;
+			    data = JSON.parse(data);
+			    console.log(data);
+			    ons.notification.alert(data.notice);
+			    avatar = data.user.user.avatar;
+			    console.log(avatar);
+			    var id = "profile-{{user.email}}";
+		        var image = document.getElementById(id);
+		        image.src = avatar;
+		        sessionNINg = window.localStorage.setItem("loggedIn", true);
+		      	sessionNINg = window.localStorage.getItem("loggedIn");
+		      	userSession = window.localStorage.setItem("userSession", JSON.stringify(data.user));
+		      	userSession = window.localStorage.getItem("userSession");
+		      	userSession = JSON.parse(userSession);
+
+			}
+
+			function fail(error) {
+			    alert("An error has occurred: Code = " + error.code);
+			    console.log("upload error source " + error.source);
+			    console.log("upload error target " + error.target);
+			}
+
+			var ft = new FileTransfer();
+            ft.upload(imageURI, encodeURI(url), win, fail, options);
+
+		    
 		}
 
 		function onFail(message) {

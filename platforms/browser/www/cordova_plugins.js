@@ -264,6 +264,20 @@ module.exports = [
         "clobbers": [
             "window.FileTransfer"
         ]
+    },
+    {
+        "file": "plugins/es6-promise-plugin/www/promise.js",
+        "id": "es6-promise-plugin.Promise",
+        "pluginId": "es6-promise-plugin",
+        "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-x-socialsharing/www/SocialSharing.js",
+        "id": "cordova-plugin-x-socialsharing.SocialSharing",
+        "pluginId": "cordova-plugin-x-socialsharing",
+        "clobbers": [
+            "window.plugins.socialsharing"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -274,7 +288,9 @@ module.exports.metadata =
     "com.vliesaputra.deviceinformation": "1.0.1",
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-file": "6.0.1",
-    "cordova-plugin-file-transfer": "1.7.1"
+    "cordova-plugin-file-transfer": "1.7.1",
+    "es6-promise-plugin": "4.2.2",
+    "cordova-plugin-x-socialsharing": "5.4.1"
 }
 // BOTTOM OF METADATA
 });
