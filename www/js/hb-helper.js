@@ -444,6 +444,6 @@ Handlebars.registerHelper('productionServer', function() {
 });
   
 Handlebars.registerHelper('developmentServer', function() {
-    var theString = "http://localhost:3000";
+    var theString = "http://192.168.1.71:3000";
     return new Handlebars.SafeString(theString)
 });

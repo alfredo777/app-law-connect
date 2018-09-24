@@ -15,7 +15,23 @@
     },
     "com.vliesaputra.deviceinformation": {
       "PACKAGE_NAME": "com.laconnect.www"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.laconnect.www"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.laconnect.www"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "com.laconnect.www"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.laconnect.www"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.laconnect.www"
+    }
+  }
 }

@@ -19,11 +19,13 @@
 	        <button class="button--quiet" onclick="showTabs('tab4')"> Clientes</button>
 	        <button class="button--quiet" onclick="showTabs('tab5')"> Abogados</button>
 			<div id="tab1" class="tab">
+				{{#ifCond data.variables.chart true}}
 			    <div style="width: 300px;">
 	          	<div class="w3-section w3-dark-grey" style="width:220px;">
 				  <div class="w3-green w3-green w3-center" style="width:{{ data.variables.porcentaje_de_cumplimiento}}%">{{ data.variables.porcentaje_de_cumplimiento}}% - de {{ data.variables.actividades_del_caso}} actividades.</div>
 			    </div>
 			    </div>
+			    {{/ifCond}}
 			   <ons-list style="max-height:400px; overflow:auto;">
 			   <ons-list-header>Pendientes <span class="notification notification--material">{{ data.variables.actividades_pendientes}}</span></ons-list-header>
 				{{#each data.todos as |todo|}}
@@ -113,7 +115,11 @@
 		    	     <ons-list-item id="{{@index}}cliente" expandable>
 
 					 <div class="left">
-				        <img class="list-item__thumbnail" src="{{cliente.avatar}}">
+				       {{#if cliente.avatar}}
+						<img class="list-item__thumbnail" src="{{cliente.square}}">
+						{{else}}
+						<img class="list-item__thumbnail" src="img/avatar.png">
+						{{/if}}
 				      </div>
 				      <div class="center">
 				        <span class="list-item__title">{{cliente.nombre}} {{cliente.apellidos}}</span><span class="list-item__subtitle">{{cliente.email}}</span>
@@ -141,7 +147,7 @@
 		    	<p>Líder del caso</p>
 				{{#each data.abogados as |abogado|}}
 				   <div style="width:100%;">
-				   		<img src="{{abogado.avatar}}" width="100px" height="100px" >
+				   		<img src="{{abogado.square}}" width="100px" height="100px" >
 
 				   		<p style="font-size:8px;">{{abogado.nombre}} {{abogado.apellidos}}</p>
 				   </div>
@@ -154,7 +160,7 @@
 				   <ons-list-item id="{{@index}}abogado" expandable>
 
 					 <div class="left">
-				        <img class="list-item__thumbnail" src="{{abogado.avatar}}">
+				        <img class="list-item__thumbnail" src="{{abogado.square}}">
 				      </div>
 				      <div class="center">
 				        <span class="list-item__title">{{abogado.nombre}} {{abogado.apellidos}}</span><span class="list-item__subtitle">{{abogado.email}}</span>
