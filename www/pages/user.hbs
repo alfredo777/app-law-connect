@@ -54,8 +54,6 @@
 		    </ons-fab>
 		    <ons-speed-dial-item>
 		      <ons-icon icon="md-twitter"></ons-icon>
-
-
 		    </ons-speed-dial-item>
 		    <ons-speed-dial-item>
 		    	<a onclick="window.plugins.socialsharing.shareViaFacebook('Message via Facebook', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="md-facebook"></ons-icon></a>
@@ -80,7 +78,6 @@
 		 <ons-list style="{{#notCurrentUser user.email}}margin-top: 40px;{{/notCurrentUser}}">
 		  <ons-list-item>
 		  	<p><center>Especialidades</center></p>
-		  	<a href="{{user.avatar}}" target="_blank"> Avatar </a>
 		  	<p>
 		  	{{#each user.especialidades}}
 		  	   <span class="uk-label">
