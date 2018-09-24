@@ -57,6 +57,7 @@ ons-toolbar:not([inline]), ons-bottom-toolbar {
 
 ons-toolbar:not([inline]) {
   top: 0;
+  background: #fff;
 }
 
 ons-bottom-toolbar {
@@ -91,11 +92,11 @@ ons-bottom-toolbar {
 }
 
 .page[status-bar-fill] > .page__content {
-  top: 20px;
+  top: 0px;
 }
 
 .page[status-bar-fill] > .toolbar {
-  padding-top: 20px;
+  padding-top: 0px;
   box-sizing: content-box;
 }
 
@@ -268,7 +269,7 @@ ons-carousel[fullscreen] {
 }
 
 .ons-status-bar-mock.android ~ * {
-  top: 20px;
+  top: 0px;
   bottom: 0;
   position: inherit;
   width: 100%;
@@ -481,10 +482,22 @@ ons-input, ons-radio, ons-checkbox, ons-search-input {
   position: relative;
 }
 
-ons-input .text-input,
+ons-input .text-input {
+  width: 100%;
+    display: inline-block;
+    margin-top: 30px;
+    height: 50px;
+}
+
 ons-search-input .search-input {
   width: 100%;
-  display: inline-block;
+    display: inline-block;
+    margin-top: 30px;
+    height: 50px;
+    -webkit-box-shadow: 0px 0px 38px -8px rgba(209,209,209,1);
+    -moz-box-shadow: 0px 0px 38px -8px rgba(209,209,209,1);
+    box-shadow: 0px 0px 38px -8px rgba(209,209,209,1);
+    
 }
 
 ons-input .text-input__label:not(.text-input--material__label) {

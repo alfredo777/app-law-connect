@@ -41,6 +41,13 @@ html {
   height: 100%;
   width: 100%;
 }
+
+@font-face {
+    font-family: Raleway;
+    src: url('./Raleway/Raleway-Regular.ttf'), url('./Raleway/Raleway-Bold.ttf'),
+    url('./Raleway/Raleway-Italic.ttf');
+}
+
 body {
   position: absolute;
   overflow: hidden;
@@ -100,7 +107,7 @@ h4, h5, h6 {
 :root {
 }
 .page {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -120,7 +127,7 @@ h4, h5, h6 {
   display: none;
 }
 .page__content {
-  background-color: #efeff4;
+  background-color: #fff !important;
   position: absolute;
   top: 0;
   left: 0;
@@ -129,7 +136,7 @@ h4, h5, h6 {
   box-sizing: border-box;
 }
 .page__background {
-  background: #fafafa;
+  background: #fff;
   position: absolute;
   top: 0;
   left: 0;
@@ -138,13 +145,13 @@ h4, h5, h6 {
   box-sizing: border-box;
 }
 .page--material {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   background-color: #eceff1;
 }
 .page--material__content {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   font-weight: 400;
@@ -154,7 +161,7 @@ h4, h5, h6 {
 .page__content h3,
 .page__content h4,
 .page__content h5 {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   font-weight: 500;
@@ -175,7 +182,7 @@ h4, h5, h6 {
 .page--material__content h3,
 .page--material__content h4,
 .page--material__content h5 {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   font-weight: 500;
@@ -464,7 +471,7 @@ h4, h5, h6 {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background-image: linear-gradient(#0076ff, #0076ff);
+  background-image: linear-gradient(#199bdb, #199bdb);
   background-position: left center;
   background-size: 0% 2px;
   background-repeat: no-repeat;
@@ -533,7 +540,7 @@ h4, h5, h6 {
 }
 .range__input::-ms-fill-lower {
   height: 2px;
-  background-color: #0076ff;
+  background-color: #199bdb;
 }
 .range__input::-ms-tooltip {
   display: none;
@@ -701,7 +708,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -739,7 +746,7 @@ h4, h5, h6 {
     <span class="notification notification--material">999</span>
 */
 .notification--material {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   background-color: #e91e63;
@@ -757,7 +764,7 @@ h4, h5, h6 {
     </div>
 */
 .toolbar {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -804,7 +811,7 @@ h4, h5, h6 {
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .toolbar {
-    background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
+    /*background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);*/
   }
 }
 .toolbar__bg {
@@ -937,7 +944,7 @@ h4, h5, h6 {
     </div>
 */
 .bottom-bar {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1075,7 +1082,7 @@ h4, h5, h6 {
   border-bottom: none;
 }
 .toolbar--material__left, .toolbar--material__right {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   font-size: 20px;
@@ -1087,7 +1094,7 @@ h4, h5, h6 {
   line-height: 56px;
 }
 .toolbar--material__center {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   font-size: 20px;
@@ -1190,7 +1197,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1219,7 +1226,7 @@ h4, h5, h6 {
   transition: none;
 }
 .button:active {
-  background-color: #0076ff;
+  background-color: #199bdb;
   transition: none;
   opacity: 0.2;
 }
@@ -1241,17 +1248,17 @@ h4, h5, h6 {
 */
 .button--outline {
   background-color: transparent;
-  border: 1px solid #0076ff;
-  color: #0076ff;
+  border: 1px solid #199bdb;
+  color: #199bdb;
 }
 .button--outline:active {
   background-color: rgb(179, 214, 255);
-  border: 1px solid #0076ff;
-  color: #0076ff;
+  border: 1px solid #199bdb;
+  color: #199bdb;
   opacity: 1;
 }
 .button--outline:hover {
-  border: 1px solid #0076ff;
+  border: 1px solid #199bdb;
   transition: 0;
 }
 /*~
@@ -1293,7 +1300,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1313,7 +1320,7 @@ h4, h5, h6 {
   letter-spacing: 0;
   color: white;
   vertical-align: middle;
-  background-color: #0076ff;
+  background-color: #199bdb;
   border: 0 solid currentColor;
   border-radius: 3px;
   transition: none;
@@ -1321,7 +1328,7 @@ h4, h5, h6 {
   border: 1px solid transparent;
   box-shadow: none;
   background: transparent;
-  color: #0076ff;
+  color: #199bdb;
   border: none;
 }
 .button--quiet:disabled,
@@ -1342,7 +1349,7 @@ h4, h5, h6 {
   border: none;
   transition: none;
   opacity: 0.2;
-  color: #0076ff;
+  color: #199bdb;
 }
 /*~
   name: Call To Action Button
@@ -1364,7 +1371,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1384,7 +1391,7 @@ h4, h5, h6 {
   letter-spacing: 0;
   color: white;
   vertical-align: middle;
-  background-color: #0076ff;
+  background-color: #199bdb;
   border: 0 solid currentColor;
   border-radius: 3px;
   transition: none;
@@ -1427,7 +1434,7 @@ h4, h5, h6 {
   text-align: center;
 }
 .button--large:active {
-  background-color: #0076ff;
+  background-color: #199bdb;
   transition: none;
   opacity: 0.2;
   transition: none;
@@ -1463,7 +1470,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1483,7 +1490,7 @@ h4, h5, h6 {
   letter-spacing: 0;
   color: white;
   vertical-align: middle;
-  background-color: #0076ff;
+  background-color: #199bdb;
   border: 0 solid currentColor;
   border-radius: 3px;
   transition: none;
@@ -1496,13 +1503,13 @@ h4, h5, h6 {
   background: transparent;
   border: 1px solid transparent;
   box-shadow: none;
-  color: #0076ff;
+  color: #199bdb;
   text-align: center;
 }
 .button--large--quiet:active { /* stylelint-disable-line */
   transition: none;
   opacity: 0.2;
-  color: #0076ff;
+  color: #199bdb;
   background: transparent;
   border: 1px solid transparent;
   box-shadow: none;
@@ -1537,7 +1544,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1557,7 +1564,7 @@ h4, h5, h6 {
   letter-spacing: 0;
   color: white;
   vertical-align: middle;
-  background-color: #0076ff;
+  background-color: #199bdb;
   border: 0 solid currentColor;
   border-radius: 3px;
   transition: none;
@@ -1609,7 +1616,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1629,7 +1636,7 @@ h4, h5, h6 {
   letter-spacing: 0;
   color: white;
   vertical-align: middle;
-  background-color: #0076ff;
+  background-color: #199bdb;
   border: 0 solid currentColor;
   border-radius: 3px;
   transition: none;
@@ -1637,7 +1644,7 @@ h4, h5, h6 {
       0 2px 2px 0 rgba(0, 0, 0, .14),
       0 1px 5px 0 rgba(0, 0, 0, .12),
       0 3px 1px -2px rgba(0, 0, 0, .2);
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   min-height: 36px;
@@ -1648,7 +1655,7 @@ h4, h5, h6 {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
   text-transform: uppercase;
-  background-color: #2979ff;
+  background-color: #199bdb;
   color: #ffffff;
   font-weight: 500;
   transition: background-color 0.25s linear;
@@ -1663,7 +1670,7 @@ h4, h5, h6 {
       0 6px 10px 0 rgba(0, 0, 0, .14),
       0 1px 18px 0 rgba(0, 0, 0, .12),
       0 3px 5px -1px rgba(0, 0, 0, .4);
-  background-color: #2979ff;
+  background-color: #199bdb;
   opacity: 0.9;
   transition: all 0.25s linear;
 }
@@ -1698,7 +1705,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1718,7 +1725,7 @@ h4, h5, h6 {
   letter-spacing: 0;
   color: white;
   vertical-align: middle;
-  background-color: #0076ff;
+  background-color: #199bdb;
   border: 0 solid currentColor;
   border-radius: 3px;
   transition: none;
@@ -1726,7 +1733,7 @@ h4, h5, h6 {
       0 2px 2px 0 rgba(0, 0, 0, .14),
       0 1px 5px 0 rgba(0, 0, 0, .12),
       0 3px 1px -2px rgba(0, 0, 0, .2);
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   min-height: 36px;
@@ -1737,13 +1744,13 @@ h4, h5, h6 {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
   text-transform: uppercase;
-  background-color: #2979ff;
+  background-color: #199bdb;
   color: #ffffff;
   font-weight: 500;
   transition: background-color 0.25s linear;
   box-shadow: none;
   background-color: transparent;
-  color: #2979ff;
+  color: #199bdb;
   transition: all 0.25s linear;
 }
 .button--material--flat:hover { /* stylelint-disable-line */
@@ -1752,7 +1759,7 @@ h4, h5, h6 {
 .button--material--flat:focus { /* stylelint-disable-line */
   box-shadow: none;
   background-color: transparent;
-  color: #2979ff;
+  color: #199bdb;
   outline: 0;
   opacity: 1;
   border: none;
@@ -1763,7 +1770,7 @@ h4, h5, h6 {
   opacity: 1;
   border: none;
   background-color: rgba(153, 153, 153, 0.2);
-  color: #2979ff;
+  color: #199bdb;
   transition: all 0.25s linear;
 }
 .button--material--flat:disabled, .button--material--flat[disabled] {/* stylelint-disable-line */
@@ -1790,7 +1797,7 @@ h4, h5, h6 {
     </div>
 */
 .button-bar {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1809,7 +1816,7 @@ h4, h5, h6 {
   border: none;
 }
 .button-bar__item {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1822,14 +1829,14 @@ h4, h5, h6 {
   box-sizing: border-box;
 }
 .button-bar__button {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   border-radius: 0;
   background-color: transparent;
-  color: #0076ff;
-  border: 1px solid #0076ff;
+  color: #199bdb;
+  border: 1px solid #199bdb;
   border-top-width: 1px;
   border-bottom-width: 1px;
   border-right-width: 1px;
@@ -1855,17 +1862,17 @@ h4, h5, h6 {
   outline: 0;
 }
 :checked + .button-bar__button {
-  background-color: #0076ff;
+  background-color: #199bdb;
   color: #fff;
   transition: none;
 }
 .button-bar__button:active,
 :active + .button-bar__button {
   background-color: rgb(179, 214, 255);
-  border: 0 solid #0076ff;
-  border-top: 1px solid #0076ff;
-  border-bottom: 1px solid #0076ff;
-  border-right: 1px solid #0076ff;
+  border: 0 solid #199bdb;
+  border-top: 1px solid #199bdb;
+  border-bottom: 1px solid #199bdb;
+  border-right: 1px solid #199bdb;
   font-size: 13px;
   width: 100%;
   transition: none;
@@ -1898,7 +1905,7 @@ h4, h5, h6 {
     </div>
 */
 .segment {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1917,7 +1924,7 @@ h4, h5, h6 {
   border: none;
 }
 .segment__item {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -1952,14 +1959,14 @@ h4, h5, h6 {
           appearance: none;
 }
 .segment__button {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   border-radius: 0;
   background-color: transparent;
-  color: #0076ff;
-  border: 1px solid #0076ff;
+  color: #199bdb;
+  border: 1px solid #199bdb;
   border-top-width: 1px;
   border-bottom-width: 1px;
   border-right-width: 1px;
@@ -1987,16 +1994,16 @@ h4, h5, h6 {
 }
 :active + .segment__button {
   background-color: rgb(179, 214, 255);
-  border: 0 solid #0076ff;
-  border-top: 1px solid #0076ff;
-  border-bottom: 1px solid #0076ff;
-  border-right: 1px solid #0076ff;
+  border: 0 solid #199bdb;
+  border-top: 1px solid #199bdb;
+  border-bottom: 1px solid #199bdb;
+  border-right: 1px solid #199bdb;
   font-size: 13px;
   width: 100%;
   transition: none;
 }
 :checked + .segment__button {
-  background-color: #0076ff;
+  background-color: #199bdb;
   color: #fff;
   transition: none;
 }
@@ -2033,7 +2040,7 @@ h4, h5, h6 {
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, .12), 0 2px 2px 0 rgba(0, 0, 0, .24);
 }
 .segment--material__button {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   font-size: 14px;
@@ -2126,7 +2133,7 @@ h4, h5, h6 {
     </div>
 */
 .tabbar {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -2141,7 +2148,7 @@ h4, h5, h6 {
   margin: 0;
   padding: 0;
   height: 49px;
-  background-color: #fafafa;
+  background-color: #efefef;
   border-top: 1px solid #ccc;
   width: 100%;
 }
@@ -2155,7 +2162,7 @@ h4, h5, h6 {
   }
 }
 .tabbar__item {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -2188,7 +2195,7 @@ h4, h5, h6 {
           appearance: none;
 }
 .tabbar__button {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -2237,7 +2244,7 @@ h4, h5, h6 {
   height: 28px;
 }
 .tabbar__label {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -2273,7 +2280,7 @@ h4, h5, h6 {
   padding: 0;
 }
 :checked + .tabbar__button {
-  color: #0076ff;
+  color: #1a9bda;
   background-color: transparent;
   box-shadow: none;
   border-top: none;
@@ -2374,7 +2381,7 @@ h4, h5, h6 {
     background-size: 100% 1px;
     background-repeat: no-repeat;
     background-position: bottom;
-    background-image: linear-gradient(0deg, #ccc, #ccc 50%, transparent 50%);
+    
   }
 }
 .tabbar--top__content {
@@ -2454,7 +2461,7 @@ h4, h5, h6 {
 }
 :checked + .tabbar--top-border__button {
   background-color: transparent;
-  border-bottom: 4px solid #0076ff;
+  border-bottom: 4px solid #199bdb;
 }
 .tabbar__border {
   position: absolute;
@@ -2462,7 +2469,7 @@ h4, h5, h6 {
   left: 0;
   width: 0;
   height: 4px;
-  background-color: #0076ff;
+  background-color: #199bdb;
 }
 .tabbar--material {
   background: none;
@@ -2479,7 +2486,7 @@ h4, h5, h6 {
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 500;
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
 }
@@ -2572,12 +2579,12 @@ h4, h5, h6 {
     </div>
 */
 .tabbar--material__label {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
 }
 .tabbar--material__label:first-child {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   letter-spacing: 0.015em;
@@ -2606,13 +2613,13 @@ h4, h5, h6 {
     </button>
 */
 .toolbar-button {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   padding: 4px 10px;
   letter-spacing: 0;
-  color: #0076ff;
+  color: #199bdb;
   background-color: rgba(0, 0, 0, 0);
   border-radius: 2px;
   border: 1px solid transparent;
@@ -2639,7 +2646,7 @@ h4, h5, h6 {
   transition: none;
 }
 .toolbar-button--outline {
-  border: 1px solid #0076ff;
+  border: 1px solid #199bdb;
   margin: auto 8px;
   padding-left: 6px;
   padding-right: 6px;
@@ -2687,7 +2694,7 @@ h4, h5, h6 {
   height: 44px;
   line-height: 44px;
   padding-left: 8px;
-  color: #0076ff;
+  color: #199bdb;
   background-color: rgba(0, 0, 0, 0);
   display: inline-block;
 }
@@ -2707,7 +2714,7 @@ h4, h5, h6 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: inline-flex;
-  fill: #0076ff;
+  fill: #199bdb;
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
@@ -2777,7 +2784,7 @@ h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -2794,7 +2801,7 @@ h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -2854,7 +2861,7 @@ h4, h5, h6 {
   opacity: 0;
 }
 :checked + .checkbox__checkmark:before {
-  background: #0076ff;
+  background: #199bdb;
   border: none;
 }
 :checked + .checkbox__checkmark:after {
@@ -2900,7 +2907,7 @@ h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -2962,7 +2969,7 @@ h4, h5, h6 {
   width: 11px;
   height: 4px;
   background: transparent;
-  border: 2px solid #0076ff;
+  border: 2px solid #199bdb;
   border-top: none;
   border-right: none;
   border-radius: 0;
@@ -3016,7 +3023,7 @@ h4, h5, h6 {
 */
 .checkbox--material {
   line-height: 18px;
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   overflow: visible;
@@ -3189,7 +3196,7 @@ h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -3209,7 +3216,7 @@ h4, h5, h6 {
   width: 11px;
   height: 4px;
   background: transparent;
-  border: 2px solid #0076ff;
+  border: 2px solid #199bdb;
   border-top: none;
   border-right: none;
   border-radius: 0;
@@ -3259,7 +3266,7 @@ h4, h5, h6 {
 */
 .radio-button--material {
   line-height: 22px;
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
 }
@@ -3376,7 +3383,6 @@ h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -3385,9 +3391,6 @@ h4, h5, h6 {
   display: block;
   -webkit-overflow-scrolling: touch;
   overflow: hidden;
-  background-image:
-    linear-gradient(#ccc, #ccc),
-    linear-gradient(#ccc, #ccc);
   background-size: 100% 1px, 100% 1px;
   background-repeat: no-repeat;
   background-position: bottom, top;
@@ -3396,11 +3399,35 @@ h4, h5, h6 {
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .list {
-    background-image:
-      linear-gradient(0deg, #ccc, #ccc 50%, transparent 50%),
-      linear-gradient(180deg, #ccc, #ccc 50%, transparent 50%);
+    
   }
 }
+.list-item-login {
+  position: relative;
+  width: 100%;
+  position: relative;
+  list-style: none;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  padding: 0 0 0 14px;
+  margin: 0 0 -1px 0;
+  transition: background-color 0.2s linear;
+  font-size: 12px;
+  color: #999;
+}
+
 .list-item {
   position: relative;
   width: 100%;
@@ -3422,8 +3449,9 @@ h4, h5, h6 {
           align-items: center;
   padding: 0 0 0 14px;
   margin: 0 0 -1px 0;
-  color: #1f1f21;
   transition: background-color 0.2s linear;
+  font-size: 15px;
+  color: #999;
 }
 /*~
   name: Expandable List
@@ -3473,11 +3501,11 @@ h4, h5, h6 {
   background-size: 100% 1px;
   background-repeat: no-repeat;
   background-position: bottom;
-  background-image: linear-gradient(0deg, #ccc, #ccc 100%);
+
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .list-item--expandable {
-    background-image: linear-gradient(0deg, #ccc, #ccc 50%, transparent 50%);
+    
   }
 }
 .list-item--expandable {
@@ -3548,11 +3576,10 @@ h4, h5, h6 {
   background-size: 100% 1px;
   background-repeat: no-repeat;
   background-position: bottom;
-  background-image: linear-gradient(0deg, #ccc, #ccc 100%);
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .list-item__center {
-    background-image: linear-gradient(0deg, #ccc, #ccc 50%, transparent 50%);
+    
   }
 }
 .list-item__center {
@@ -3579,11 +3606,11 @@ h4, h5, h6 {
   background-size: 100% 1px;
   background-repeat: no-repeat;
   background-position: bottom;
-  background-image: linear-gradient(0deg, #ccc, #ccc 100%);
+
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .list-item__right {
-    background-image: linear-gradient(0deg, #ccc, #ccc 50%, transparent 50%);
+    
   }
 }
 .list-item__right {
@@ -3592,12 +3619,13 @@ h4, h5, h6 {
 }
 .list-header {
   margin: 0;
+  margin-top: 30px;
   list-style: none;
   text-align: left;
   display: block;
   box-sizing: border-box;
-  padding: 0 0 0 15px;
-  font-size: 12px;
+  padding: 10px;
+  font-size: 15px;
   font-weight: 500;
   color: #1f1f21;
   min-height: 24px;
@@ -3608,11 +3636,11 @@ h4, h5, h6 {
   background-size: 100% 1px;
   background-repeat: no-repeat;
   background-position: top;
-  background-image: linear-gradient(0deg, #ccc, #ccc 100%);
+
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .list-header {
-    background-image: linear-gradient(180deg, #ccc, #ccc 50%, transparent 50%);
+   
   }
 }
 /*~
@@ -3725,7 +3753,6 @@ h4, h5, h6 {
  */
 .list--inset {
   margin: 0 8px;
-  border: 1px solid #ccc;
   border-radius: 4px;
   background-image: none;
 }
@@ -4007,7 +4034,7 @@ h4, h5, h6 {
     </ul>
 */
 .list--material {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   background-image: none;
@@ -4356,11 +4383,11 @@ h4, h5, h6 {
   background-size: 100% 1px;
   background-repeat: no-repeat;
   background-position: bottom;
-  background-image: linear-gradient(0deg, #ccc, #ccc 100%);
+
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .list-item--longdivider {
-    background-image: linear-gradient(0deg, #ccc, #ccc 50%, transparent 50%);
+    
   }
 }
 .list-item--longdivider:last-of-type {
@@ -4402,7 +4429,7 @@ h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -4433,7 +4460,7 @@ h4, h5, h6 {
     </ul>
  */
 .list-title--material {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   color: #757575;
@@ -4461,7 +4488,6 @@ h4, h5, h6 {
   vertical-align: top;
   outline: none;
   line-height: 1;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -4470,21 +4496,25 @@ h4, h5, h6 {
           appearance: textfield;
   box-sizing: border-box;
   height: 28px;
-  font-size: 14px;
+  font-size: 20px;
   /*background-color: rgba(3, 3, 3, .09);*/
   box-shadow: none;
   color: #1f1f21;
-  line-height: 1.3;
-  padding: 0 8px 0 28px;
+  line-height: 1.35;
+  padding: 0 8px 0 65px;
   margin: 0;
-  border-radius: 5.5px;
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTNweCIgaGVpZ2h0PSIxNHB4IiB2aWV3Qm94PSIwIDAgMTMgMTQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQyICgzNjc4MSkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+aW9zLXNlYXJjaC1pbnB1dC1pY29uPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9ImNvbXBvbmVudHMiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJpb3Mtc2VhcmNoLWlucHV0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDguMDAwMDAwLCAtNDMuMDAwMDAwKSIgZmlsbD0iIzdBNzk3QiI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDAuMDAwMDAwLCAzNi4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xNi45OTcyNDgyLDE1LjUwNDE0NjYgQzE3LjA3NzM2NTcsMTUuNTQwNTkzOCAxNy4xNTIyNzMxLDE1LjU5MTYxMjkgMTcuMjE3NzUxNiwxNS42NTcwOTE0IEwyMC42NDk5OTEsMTkuMDg5MzMwOCBDMjAuOTQ0ODQ0OSwxOS4zODQxODQ3IDIwLjk0ODQ3NjQsMTkuODU4NjA2IDIwLjY1MzU0MTIsMjAuMTUzNTQxMiBDMjAuMzYwNjQ4LDIwLjQ0NjQzNDQgMTkuODgxMjcxNiwyMC40NDE5MzE3IDE5LjU4OTMzMDgsMjAuMTQ5OTkxIEwxNi4xNTcwOTE0LDE2LjcxNzc1MTYgQzE2LjA5MTM3LDE2LjY1MjAzMDEgMTYuMDQwMTE3MSwxNi41NzczODc0IDE2LjAwMzQxNDEsMTYuNDk3Nzk5NSBDMTUuMTY3MTY5NCwxNy4xMjcwNDExIDE0LjEyNzEzOTMsMTcuNSAxMywxNy41IEMxMC4yMzg1NzYzLDE3LjUgOCwxNS4yNjE0MjM3IDgsMTIuNSBDOCw5LjczODU3NjI1IDEwLjIzODU3NjMsNy41IDEzLDcuNSBDMTUuNzYxNDIzNyw3LjUgMTgsOS43Mzg1NzYyNSAxOCwxMi41IEMxOCwxMy42Mjc0Njg1IDE3LjYyNjgyMzIsMTQuNjY3Nzc2OCAxNi45OTcyNDgyLDE1LjUwNDE0NjYgWiBNMTMsMTYuNSBDMTUuMjA5MTM5LDE2LjUgMTcsMTQuNzA5MTM5IDE3LDEyLjUgQzE3LDEwLjI5MDg2MSAxNS4yMDkxMzksOC41IDEzLDguNSBDMTAuNzkwODYxLDguNSA5LDEwLjI5MDg2MSA5LDEyLjUgQzksMTQuNzA5MTM5IDEwLjc5MDg2MSwxNi41IDEzLDE2LjUgWiIgaWQ9Imlvcy1zZWFyY2gtaW5wdXQtaWNvbiI+PC9wYXRoPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=');
-  background-position: 8px center;
-  background-repeat: no-repeat;
-  background-size: 13px;
+  border-radius: 0px;
   font-weight: 400;
   display: inline-block;
   text-indent: 0;
+  background-color: #fafafa;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMThweCIgaGVpZ2h0PSIxOHB4IiB2aWV3Qm94PSIwIDAgMTggMTgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQzLjIgKDM5MDY5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5TaGFwZTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJhbmRyb2lkLXNlYXJjaC1pbnB1dC1pY29uIiBmaWxsLXJ1bGU9Im5vbnplcm8iIGZpbGw9IiM4OTg5ODkiPgogICAgICAgICAgICA8ZyBpZD0iY29tcG9uZW50cyI+CiAgICAgICAgICAgICAgICA8ZyBpZD0ibWF0ZXJpYWwtc2VhcmNoIj4KICAgICAgICAgICAgICAgICAgICA8ZyBpZD0ic2VhcmNoIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9Ik1hdGVyaWFsL0ljb25zLWJsYWNrL3NlYXJjaCI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTIuNTAyLDYuNDkxIEwxMS43MDgsNi40OTEgTDExLjQzMiw2Ljc2NSBDMTIuNDA3LDcuOTAyIDEzLDkuMzc2IDEzLDEwLjk5MSBDMTMsMTQuNTgxIDEwLjA5LDE3LjQ5MSA2LjUsMTcuNDkxIEMyLjkxLDE3LjQ5MSAwLDE0LjU4MSAwLDEwLjk5MSBDMCw3LjQwMSAyLjkxLDQuNDkxIDYuNSw0LjQ5MSBDOC4xMTUsNC40OTEgOS41ODgsNS4wODMgMTAuNzI1LDYuMDU3IEwxMS4wMDEsNS43ODMgTDExLjAwMSw0Ljk5MSBMMTUuOTk5LDAgTDE3LjQ5LDEuNDkxIEwxMi41MDIsNi40OTEgTDEyLjUwMiw2LjQ5MSBaIE02LjUsNi40OTEgQzQuMDE0LDYuNDkxIDIsOC41MDUgMiwxMC45OTEgQzIsMTMuNDc2IDQuMDE0LDE1LjQ5MSA2LjUsMTUuNDkxIEM4Ljk4NSwxNS40OTEgMTEsMTMuNDc2IDExLDEwLjk5MSBDMTEsOC41MDUgOC45ODUsNi40OTEgNi41LDYuNDkxIEw2LjUsNi40OTEgWiIgaWQ9IlNoYXBlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4Ljc0NTAwMCwgOC43NDU1MDApIHNjYWxlKC0xLCAxKSByb3RhdGUoLTE4MC4wMDAwMDApIHRyYW5zbGF0ZSgtOC43NDUwMDAsIC04Ljc0NTUwMCkgIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==');
+  background-size: 18px;
+  background-position: 18px center;
+  background-repeat: no-repeat;
+  font-size: 14px;
+  padding: 0 24px 0 64px;
+ 
 }
 .search-input::-webkit-search-cancel-button {
   -webkit-appearance: textfield;
@@ -4531,7 +4561,6 @@ h4, h5, h6 {
     <input type="search" value="" placeholder="Search" class="search-input search-input--material" style="width: 280px;">
 */
 .search-input--material {
-  font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   border-radius: 2px;
@@ -4540,6 +4569,7 @@ h4, h5, h6 {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMThweCIgaGVpZ2h0PSIxOHB4IiB2aWV3Qm94PSIwIDAgMTggMTgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQzLjIgKDM5MDY5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5TaGFwZTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJhbmRyb2lkLXNlYXJjaC1pbnB1dC1pY29uIiBmaWxsLXJ1bGU9Im5vbnplcm8iIGZpbGw9IiM4OTg5ODkiPgogICAgICAgICAgICA8ZyBpZD0iY29tcG9uZW50cyI+CiAgICAgICAgICAgICAgICA8ZyBpZD0ibWF0ZXJpYWwtc2VhcmNoIj4KICAgICAgICAgICAgICAgICAgICA8ZyBpZD0ic2VhcmNoIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9Ik1hdGVyaWFsL0ljb25zLWJsYWNrL3NlYXJjaCI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTIuNTAyLDYuNDkxIEwxMS43MDgsNi40OTEgTDExLjQzMiw2Ljc2NSBDMTIuNDA3LDcuOTAyIDEzLDkuMzc2IDEzLDEwLjk5MSBDMTMsMTQuNTgxIDEwLjA5LDE3LjQ5MSA2LjUsMTcuNDkxIEMyLjkxLDE3LjQ5MSAwLDE0LjU4MSAwLDEwLjk5MSBDMCw3LjQwMSAyLjkxLDQuNDkxIDYuNSw0LjQ5MSBDOC4xMTUsNC40OTEgOS41ODgsNS4wODMgMTAuNzI1LDYuMDU3IEwxMS4wMDEsNS43ODMgTDExLjAwMSw0Ljk5MSBMMTUuOTk5LDAgTDE3LjQ5LDEuNDkxIEwxMi41MDIsNi40OTEgTDEyLjUwMiw2LjQ5MSBaIE02LjUsNi40OTEgQzQuMDE0LDYuNDkxIDIsOC41MDUgMiwxMC45OTEgQzIsMTMuNDc2IDQuMDE0LDE1LjQ5MSA2LjUsMTUuNDkxIEM4Ljk4NSwxNS40OTEgMTEsMTMuNDc2IDExLDEwLjk5MSBDMTEsOC41MDUgOC45ODUsNi40OTEgNi41LDYuNDkxIEw2LjUsNi40OTEgWiIgaWQ9IlNoYXBlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4Ljc0NTAwMCwgOC43NDU1MDApIHNjYWxlKC0xLCAxKSByb3RhdGUoLTE4MC4wMDAwMDApIHRyYW5zbGF0ZSgtOC43NDUwMDAsIC04Ljc0NTUwMCkgIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==');
   background-size: 18px;
   background-position: 18px center;
+  background-repeat: no-repeat;
   font-size: 14px;
   padding: 0 24px 0 64px;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, .12), 0 2px 2px 0 rgba(0, 0, 0, .24), 0 1px 0 0 rgba(255, 255, 255, .06) inset;
@@ -4564,7 +4594,7 @@ h4, h5, h6 {
   vertical-align: top;
   outline: none;
   line-height: 1;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -4646,7 +4676,7 @@ h4, h5, h6 {
   vertical-align: top;
   outline: none;
   line-height: 1;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -4734,11 +4764,11 @@ h4, h5, h6 {
   vertical-align: top;
   outline: none;
   line-height: 1;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   color: #212121;
@@ -4757,7 +4787,7 @@ h4, h5, h6 {
   -webkit-transform: translate3d(0, 0, 0); /* FIXME: prevent ios flicker */
 }
 .text-input--material__label {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   color: #afafaf;
@@ -4767,6 +4797,7 @@ h4, h5, h6 {
   font-size: 16px;
   font-weight: 400;
   pointer-events: none;
+
 }
 .text-input--material__label--active {
   color: #3d5afe;
@@ -4835,7 +4866,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -4889,7 +4920,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -4956,7 +4987,7 @@ h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -5013,7 +5044,7 @@ h4, h5, h6 {
     </div>
 */
 .dialog--material {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   text-align: left;
@@ -5065,7 +5096,7 @@ h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -5088,7 +5119,7 @@ h4, h5, h6 {
   overflow: hidden;
 }
 .alert-dialog-title {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -5120,7 +5151,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -5147,7 +5178,7 @@ h4, h5, h6 {
   height: 44px;
   line-height: 44px;
   outline: none;
-  color: #0076ff;
+  color: #199bdb;
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .alert-dialog-button {
@@ -5316,7 +5347,7 @@ h4, h5, h6 {
       0 8px 10px -5px rgba(0, 0, 0, .4);
 }
 .alert-dialog-title--material {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   text-align: left;
@@ -5326,7 +5357,7 @@ h4, h5, h6 {
   color: #31313a;
 }
 .alert-dialog-content--material {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   text-align: left;
@@ -5347,7 +5378,7 @@ h4, h5, h6 {
   line-height: 1;
 }
 .alert-dialog-button--material {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   text-transform: uppercase;
@@ -5492,7 +5523,7 @@ h4, h5, h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -5616,7 +5647,7 @@ h4, h5, h6 {
 .progress-bar__primary,
 .progress-bar__secondary {
   position: absolute;
-  background-color: #0076ff;
+  background-color: #199bdb;
   top: 0;
   bottom: 0;
   transition: width .3s linear;
@@ -5630,7 +5661,7 @@ h4, h5, h6 {
 .progress-bar--indeterminate:before {
   content: '';
   position: absolute;
-  background-color: #0076ff;
+  background-color: #199bdb;
   top: 0;
   left: 0;
   bottom: 0;
@@ -5642,7 +5673,7 @@ h4, h5, h6 {
 .progress-bar--indeterminate:after {
   content: '';
   position: absolute;
-  background-color: #0076ff;
+  background-color: #199bdb;
   top: 0;
   left: 0;
   bottom: 0;
@@ -5805,7 +5836,7 @@ h4, h5, h6 {
 .progress-circular__primary {
   stroke-dasharray: 1, 200;
   stroke-dashoffset: 0;
-  stroke: #0076ff;
+  stroke: #199bdb;
   transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .progress-circular__secondary {
@@ -5924,7 +5955,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -5942,7 +5973,7 @@ h4, h5, h6 {
   color: #ffffff;
   vertical-align: middle;
   text-align: center;
-  background-color: #0076ff;
+  background-color: #199bdb;
   border: 0 solid currentColor;
   border-radius: 50%;
   overflow: hidden;
@@ -5997,7 +6028,7 @@ h4, h5, h6 {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -6015,13 +6046,13 @@ h4, h5, h6 {
   color: #ffffff;
   vertical-align: middle;
   text-align: center;
-  background-color: #0076ff;
+  background-color: #199bdb;
   border: 0 solid currentColor;
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 3px 6px rgba(0, 0, 0, .12);
   transition: all 0.1s linear;
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   width: 56px;
@@ -6166,7 +6197,7 @@ h4, h5, h6 {
   line-height: normal;
   box-sizing: border-box;
   background-clip: padding-box;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -6197,7 +6228,7 @@ h4, h5, h6 {
   line-height: normal;
   box-sizing: border-box;
   background-clip: padding-box;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -6237,7 +6268,7 @@ h4, h5, h6 {
   vertical-align: top;
   outline: none;
   line-height: 1;
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -6331,7 +6362,7 @@ h4, h5, h6 {
     </select>
 */
 .select-input--material {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   color: #1f1f21;
@@ -6346,7 +6377,7 @@ h4, h5, h6 {
           transform: translate3d(0, 0, 0); /* prevent ios flicker */
 }
 .select-input--material__label {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   color: rgba(0, 0, 0, .81);
@@ -6491,7 +6522,7 @@ h4, h5, h6 {
     </div>
 */
 .action-sheet {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -6507,7 +6538,7 @@ h4, h5, h6 {
   height: 56px;
   font-size: 20px;
   text-align: center;
-  color: #0076ff;
+  color: #199bdb;
   background-color: rgba(255, 255, 255, .9);
   border-radius: 0;
   line-height: 56px;
@@ -6628,7 +6659,7 @@ h4, h5, h6 {
       0 8px 10px -5px rgba(0, 0, 0, .4);
 }
 .action-sheet-title--material {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   border-radius: 0;
@@ -6646,7 +6677,7 @@ h4, h5, h6 {
   border-radius: 0;
 }
 .action-sheet-button--material {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   border-radius: 0;
@@ -6696,12 +6727,10 @@ h4, h5, h6 {
     </div>
 */
 .card {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, .12);
-  border-radius: 8px;
   background-color: white;
   box-sizing: border-box;
   display: block;
@@ -6728,7 +6757,7 @@ h4, h5, h6 {
     </div>
 */
 .card__title {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -6756,7 +6785,7 @@ h4, h5, h6 {
       0 2px 2px 0 rgba(0, 0, 0, .14),
       0 1px 5px 0 rgba(0, 0, 0, .12),
       0 3px 1px -2px rgba(0, 0, 0, .2);
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
 }
@@ -6777,7 +6806,7 @@ h4, h5, h6 {
     </div>
 */
 .card--material__title {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   font-size: 24px;
@@ -6793,7 +6822,7 @@ h4, h5, h6 {
     </div>
 */
 .toast {
-  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -6862,13 +6891,13 @@ h4, h5, h6 {
   padding: 16px 24px;
 }
 .toast--material__message {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   margin: 0 24px 0 0;
 }
 .toast--material__button {
-  font-family: 'Roboto', 'Noto', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
   color: #bbdefb;

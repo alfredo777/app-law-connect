@@ -31,7 +31,7 @@ function changePage(pushpage){
 function searchIN(pushpage){
 	document.querySelector('#searchNavigator').pushPage(pushpage);
 	var search = $('#ssearch .search-input').val();
-	var url = "http://localhost:3000/api/global/search";
+	var url = "{{{productionServer}}}/api/global/search";
 	var paramsx = {search: search};
 	var idx = "searchlist .page__content";
 	appenddexternalpageload("search_list", idx, url, paramsx, 'POST');
@@ -40,7 +40,7 @@ function searchIN(pushpage){
 
 function serachTab(pushpage, search){
 	document.querySelector('#searchNavigator').pushPage(pushpage);
-	var url = "http://localhost:3000/api/global/search";
+	var url = "{{{productionServer}}}/api/global/search";
 	var paramsx = {search: search};
 	var idx = "searchlist .page__content";
 	appenddexternalpageload("search_list", idx, url, paramsx, 'POST');

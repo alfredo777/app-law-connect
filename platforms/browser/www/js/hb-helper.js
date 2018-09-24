@@ -436,4 +436,14 @@ Handlebars.registerHelper('oneLineString', function(passedString) {
     var theString = passedString.replace(/\n/g, "");
     return new Handlebars.SafeString(theString)
 });
+
+
+Handlebars.registerHelper('productionServer', function() {
+    var theString = "https://access-point-law-connect.herokuapp.com";
+    return new Handlebars.SafeString(theString)
+});
   
+Handlebars.registerHelper('developmentServer', function() {
+    var theString = "http://localhost:3000";
+    return new Handlebars.SafeString(theString)
+});

@@ -1,10 +1,12 @@
-<div class="head-box">
-  <img src="{{headimage}}" width="100%;">
+<div class="wrapper-home">
+  <div class="head-box">
+  <center><img src="{{headimage}}" height ="140px;"></center>
+  <p style="text-align: center; font-size: 12px">Encuentra el abogado que necesitas</p>
   <p style="text-align: center; margin-top: -15px;">
     <ons-search-input id="ssearch"
     placeholder="{{buscar}}"
     onchange="searchIN('searched.html')"
-    style="width: 80%"
+    style="width: 90%"
     ></ons-search-input>
   </p>
 </div>
@@ -26,9 +28,9 @@
   </div>
   </center>
   {{#sessionFalse}}
-  <div style="padding: 20px;">
+ <!--  <div style="padding: 20px;">
     <ons-button  modifier="large" style="background:#01DF3A;" onclick="changeTab()" ripple="true">¡Quero Registrarme!</ons-button>
-  </div>
+  </div> -->
 
   <script type="text/javascript">
       function changeTab() {
@@ -38,10 +40,10 @@
   {{/sessionFalse}}
 
 </div>
-<div class="bluebox">
+<!-- <div class="bluebox">
   <center>
 
   <a href="">{{legend}}</a>
   </center>
+</div> -->
 </div>
-
