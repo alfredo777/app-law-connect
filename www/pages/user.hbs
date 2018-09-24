@@ -13,6 +13,18 @@
 	  	$( "#datepicker" ).datepicker();
 	  },500);
   });
+
+    var showPopover = function(target) {
+	  document
+	    .getElementById('popover')
+	    .show(target);
+	};
+
+	var hidePopover = function() {
+	  document
+	    .getElementById('popover')
+	    .hide();
+	};
 </script>
 <ons-page>
 	<ons-tabbar id="myusertabbar{{user.id}}" visible="false" animation-options="{duration: 0.2, delay: 1, timing: 'ease-in'}">
@@ -71,8 +83,7 @@
 	 	     <ons-button modifier="quiet" onclick="teams();">Equipo</ons-button>
 	 	      {{/ifCond}}
 	 	      <ons-button modifier="quiet" onclick="exit();">Salir</ons-button>
-	 	      <ons-button modifier="quiet" onclick="cameraAvatar();" style="font-size: 20px; margin-top: -10px;"><ons-icon icon="ion-camera"></ons-icon></ons-button>
-	 	      <ons-button modifier="quiet" onclick="fileAvatar();" style="font-size: 20px; margin-top: -10px;"><ons-icon icon="fa-file-o"></ons-icon></ons-button>
+	 	      <ons-button modifier="quiet" onclick="showPopover(this);" style="font-size: 50px; margin-top: -10px;"><ons-icon icon="ion-camera"></ons-icon></ons-button>
 	 	     </div>
 	    {{/ifCurrentUser}}
 	    {{#ifCond abogado true}}
@@ -204,6 +215,17 @@
 	  </ons-page >
 	</template>
 </ons-page>
+
+ <ons-popover direction="down" id="popover">
+  <div style="padding: 10px; text-align: center;">
+   <ons-list>
+    <ons-list-item><ons-button modifier="quiet" onclick="cameraAvatar();" style="font-size: 20px; margin-top: -10px;"><ons-icon icon="ion-camera"></ons-icon> Tomar foto </ons-button></ons-list-item>
+    <ons-list-item><ons-button modifier="quiet" onclick="fileAvatar();" style="font-size: 20px; margin-top: -10px;"><ons-icon icon="fa-file-o"></ons-icon> Seleccionar foto </ons-button></ons-list-item>
+  </div>
+  </ons-lit>
+</ons-popover>
+
+
 <script type="text/javascript">
 	function changePageUser(pushpage){
 		document.querySelector('#userNavigator').pushPage(pushpage);
@@ -441,6 +463,10 @@
 		    alert('Failed because: ' + message);
 		}
 	}
+
+	$('.popover-mask').click(function(){
+		hidePopover();
+	});
 </script>
 
 
