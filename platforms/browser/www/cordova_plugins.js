@@ -17,14 +17,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-sim/www/sim.js",
-        "id": "cordova-plugin-sim.Sim",
-        "pluginId": "cordova-plugin-sim",
-        "merges": [
-            "window.plugins.sim"
-        ]
-    },
-    {
         "file": "plugins/com.vliesaputra.deviceinformation/www/deviceinformation.js",
         "id": "com.vliesaputra.deviceinformation.DeviceInformation",
         "pluginId": "com.vliesaputra.deviceinformation",
@@ -278,19 +270,27 @@ module.exports = [
         "clobbers": [
             "window.plugins.socialsharing"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-sim/www/sim.js",
+        "id": "cordova-plugin-sim.Sim",
+        "pluginId": "cordova-plugin-sim",
+        "merges": [
+            "window.plugins.sim"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "phonegap-plugin-push": "2.2.3",
-    "cordova-plugin-sim": "1.3.3",
     "com.vliesaputra.deviceinformation": "1.0.1",
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-file": "6.0.1",
     "cordova-plugin-file-transfer": "1.7.1",
     "es6-promise-plugin": "4.2.2",
-    "cordova-plugin-x-socialsharing": "5.4.1"
+    "cordova-plugin-x-socialsharing": "5.4.1",
+    "cordova-plugin-sim": "1.3.3"
 }
 // BOTTOM OF METADATA
 });

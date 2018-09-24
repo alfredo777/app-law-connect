@@ -59,7 +59,7 @@
 		    	<a onclick="window.plugins.socialsharing.shareViaFacebook('Message via Facebook', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="md-facebook"></ons-icon></a>
 		    </ons-speed-dial-item>
 		 </ons-speed-dial>
-	  	<img src="{{user.avatar}}" width="100%;" style="margin-top:-45px;" id="profile-{{user.email}}">
+	  	<img src="{{user.avatar}}" width="100%;" style="margin-top:-45px;" id="{{#ifCurrentUser user.email}}currentuseravatar{{/ifCurrentUser}}">
 	    <div class="profile-header-name">
 	    	<h1>{{user.nombre}} {{user.apellidos}}</h1>
 	    </div>
@@ -71,7 +71,8 @@
 	 	     <ons-button modifier="quiet" onclick="teams();">Equipo</ons-button>
 	 	      {{/ifCond}}
 	 	      <ons-button modifier="quiet" onclick="exit();">Salir</ons-button>
-	 	      <ons-button modifier="quiet" onclick="cameraAvatar();" style="font-size: 50px; margin-top: -10px;"><ons-icon icon="ion-camera"></ons-icon></ons-button>
+	 	      <ons-button modifier="quiet" onclick="cameraAvatar();" style="font-size: 20px; margin-top: -10px;"><ons-icon icon="ion-camera"></ons-icon></ons-button>
+	 	      <ons-button modifier="quiet" onclick="fileAvatar();" style="font-size: 20px; margin-top: -10px;"><ons-icon icon="fa-file-o"></ons-icon></ons-button>
 	 	     </div>
 	    {{/ifCurrentUser}}
 	    {{#ifCond abogado true}}
@@ -336,6 +337,68 @@
             options.fileKey="avatar";
             options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
             options.mimeType="image/jpeg";
+            var params = {};
+            params.email = "{{user.email}}";
+            options.params = params;
+
+            function win(r) {
+			    console.log("Code = " + r.responseCode);
+			    console.log("Response = " + r.response);
+			    console.log("Sent = " + r.bytesSent);
+			    data = r.response;
+			    data = JSON.parse(data);
+			    console.log(data);
+			    ons.notification.alert(data.notice);
+			    avatar = data.user.user.avatar;
+			    console.log(avatar);
+			    var id = "currentuseravatar";
+		        var image = document.getElementById(id);
+		        image.src = avatar;
+		        $('#'+id).attr('src',avatar);
+		        sessionNINg = window.localStorage.setItem("loggedIn", true);
+		      	sessionNINg = window.localStorage.getItem("loggedIn");
+		      	userSession = window.localStorage.setItem("userSession", JSON.stringify(data.user));
+		      	userSession = window.localStorage.getItem("userSession");
+		      	userSession = JSON.parse(userSession);
+
+			}
+
+			function fail(error) {
+			    alert("An error has occurred: Code = " + error.code);
+			    console.log("upload error source " + error.source);
+			    console.log("upload error target " + error.target);
+			}
+
+			var ft = new FileTransfer();
+            ft.upload(imageURI, encodeURI(url), win, fail, options);
+
+		    
+		}
+
+		function onFail(message) {
+		    alert('Failed because: ' + message);
+		}
+	}
+
+
+	function fileAvatar(){
+
+		var pictureSource=navigator.camera.PictureSourceType;
+        var destinationType=navigator.camera.DestinationType;
+        var source = pictureSource.PHOTOLIBRARY;
+		navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+        destinationType: destinationType.FILE_URI,
+        sourceType: source });
+
+		function onSuccess(imageURI) {
+			
+
+		    var url = "{{{productionServer}}}/api/global/update_avatar";
+		    //var url = "{{{developmentServer}}}/api/global/update_avatar";
+		    var options = new FileUploadOptions();
+            options.fileKey="avatar";
+            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options.mimeType="image/jpeg";
 
             var params = {};
             params.email = "{{user.email}}";
@@ -351,7 +414,7 @@
 			    ons.notification.alert(data.notice);
 			    avatar = data.user.user.avatar;
 			    console.log(avatar);
-			    var id = "profile-{{user.email}}";
+			    var id = "currentuseravatar";
 		        var image = document.getElementById(id);
 		        image.src = avatar;
 		        sessionNINg = window.localStorage.setItem("loggedIn", true);
