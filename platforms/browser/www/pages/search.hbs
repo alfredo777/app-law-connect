@@ -38,12 +38,29 @@ function searchIN(pushpage){
 	$('#ssearch .search-input').val('');
 }
 
+function searchINX(pushpage){
+	var search = $('#ssearchx .search-input').val();
+	var url = "{{{productionServer}}}/api/global/search";
+	var paramsx = {search: search};
+	var idx = "searchlist .page__content";
+	loadaexternalpageloadsearch("search_list", idx, url, paramsx, 'POST');
+	$('#ssearch .search-input').val('');
+}
+
 function serachTab(pushpage, search){
 	document.querySelector('#searchNavigator').pushPage(pushpage);
 	var url = "{{{productionServer}}}/api/global/search";
 	var paramsx = {search: search};
 	var idx = "searchlist .page__content";
 	appenddexternalpageload("search_list", idx, url, paramsx, 'POST');
+	$('#ssearch .search-input').val('');
+}
+
+function serachTag(search){
+	var url = "{{{productionServer}}}/api/global/search";
+	var paramsx = {search: search};
+	var idx = "searchlist .page__content";
+	loadaexternalpageloadsearch("search_list", idx, url, paramsx, 'POST');
 	$('#ssearch .search-input').val('');
 }
 
