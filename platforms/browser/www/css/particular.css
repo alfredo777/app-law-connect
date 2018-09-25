@@ -76,6 +76,12 @@ html{
 	color: #fff;
 	margin-top: -150px;
 	padding: 20px;
+	font-weight: bold;
+}
+
+.profile-header-name h1{
+	font-weight: bold;
+	padding-right: 30px;
 }
 
 .profile-menu{
@@ -83,6 +89,7 @@ html{
 	background: transparent;
 	position: absolute;
 	color: #fff !important;
+	padding-left: 15px;
 }
 .profile-menu .button--quiet{
 	color: #fff !important;
@@ -166,3 +173,24 @@ ons-list-header.search-header-list ons-search-input .search-input{
     top: 20px;
     font-size: 11px;
 }
+
+.calification-profile{
+ 	background-color: #88FA4F;
+    color: #37474f;
+    font-weight: bold;
+    padding: 7px;
+    position: relative;
+    left: 92%;
+    top: -50px;
+    font-size: 11px;
+}
+
+.avatar-profile::after {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  z-index:1;
