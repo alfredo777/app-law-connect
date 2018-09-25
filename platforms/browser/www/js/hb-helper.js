@@ -176,10 +176,37 @@ function appenddexternalpageload(tpln, divloadtpl, url, paramsx, methodx) {
     data: paramsx,
     method: methodx,
     success: function(data) {
+    console.log(data.tags);
     console.log(data.notice);
-    data = JSON.parse(data.abogados);
-    console.log(data);
-    appendView({"data": data}, tpln, divloadtpl);
+    var datax = JSON.parse(data.abogados);
+    var tagsx = JSON.parse(data.tags);
+    console.log(datax);
+    console.log(tagsx);
+    appendView({"data": datax}, tpln, divloadtpl);
+    loadView({"data": tagsx}, 'tags', 'tagssearch');
+    },
+    error: function(err) {
+    console.log(err);
+    }
+  });
+  
+}
+
+
+function loadaexternalpageloadsearch(tpln, divloadtpl, url, paramsx, methodx) {
+  $.ajax({
+    url: url,
+    cache: true,
+    data: paramsx,
+    method: methodx,
+    success: function(data) {
+    console.log(data.notice);
+    var datax = JSON.parse(data.abogados);
+    var tagsx = JSON.parse(data.tags);
+    console.log(datax);
+    console.log(tagsx);
+    loadView({"data": datax}, tpln, divloadtpl);
+    loadView({"data": tagsx}, 'tags', 'tagssearch');
     },
     error: function(err) {
     console.log(err);

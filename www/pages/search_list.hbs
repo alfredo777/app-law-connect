@@ -2,16 +2,12 @@
 <ons-list modifier="inset" class="list-search">
 <ons-list-header class="search-header-list" style="text-align: center;"> 
 	<div class="left-serch-list"><ons-back-button class="back-button__icon-list"></ons-back-button></div>
-	<ons-search-input id="ssearch"
-    placeholder="{{buscar}}"
-    onchange="searchIN('searched.html')"
+	<ons-search-input id="ssearchx"
+    placeholder="¿Para qué necesitas abogado?"
+    onchange="searchINX('searched.html')"
     style="width: 85%; float: right; padding-right: 10px;"
     ></ons-search-input>
-    <div class="tags-search-list">
-    	<span class="uk-label">
-		  	   	 Derecho Fiscal
-		  	   </span>
-    </div>
+    <div class="tags-search-list" id="tagssearch"></div>
 </ons-list-header>
 
 	{{#each data as |user userId| }}
@@ -24,7 +20,8 @@
 				{{/if}}
 			</div>
 			<div class="center">
-				<span class="calification">9.8</span>
+
+				<span class="calification">{{user.evaluacion}}</span>
 				<span class="list-item__title">{{user.nombre}} {{user.apellidos}}</span>
 				<span class="list-item__subtitle">On the Internet</span>
 
@@ -53,6 +50,7 @@
 		   	    var especialidad = $("#{{userId}}tabprofile").data('especialidades');
 			    var share = {
 		    		nombre: "{{user.nombre}}",
+		    		evaluacion_por_litigio: "{{user.evaluacion_por_litigio}}",
 		    		apellidos: "{{user.apellidos}}",
 		    		acerca_de_mi: "{{user.acerca_de_mi}}",
 		    		curriculum: "{{user.curriculum}}",
