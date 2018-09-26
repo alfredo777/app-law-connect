@@ -1,4 +1,4 @@
-<ons-navigator swipeable id="searchNavigator" page="search.html" animation-options="{duration: 0.2, delay: 0.1, timing: 'ease-in'}" ></ons-navigator>
+<ons-navigator swipeable id="searchNavigator" animation="fade" page="search.html" animation-options="{duration: 0.2, delay: 0.1, timing: 'ease-in'}" ></ons-navigator>
 <template id="search.html" side="right">
 <ons-page id="searchinit">
 </ons-page>
@@ -43,6 +43,7 @@ function searchINX(pushpage){
 	var url = "{{{productionServer}}}/api/global/search";
 	var paramsx = {search: search};
 	var idx = "searchlist .page__content";
+	$('#'+idx).html('');
 	loadaexternalpageloadsearch("search_list", idx, url, paramsx, 'POST');
 	$('#ssearch .search-input').val('');
 }
@@ -60,6 +61,7 @@ function serachTag(search){
 	var url = "{{{productionServer}}}/api/global/search";
 	var paramsx = {search: search};
 	var idx = "searchlist .page__content";
+	$('#'+idx).html('');
 	loadaexternalpageloadsearch("search_list", idx, url, paramsx, 'POST');
 	$('#ssearch .search-input').val('');
 }

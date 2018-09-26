@@ -1,4 +1,3 @@
-<ons-page>
 <ons-list modifier="inset" class="list-search">
 <ons-list-header class="search-header-list" style="text-align: center;"> 
 	<div class="left-serch-list"><ons-back-button class="back-button__icon-list"></ons-back-button></div>
@@ -42,6 +41,8 @@
 			{{/each}}
 		</ons-list-item>
 		<script type="text/javascript">
+		   $(document).ready(function(){
+
 		   console.log('************>'+public_especialidad);
 		   var especialidad = JSON.stringify(public_especialidad);
 		   $("#{{userId}}tabprofile").data('especialidades', especialidad);
@@ -70,10 +71,11 @@
 	        console.log(json);
 	        loadView(json,tpl,idx);
 	        changePage("searcheduser.html");
-        });
+            });
+
+		   });
 		</script>
 	{{/each}}
 </ons-list>
-</ons-page>
 
 

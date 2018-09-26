@@ -6,7 +6,7 @@
 		<div class="content">
 			<i>{{caso.numero_expediente}}</i><br/><br/>
 			<div style="width: 100%;">
-	          <button class="button--quiet" onclick="viewCaso('{{caso.numero_expediente}}')"> Ver </button>
+	          <button class="button--quiet" onclick="viewCaso('{{caso.numero_expediente}}')" id="link-caso-view-{{caso.numero_expediente}}"> Ver </button>
 	          {{#ifAbogado}}
 	          <button class="button--quiet" onclick="edit_caso('{{caso.numero_expediente}}', '{{caso.titulo}}', '{{{oneLineString caso.resumen_del_caso}}}')"> Editar </button>
 	          <button class="button--quiet" onclick="destroyCaso('{{caso.numero_expediente}}')"> Eliminar </button>

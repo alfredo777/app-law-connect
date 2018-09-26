@@ -38,7 +38,31 @@ $(document).ready(function(){
 });
 </script>
 {{/each}}
+<script type="text/javascript">
+ $('#xtab3').click(function(){
+   var userSession = window.localStorage.getItem("userSession");
+   userSession = JSON.parse(userSession);
+   var params_to_send = {
+    email: userSession.user.email
+   }
+   var url = "{{{productionServer}}}/api/global/notifications";
+   $.ajax({
+    url: url,
+    cache: true,
+    data: params_to_send,
+    method: 'POST',
+    success: function(data) {
+      console.log(data);
+      loadView({"data": data}, "list_notifications", "load-notificaciones");
+    },
+    error: function(err) {
+      callback(null, err);
+   }
+});
 
+
+ });
+</script>
 <script type="text/javascript">
 var oldXHR = window.XMLHttpRequest;
 
