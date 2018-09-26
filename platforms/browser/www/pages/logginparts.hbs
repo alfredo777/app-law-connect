@@ -466,12 +466,15 @@
 function login(){
   var username = document.getElementById('username').value;
   var password = document.getElementById('password').value;
+  var deviceData = window.localStorage.getItem("devicePropieties");
+  deviceData = JSON.parse(deviceData);
   var url = "{{{productionServer}}}/api/global/loggin";
+
   //var url = "{{{developmentServer}}}/api/global/loggin";
 	  $.ajax({
 	    url: url,
 	    cache: true,
-	    data: { email: username, password: password},
+	    data: { email: username, password: password, device_data: deviceData},
 	    success: function(data) {
 	      console.log(data);
 	      if(data.ingreso == true){

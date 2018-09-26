@@ -59,4 +59,23 @@
       window.localStorage.setItem("userSession",'');
       location.reload();
     }
+
+    document.addEventListener("deviceready", listenDEvise, false);
+      function listenDEvise() {
+        console.log(device.uuid);
+        var device_data = {
+           modelo:      device.model,
+           plataforma:  device.platform,
+           uuid:        device.uuid,
+           version:     device.version,
+           manufacture: device.manufacturer,
+           virtual:     device.isVirtual,
+           serial:      device.serial
+        }
+
+        var deviceData = window.localStorage.setItem("devicePropieties", JSON.stringify(device_data));
+        deviceData = window.localStorage.getItem("devicePropieties");
+        console.log(deviceData);
+
+      }
 </script>

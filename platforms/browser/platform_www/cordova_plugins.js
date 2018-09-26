@@ -278,6 +278,20 @@ module.exports = [
         "merges": [
             "window.plugins.sim"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-device/www/device.js",
+        "id": "cordova-plugin-device.device",
+        "pluginId": "cordova-plugin-device",
+        "clobbers": [
+            "device"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-device/src/browser/DeviceProxy.js",
+        "id": "cordova-plugin-device.DeviceProxy",
+        "pluginId": "cordova-plugin-device",
+        "runs": true
     }
 ];
 module.exports.metadata = 
@@ -290,7 +304,8 @@ module.exports.metadata =
     "cordova-plugin-file-transfer": "1.7.1",
     "es6-promise-plugin": "4.2.2",
     "cordova-plugin-x-socialsharing": "5.4.1",
-    "cordova-plugin-sim": "1.3.3"
+    "cordova-plugin-sim": "1.3.3",
+    "cordova-plugin-device": "2.0.2"
 }
 // BOTTOM OF METADATA
 });

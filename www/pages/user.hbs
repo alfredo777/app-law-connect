@@ -66,10 +66,10 @@
 		      <ons-icon icon="md-share"></ons-icon>
 		    </ons-fab>
 		    <ons-speed-dial-item>
-		      <ons-icon icon="md-twitter"></ons-icon>
+		      <ons-icon icon="md-twitter" onclick="window.plugins.socialsharing.shareViaTwitter('Mensaje via Twitter','www/logo.png', 'http://lawconnect.io')"></ons-icon>
 		    </ons-speed-dial-item>
 		    <ons-speed-dial-item>
-		    	<a onclick="window.plugins.socialsharing.shareViaFacebook('Message via Facebook', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="md-facebook"></ons-icon></a>
+		    	<a onclick="window.plugins.socialsharing.shareViaFacebook('Mensaje via Facebook','www/logo.png', 'http://lawconnect.io', function() {console.log('share ok')}, function(errormsg){console.log(errormsg)})"><ons-icon icon="md-facebook"></ons-icon></a>
 		    </ons-speed-dial-item>
 		 </ons-speed-dial>
 	  	<img src="{{user.avatar}}" width="100%;" style="margin-top:-45px;" id="{{#ifCurrentUser user.email}}currentuseravatar{{/ifCurrentUser}}" class="avatar-profile">
