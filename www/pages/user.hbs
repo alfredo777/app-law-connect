@@ -1,3 +1,4 @@
+
 <script type="text/javascript">
   document.querySelector('ons-tabbar#myusertabbar{{user.id}}').setTabbarVisibility(false);
   function changeTabContact() {
@@ -71,9 +72,11 @@
 		    	<a onclick="window.plugins.socialsharing.shareViaFacebook('Message via Facebook', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"><ons-icon icon="md-facebook"></ons-icon></a>
 		    </ons-speed-dial-item>
 		 </ons-speed-dial>
-	  	<img src="{{user.avatar}}" width="100%;" style="margin-top:-45px;" id="{{#ifCurrentUser user.email}}currentuseravatar{{/ifCurrentUser}}">
+	  	<img src="{{user.avatar}}" width="100%;" style="margin-top:-45px;" id="{{#ifCurrentUser user.email}}currentuseravatar{{/ifCurrentUser}}" class="avatar-profile">
+
 	    <div class="profile-header-name">
 	    	<h1>{{user.nombre}} {{user.apellidos}}</h1>
+	    	<span class="calification-profile">9.7</span>
 	    </div>
 	  	{{#ifCurrentUser user.email}}
 	  	     <div class="profile-menu">
