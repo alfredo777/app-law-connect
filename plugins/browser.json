@@ -13,9 +13,6 @@
     "cordova-plugin-sim": {
       "PACKAGE_NAME": "com.laconnect.www"
     },
-    "com.vliesaputra.deviceinformation": {
-      "PACKAGE_NAME": "com.laconnect.www"
-    },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "com.laconnect.www"
     },
