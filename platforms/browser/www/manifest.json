@@ -1,1 +1,11 @@
-{"background_color":"#FFF","display":"standalone","name":"app-law-connect","short_name":"app-law-connect","version":"com.laconnect.www","description":"A blank PhoneGap app.","author":"PhoneGap Team","icons":[],"start_url":"index.html","gcm_sender_id":"996231231186"}
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "app-law-connect",
+  "short_name": "app-law-connect",
+  "version": "com.laconnect.www",
+  "description": "A blank PhoneGap app.",
+  "author": "PhoneGap Team",
+  "icons": [],
+  "start_url": "index.html"
+}
