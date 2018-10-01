@@ -1,0 +1,17 @@
+<ons-page>
+	<ons-list modifier="inset">
+	  <ons-list-header>Ultimas notificaciones</ons-list-header>
+	  {{#each data.notification}}
+	  <ons-list-item onclick="getToCasoByNotification('{{caso}}');" tappable>{{title}}</ons-list-item>
+	  {{/each}}
+	</ons-list>
+</ons-page>
+
+<script type="text/javascript">
+    function getToCasoByNotification(caso){
+	document.getElementById('tabbar').setActiveTab(1);
+	setTimeout(function(){
+		$("#link-caso-view-"+caso).trigger( "click" );
+	},100);
+    }
+</script>

@@ -1,0 +1,16 @@
+{
+	"headimage": "img/logo.png",
+	"buscar": "Buscar",
+	"legend": "¿Eres abogado o fírma?, anunciate aquí",
+	"categorias": [
+		{"id": 1, "title": "Laboral", "search": "derecho laboral", "icon": "fa-file", "class": "border-right-botton-solid"},
+		{"id": 2, "title": "Admnistrativo", "search": "derecho admnistrativo", "icon": "fa-file", "class": "bottom-solid"},
+		{"id": 3, "title": "Derechos de Autor", "search": "derechos de autor","icon": "fa-file", "class": "border-left-botton-solid"},
+		{"id": 4, "title": "Familiar", "search": "derecho familiar", "icon": "fa-file","class": "border-right-botton-solid"},
+		{"id": 5, "title": "Fiscal", "search": "derecho fiscal", "icon": "fa-file","class": "bottom-solid"},
+		{"id": 6, "title": "Penal", "search": "derecho penal","icon": "fa-file", "class": "border-left-botton-solid"},
+		{"id": 7, "title": "Civil", "search": "derecho civil","icon": "fa-file", "class": "right-solid"},
+		{"id": 8, "title": "Mercantil", "search": "derecho mercantil","icon": "fa-file", "class": ""},
+		{"id": 9, "title": "otros", "search": "todas las categorias","icon": "fa-file", "class": "left-solid"}
+	]
+}

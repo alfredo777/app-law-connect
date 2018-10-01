@@ -1,0 +1,65 @@
+{{#each data as |caso casoID|}}
+	<ons-card modifier="material modifier2" style="overflow:auto; min-height:100px; max-height: 850px;" id="{{caso.numero_expediente}}-caso">
+		<div class="title">
+	      {{caso.titulo}}
+	    </div >
+		<div class="content">
+			<i>{{caso.numero_expediente}}</i><br/><br/>
+			<div style="width: 100%;">
+	          <button class="button--quiet" onclick="viewCaso('{{caso.numero_expediente}}')" id="link-caso-view-{{caso.numero_expediente}}"> Ver </button>
+	          {{#ifAbogado}}
+	          <button class="button--quiet" onclick="edit_caso('{{caso.numero_expediente}}', '{{caso.titulo}}', '{{{oneLineString caso.resumen_del_caso}}}')"> Editar </button>
+	          <button class="button--quiet" onclick="destroyCaso('{{caso.numero_expediente}}')"> Eliminar </button>
+	          {{/ifAbogado}}
+		    </div>
+		    <!--
+			<p style="text-align:justify;">{{{trimString resumen_del_caso}}}</p>
+			<div style="float:none; position:relative; width: 100%;">
+			<p>Abogado asignado</p>
+			{{#each caso.abogados as |abogado|}}
+			   <div style="width:52px; float:left;">
+			   		<img src="{{abogado.avatar}}" width="50px" height="50px" >
+			   		<p style="font-size:8px;">{{abogado.nombre}} {{abogado.apellidos}}</p>
+			   </div>
+			{{/each}}
+		    </div>
+			<div style="position:relative; width: 100%; margin-top: 120px;">
+		    <p>Ciente(s)</p>
+			{{#each caso.clientes as |cliente|}}
+			   <div style="width:52px; float:left;">
+			   <img src="{{cliente.avatar}}" width="50px" height="50px" >
+			   	<p style="font-size:8px;">{{cliente.nombre}} {{cliente.apellidos}}</p>
+			   </div>
+			{{/each}}
+		    </div><br/><br/>
+		    <div style="margin-top: 80px; width: 100%; float: none;">
+			<p>Equipo Jurídico Asignado</p>
+			{{#each caso.equipos as |equipo|}}
+				{{#each equipo.equipo as |abogado|}}
+				    <div style="width:52px; float:left;">
+			   		<img src="{{abogado.avatar}}" width="50px" height="50px" >
+			   		<p style="font-size:8px;">{{abogado.nombre}} {{abogado.apellidos}}</p>
+			        </div>
+				{{/each}}
+			{{/each}}
+			</div><br/><br/>-->
+	    </div>
+	</ons-card>
+{{/each}}
+
+<script type="text/javascript">
+ function edit_caso(token, titulo, resumen_del_caso){
+ 	data = {
+ 		token: token,
+ 		titulo: titulo,
+ 		resumen_del_caso: resumen_del_caso
+ 	}
+
+ 	console.log(data);
+
+ 	loadView({"data": data}, "edit_caso", "editarcaso .page__content");
+ 	changePageCasos('editarcaso.html');
+
+
+ }
+</script>
