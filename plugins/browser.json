@@ -24,12 +24,12 @@
     },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.laconnect.www"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.laconnect.www"
     }
   },
   "dependent_plugins": {
-    "cordova-plugin-file": {
-      "PACKAGE_NAME": "com.laconnect.www"
-    },
     "es6-promise-plugin": {
       "PACKAGE_NAME": "com.laconnect.www"
     }

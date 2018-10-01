@@ -12,7 +12,8 @@
       "cordova-plugin-camera": {},
       "cordova-plugin-file-transfer": {},
       "cordova-plugin-x-socialsharing": {},
-      "cordova-plugin-device": {}
+      "cordova-plugin-device": {},
+      "cordova-plugin-file": {}
     }
   },
   "dependencies": {
