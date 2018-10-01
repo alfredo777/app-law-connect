@@ -17,7 +17,6 @@
     }
   },
   "dependencies": {
-    "com.vliesaputra.deviceinformation": "~1.0.1",
     "cordova-browser": "~5.0.4",
     "cordova-device-information-plugin": "^1.0.1",
     "cordova-plugin-camera": "^4.0.3",
