@@ -25,42 +25,40 @@
   Prueba de compile con js, cordova y funciones de arranque.
 </body>
     <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript">
+	   var sessionIN = window.localStorage.getItem("loggedIn");
+	   $(document).ready(function(){
+	      var loggin = sessionLoggin();
+	      console.log(loggin);
+	      if(loggin == 1){
+	      loadpage("menu","body","js/json/menu-tabs.json");
+	      }else{
+	      loadpage("menu","body","js/json/menu-tabs.json");
+	      appendpage("loggin","body","js/json/loggin.json"); 
+	      }
+	    });
+
+	   function sessionLoggin(callback){
+	      var sessionNINg = window.sessionIN;
+	      if(sessionNINg != 'true'){
+	        window.localStorage.setItem("loggedIn", false);
+	        var session = 0;
+	      }else{
+	        window.localStorage.setItem("loggedIn", true);
+	        var session = 1;
+	      }
+	      sessionNINg = window.localStorage.getItem("loggedIn");
+	      console.log(session);
+	      console.log(sessionNINg);
+	      return session;
+	   }
+
+	   function exit(){
+	      sessionNINg = window.localStorage.setItem("loggedIn", false);
+	      window.localStorage.setItem("userSession",'');
+	      location.reload();
+	    }
+    </script>
 
 </html>
 
-<script type="text/javascript">
-   var sessionIN = window.localStorage.getItem("loggedIn");
-   $(document).ready(function(){
-      var loggin = sessionLoggin();
-      console.log(loggin);
-      if(loggin == 1){
-      loadpage("menu","body","js/json/menu-tabs.json");
-      }else{
-      loadpage("menu","body","js/json/menu-tabs.json");
-      appendpage("loggin","body","js/json/loggin.json"); 
-      }
-    });
-
-   function sessionLoggin(callback){
-      var sessionNINg = window.sessionIN;
-      if(sessionNINg != 'true'){
-        window.localStorage.setItem("loggedIn", false);
-        var session = 0;
-      }else{
-        window.localStorage.setItem("loggedIn", true);
-        var session = 1;
-      }
-      sessionNINg = window.localStorage.getItem("loggedIn");
-      console.log(session);
-      console.log(sessionNINg);
-      return session;
-   }
-
-   function exit(){
-      sessionNINg = window.localStorage.setItem("loggedIn", false);
-      window.localStorage.setItem("userSession",'');
-      location.reload();
-    }
-
-
-</script>
