@@ -23,14 +23,25 @@
     <feature name="PushNotification">
         <param name="android-package" value="com.adobe.phonegap.push.PushPlugin" />
     </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>app-law-connect</name>
     <description>
-        A blank PhoneGap app.
+        Law connect
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+        Brany (JARDA)
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
 </widget>

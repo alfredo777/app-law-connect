@@ -280,7 +280,8 @@ module.exports.metadata =
   "cordova-plugin-x-socialsharing": "5.4.1",
   "cordova-support-google-services": "1.1.0",
   "phonegap-plugin-multidex": "1.0.0",
-  "phonegap-plugin-push": "2.2.3"
+  "phonegap-plugin-push": "2.2.3",
+  "cordova-plugin-whitelist": "1.3.3"
 };
 // BOTTOM OF METADATA
 });
