@@ -23,6 +23,7 @@
 </head>
 <body id="body">
   Prueba de compile con js, cordova y funciones de arranque.
+  <a onclick="arranqueApp();">Arrancar app</a>
 </body>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript">
@@ -37,6 +38,18 @@
 	      appendpage("loggin","body","js/json/loggin.json"); 
 	      }
 	    });
+
+	   function arranqueApp(){
+	   	  alert('Iniciando app');
+	   	  var loggin = sessionLoggin();
+	      console.log(loggin);
+	      if(loggin == 1){
+	      loadpage("menu","body","js/json/menu-tabs.json");
+	      }else{
+	      loadpage("menu","body","js/json/menu-tabs.json");
+	      appendpage("loggin","body","js/json/loggin.json"); 
+	      }
+	   }
 
 	   function sessionLoggin(callback){
 	      var sessionNINg = window.sessionIN;
