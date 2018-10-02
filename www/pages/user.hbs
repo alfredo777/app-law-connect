@@ -86,29 +86,29 @@
 	 	     <ons-button modifier="quiet" onclick="teams();">Equipo</ons-button>
 	 	      {{/ifCond}}
 	 	      <ons-button modifier="quiet" onclick="exit();">Salir</ons-button>
-	 	      <ons-button modifier="quiet" onclick="showPopover(this);" style="font-size: 50px; margin-top: -10px;"><ons-icon icon="ion-camera"></ons-icon></ons-button>
+	 	      <ons-button modifier="quiet" onclick="showPopover(this);" style="font-size: 40px; margin-top: -5px; margin-left: 80px;" ><ons-icon icon="ion-camera"></ons-icon></ons-button>
 	 	     </div>
 	    {{/ifCurrentUser}}
 	    {{#ifCond abogado true}}
 		 <ons-list style="{{#notCurrentUser user.email}}margin-top: 40px;{{/notCurrentUser}}">
-		  <ons-list-item>
-		  	<p><center>Especialidades</center></p>
-		  	<p>
+		  	<p class="special">Especialidades</p>
+			<ons-list-item class="specials">
 		  	{{#each user.especialidades}}
-		  	   <span class="uk-label">
+		  	   <span class="uk-label" style="margin-top: -20px; ">
 		  	   	 {{nombre}}
 		  	   </span>
 		  	{{/each}}
-		    </p>
+
 		  </ons-list-item>
-		  <ons-list-item>
-          	<div style="width: 200px;">
-          	<div class="w3-section w3-dark-grey" style="width:220px;">
-			  <div class="w3-green w3-green w3-center" style="width:{{user.evaluacion_por_litigio}}%">{{user.evaluacion_por_litigio}}%</div>
+		  <ons-list-item style="padding: 0px 15px;">
+		  	<p class="graph-me">Efectividad</p>
+          	<div style="width: 100%;">
+          	<div class="w3-section w3-dark-grey" style="width:100%; ">
+			  <div class="w3-green w3-green w3-center" style="padding: 7px 0px; width:{{user.evaluacion_por_litigio}}%">{{user.evaluacion_por_litigio}}%</div>
 		    </div>
 		    </div>
 		  </ons-list-item>
-		  <ons-list-item>
+		   <ons-list-item>
 		  	<div><p><b>Alma mater</b> 
 		  	{{user.almamater}}</p></div>
 		   </ons-list-item>
@@ -120,8 +120,8 @@
 		  	<div><p><b>Cédula</b>
 		  	{{user.cedula}}</p></div>
 		  </ons-list-item>
-		  <ons-list-item><b>Acerca de mí:</b> <br/> {{{user.acerca_de_mi}}}</ons-list-item>
-		  <ons-list-item><b>Curriculum:</b> <br/> {{{user.curriculum}}}</ons-list-item>
+		  <ons-list-item><b>Acerca de mí:</b> <br/><p style="padding: 0px 20px; text-align: justify;"> {{{user.acerca_de_mi}}}</p></ons-list-item>
+		  <ons-list-item><b>Curriculum:</b> <br/> <p style="padding: 0px 20px; text-align: justify;">{{{user.curriculum}}}</p></ons-list-item>
 		</ons-list>
 		{{else}}
 		<div style="margin-top:10px;">
