@@ -19,7 +19,31 @@
     <title>Law Connect</title>
 </head>
 <body id="newbody">
-
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		setTimeout(function(){
+    		  var loggin = sessionLoggin();
+		      var deviceSTREAM = window.localStorage.getItem("devicePlatform");
+		      setTimeout(function(){
+			      if(loggin == 1){
+				       if(deviceSTREAM == 'Android'){
+				       	loadpageFree("menu","newbody","js/json/menu-tabs.json");
+				       }else{
+				      	loadpage("menu","newbody","js/json/menu-tabs.json");
+				       }
+			      
+			      }else{
+				       if(deviceSTREAM == 'Android'){
+				      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
+				      	appendpageFree("loggin","newbody","js/json/loggin.json");
+				       }else{
+				        loadpage("menu","newbody","js/json/menu-tabs.json");
+				        appendpage("loggin","newbody","js/json/loggin.json");
+				       }
+			      }
+    		},5000);
+    	});
+    </script>
 </body>
     <script src="js/jquery-ui.min.js"></script>
 	<script src="js/handlebarsx.js"></script>
