@@ -33,7 +33,6 @@
 	      deviceSTREAM = JSON.parse(deviceSTREAM);
 	      console.log(loggin);
 	      if(loggin == 1){
-
 	      if(deviceSTREAM == 'Android'){
 	      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
 	      }else{
@@ -85,6 +84,7 @@
 	           serial:      device.serial
 	        }
 
+	        alert(device_data);
 	        var deviceData = window.localStorage.setItem("devicePropieties", JSON.stringify(device_data));
 	        deviceData = window.localStorage.getItem("devicePropieties");
 	        console.log(deviceData);
