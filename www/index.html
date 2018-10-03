@@ -31,6 +31,8 @@
 	   var sessionIN = window.localStorage.getItem("loggedIn");
 	   $(document).ready(function(){
 	   	  alert(Handlebars);
+	   	  var hbsx = JSON.stringify(Handlebars);
+	   	  alert(hbsx);
 	      var loggin = sessionLoggin();
 	      console.log(loggin);
 	      if(loggin == 1){
