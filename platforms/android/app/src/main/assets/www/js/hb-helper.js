@@ -16,12 +16,13 @@ function getTemplate(name, context, callback) {
     url: 'pages/'+name+'.hbs',
     cache: true,
     success: function(data) {
-      var tpl = Handlebars.compile(data),
-      output = tpl(context);
-      callback(output, null);
+       var tpl = Handlebars.compile(data),
+       output = tpl(context);
+       callback(output, null);
     },
     error: function(err) {
       callback(null, err);
+      alert(err);
     }
   });
 }
@@ -57,11 +58,10 @@ function loadpage(tpln, divloadtpl, jsonroute) {
     url: jsonroute,
     cache: true,
     success: function(data) {
-    console.log('Respuesta satisfactoria');
     loadView(data, tpln, divloadtpl);
     },
     error: function(err) {
-    console.log(err);
+      alert(err);
     }
   });
   
@@ -73,11 +73,10 @@ function appendpage(tpln, divloadtpl, jsonroute) {
     url: jsonroute,
     cache: true,
     success: function(data) {
-    console.log('Respuesta satisfactoria');
     appendView(data, tpln, divloadtpl);
     },
     error: function(err) {
-    console.log(err);
+       alert(err);
     }
   });
   

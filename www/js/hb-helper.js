@@ -1,8 +1,4 @@
 function loadView(data, tpln, divloadtpl){
-    alert('iniciando load view');
-    alert(data);
-    alert(tpln);
-    alert(divloadtpl);
     getTemplate(tpln, data, function(output, err) {
     		$("#"+divloadtpl).html(output);
     });  
@@ -11,20 +7,17 @@ function loadView(data, tpln, divloadtpl){
 
 function appendView(data, tpln, divloadtpl){
     getTemplate(tpln, data, function(output, err) {
-         alert('iniciando append view');
         $("#"+divloadtpl).append(output);
     });  
 }
 
 function getTemplate(name, context, callback) {
-  alert('ingresando template'+ name);
   $.ajax({
     url: 'pages/'+name+'.hbs',
     cache: true,
     success: function(data) {
        var tpl = Handlebars.compile(data),
        output = tpl(context);
-       alert(output);
        callback(output, null);
     },
     error: function(err) {
@@ -65,7 +58,6 @@ function loadpage(tpln, divloadtpl, jsonroute) {
     url: jsonroute,
     cache: true,
     success: function(data) {
-    alert('Respuesta satisfactoria'+ data);
     loadView(data, tpln, divloadtpl);
     },
     error: function(err) {
@@ -81,7 +73,6 @@ function appendpage(tpln, divloadtpl, jsonroute) {
     url: jsonroute,
     cache: true,
     success: function(data) {
-    alert('Respuesta satisfactoria'+ data);
     appendView(data, tpln, divloadtpl);
     },
     error: function(err) {

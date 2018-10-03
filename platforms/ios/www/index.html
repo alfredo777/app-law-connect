@@ -14,41 +14,83 @@
     <link rel="stylesheet" href="css/particular.css">
     <link rel="stylesheet" href="css/w3.css">
     <link rel="stylesheet" href="js/jquery-ui.min.css">
-    <title>Las Connect</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/onsenui.js"></script>
+    <title>Law Connect</title>
 </head>
-<body id="body">
+<body id="newbody">
   Prueba de compile con js, cordova y funciones de arranque.
   <a onclick="arranqueApp();">Arrancar app</a>
 </body>
-    <script src="js/jquery.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-	<script src="js/handlebars-v4.0.11.js"></script>
-    <script src="js/onsenui.js"></script>
-	<script src="js/hb-helper.js"></script>
+	<script src="js/handlebarsx.js"></script>
+    <script src="js/hb-helper.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
 	   var sessionIN = window.localStorage.getItem("loggedIn");
+
+	   var menuITEM = {
+			"compose": [
+				{"id": 1, "Title": "Buscar", "Icon":"ion-search, material:md-search", "Content": "lorem ipsum", "Render": "search", "topbar": false },
+				{"id": 2, "Title": "Mis Casos", "Icon":"list", "Content": "lorem ipsum", "Render": "casos", "topbar": false  },
+				{"id": 3, "Title": "Alertas","Icon":"ion-ios-bell", "Content": "lorem impsum", "Render": "alertas", "topbar": true},
+				{"id": 4, "Title": "Perfil","Icon":"ion-person", "Content": "lorem impsum", "Render": "profile", "topbar": false }
+			]
+		};
+
+		var logginITEM = {
+		"Title": "Law Connect",
+		"Subtitle": "Ingreso",
+		"Button": "Ingresar",
+		"Placeuser": "Email",
+		"Pplacepassword": "Contraseña",
+		"Problem": "Describe el problema o queja",
+		"Biddings": "Opcciones",
+		"link1": "Registro",
+		"link2": "Recuperar Contraseña",
+		"link3": "¿Problemas?",
+		"Button2": "Recuperar por email",
+		"Button3": "Continuar como abogado &#x2713;",
+		"Button4": "Terminar registro",
+		"Button5": "Continuar como cliente &#x2713;",
+		"Button6": "Enviar queja o sugerencia",
+		"Nombre": "Nombre",
+		"Apellidos": "Apellidos",
+		"categorias": [
+			{"id": 1, "title": "Derecho Laboral", "search": "derecho laboral", "icon": "fa-file", "class": "border-right-botton-solid"},
+			{"id": 2, "title": "Derecho Administrativo", "search": "derecho administrativo", "icon": "fa-file", "class": "bottom-solid"},
+			{"id": 3, "title": "Derechos de Autor", "search": "derechos de autor","icon": "fa-file", "class": "border-left-botton-solid"},
+			{"id": 4, "title": "Derecho de lo Familiar", "search": "derecho familiar", "icon": "fa-file","class": "border-right-botton-solid"},
+			{"id": 5, "title": "Derecho Fiscal", "search": "derecho fiscal", "icon": "fa-file","class": "bottom-solid"},
+			{"id": 6, "title": "Derecho Penal", "search": "derecho penal","icon": "fa-file", "class": "border-left-botton-solid"},
+			{"id": 7, "title": "Derecho Civil", "search": "derecho civil","icon": "fa-file", "class": "right-solid"},
+			{"id": 8, "title": "Derecho Mercantil", "search": "derecho mercantil","icon": "fa-file", "class": ""}
+		]
+
+	    };
+
+
 	   $(document).ready(function(){
 	      var loggin = sessionLoggin();
 	      console.log(loggin);
 	      if(loggin == 1){
-	      loadpage("menu","body","js/json/menu-tabs.json");
+	      loadpage("menu","newbody","js/json/menu-tabs.json");
 	      }else{
-	      loadpage("menu","body","js/json/menu-tabs.json");
-	      appendpage("loggin","body","js/json/loggin.json"); 
+	      loadView(menuITEM, "menu", "newbody");
+	      appendView(logginITEM, "loggin", "newbody");
+	      /*loadpage("menu","newbody","js/json/menu-tabs.json");
+	      appendpage("loggin","newbody","js/json/loggin.json");*/
 	      }
 	    });
 
-	   function arranqueApp(){
-	   	  alert('Iniciando app');
+	   function arranqueApp(){	   	  
 	   	  var loggin = sessionLoggin();
 	      console.log(loggin);
 	      if(loggin == 1){
-	      loadpage("menu","body","js/json/menu-tabs.json");
+	      loadpage("menu","newbody","js/json/menu-tabs.json");
 	      }else{
-	      loadpage("menu","body","js/json/menu-tabs.json");
-	      appendpage("loggin","body","js/json/loggin.json"); 
+	      loadpage("menu","newbody","js/json/menu-tabs.json");
+	      appendpage("loggin","newbody","js/json/loggin.json"); 
 	      }
 	   }
 

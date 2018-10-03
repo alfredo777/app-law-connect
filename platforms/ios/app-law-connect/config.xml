@@ -42,7 +42,7 @@
     <feature name="PushNotification">
         <param name="ios-package" value="PushPlugin" />
     </feature>
-    <name>app-law-connect</name>
+    <name>Law Connect</name>
     <description>
         Law connect
     </description>
