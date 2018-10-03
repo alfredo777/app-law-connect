@@ -76,10 +76,10 @@
 	      if(loggin == 1){
 	      loadpage("menu","newbody","js/json/menu-tabs.json");
 	      }else{
-	      loadView(menuITEM, "menu", "newbody");
-	      appendView(logginITEM, "loggin", "newbody");
-	      /*loadpage("menu","newbody","js/json/menu-tabs.json");
-	      appendpage("loggin","newbody","js/json/loggin.json");*/
+	      /*loadView(window.menuITEM, "menu", "newbody");
+	      appendView(window.logginITEM, "loggin", "newbody");*/
+	      loadpage("menu","newbody","js/json/menu-tabs.json");
+	      appendpage("loggin","newbody","js/json/loggin.json");
 	      }
 	    });
 
