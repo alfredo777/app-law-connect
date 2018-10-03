@@ -22,14 +22,10 @@ function getTemplate(name, context, callback) {
     url: 'pages/'+name+'.hbs',
     cache: true,
     success: function(data) {
-      alert(data);
-      alert(context);
-      alert(JSON.stringify(Handlebars));
-      var data = JSON.stringify(data);
-      var data = JSON.parse(data);
-      var tpl = Handlebars.compile(data),
-       output = tpl(context);
-       alert(tpl);
+       var source = data;
+       var template = Handlebars.compile(source);
+       alert(template);
+       var output = template(context);
        alert(output);
        callback(output, null);
     },
