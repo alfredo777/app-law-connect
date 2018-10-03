@@ -90,7 +90,7 @@ function loadpage(tpln, divloadtpl, jsonroute) {
     url: jsonroute,
     cache: true,
     success: function(data) {
-    loadViewFree(data, tpln, divloadtpl);
+    loadView(data, tpln, divloadtpl);
     },
     error: function(err) {
       alert(err);
@@ -101,6 +101,35 @@ function loadpage(tpln, divloadtpl, jsonroute) {
 
 
 function appendpage(tpln, divloadtpl, jsonroute) {
+  $.ajax({
+    url: jsonroute,
+    cache: true,
+    success: function(data) {
+    appendView(data, tpln, divloadtpl);
+    },
+    error: function(err) {
+       alert(err);
+    }
+  });
+  
+}
+
+function loadpageFree(tpln, divloadtpl, jsonroute) {
+  $.ajax({
+    url: jsonroute,
+    cache: true,
+    success: function(data) {
+    loadViewFree(data, tpln, divloadtpl);
+    },
+    error: function(err) {
+      alert(err);
+    }
+  });
+  
+}
+
+
+function appendpageFree(tpln, divloadtpl, jsonroute) {
   $.ajax({
     url: jsonroute,
     cache: true,
