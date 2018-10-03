@@ -28,7 +28,7 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 	       setTimeout(function(){
-	       	loadDevice();
+	       	initDeviceX();
 	       },15000);
 	    });
 	</script>
@@ -38,13 +38,14 @@
 	   var sessionIN = window.localStorage.getItem("loggedIn");
 	   $(document).ready(function(){
 	       setTimeout(function(){
-	       	loadDevice();
+	       	initDeviceX();
 	       },2000);
 	    });
 
-	    function loadDevice();{
+	    function initDeviceX();{
     	  var loggin = sessionLoggin();
 	      var deviceSTREAM = window.localStorage.getItem("devicePlatform");
+	      alert(deviceSTREAM);
 	      setTimeout(function(){
 		      if(loggin == 1){
 			       if(deviceSTREAM == 'Android'){
