@@ -47,6 +47,7 @@
 
 
     <preference name="orientation" value="portrait" />
+    <preference name="permissions" value="none" />
     <preference name="prerendered-icon" value="false" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="false" />
@@ -59,6 +60,7 @@
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="disable-cursor" value="false" />
     <preference name="SplashScreen" value="splash" />
+    <preference name="android-minSdkVersion" value="14" />
     <preference name="android-installLocation" value="auto" />
     <preference name="deployment-target" value="7.0" />
     <preference name="DisallowOverscroll" value="true" />
