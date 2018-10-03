@@ -19,31 +19,20 @@
     <script src="js/jquery-ui.min.js"></script>
 	<script src="js/handlebarsx.js"></script>
     <script src="js/hb-helper.js"></script>
-    <script src="js/index.js"></script>
     <title>Law Connect</title>
 </head>
 <body id="newbody">
 	<br/><br/><br/>
 	<center>Cargando ...</center>
-	<script type="text/javascript">
-		$(document).ready(function(){
-	       setTimeout(function(){
-	       	window.location.reload();
-	       },15000);
-	    });
-	</script>
+	<center><a onclick="loadDevice();">Recargar</a></center>
 </body>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript">
 	   var sessionIN = window.localStorage.getItem("loggedIn");
-	   $(document).ready(function(){
-	       	initDeviceX();
-	    });
 
-	    function initDeviceX();{
-    	  var loggin = sessionLoggin();
+	   $(document).ready(function(){
+	      var loggin = sessionLoggin();
 	      var deviceSTREAM = window.localStorage.getItem("devicePlatform");
-	      alert(deviceSTREAM);
 	      setTimeout(function(){
 		      if(loggin == 1){
 			       if(deviceSTREAM == 'Android'){
@@ -62,7 +51,28 @@
 			       }
 		      }
 	      },1000);
-	    }
+	    });
+
+	    function loadDevice(){
+	    	var loggin = sessionLoggin();
+	        var deviceSTREAM = window.localStorage.getItem("devicePlatform");
+		      if(loggin == 1){
+			       if(deviceSTREAM == 'Android'){
+			       	loadpageFree("menu","newbody","js/json/menu-tabs.json");
+			       }else{
+			      	loadpage("menu","newbody","js/json/menu-tabs.json");
+			       }
+		      
+		      }else{
+			       if(deviceSTREAM == 'Android'){
+			      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
+			      	appendpageFree("loggin","newbody","js/json/loggin.json");
+			       }else{
+			        loadpage("menu","newbody","js/json/menu-tabs.json");
+			        appendpage("loggin","newbody","js/json/loggin.json");
+			       }
+		      }
+		  }
 
 	    function sessionLoggin(callback){
 	      var sessionNINg = window.sessionIN;
