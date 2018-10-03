@@ -34,22 +34,14 @@
   	var arrayx = $('#casoclientes').val();
   	arrayx = arrayx.split(",");
   	remove_clientes.push(valueCB);
-  	console.log(arrayx);
-  	console.log(remove_clientes);
   	 $.each(arrayx, function(i, value){
   	 	$.each(remove_clientes, function(ix, valuex){
   	 	if(value == valuex){
-  	       console.log('equal value'+ value + '=' + valuex + '>>' + i + ',' + ix);
   	       arrayx.splice(i, ix+1);
   	       remove_clientes.splice(ix, i+1);
   	 	}
   	 	});
   	 });	
-  
-    console.log('falso >>>>>>');
-    console.log(arrayx);
-
-
 
   }else{
 
@@ -62,8 +54,6 @@
   	arrayx = arrayx +','+ array_clientes;	
   	arrayx = arrayx.split(",");
   	}
-  	console.log('verdadero >>>>>>');
-  	console.log(arrayx);
   }
     var uniqueUsers = [];
 	$.each(arrayx, function(i, el){
@@ -75,7 +65,5 @@
   
 
   arrayx = $('#casoclientes').val();
-  console.log(chechkedx);
-  console.log(valueCB);
  }
 </script>

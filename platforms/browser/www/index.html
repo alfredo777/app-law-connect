@@ -31,17 +31,15 @@
 	      var loggin = sessionLoggin();
 	      var deviceSTREAM = window.localStorage.getItem("devicePropieties");
 	      deviceSTREAM = JSON.parse(deviceSTREAM);
-	      console.log(loggin);
 	      if(loggin == 1){
-
-	      if(deviceSTREAM == 'Android'){
+	      if(deviceSTREAM.plataforma == 'Android'){
 	      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
 	      }else{
 	      	loadpage("menu","newbody","js/json/menu-tabs.json");
 	      }
 	      
 	      }else{
-	       if(deviceSTREAM == 'Android'){
+	       if(deviceSTREAM.plataforma == 'Android'){
 	      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
 	      	appendpageFree("loggin","newbody","js/json/loggin.json");
 	       }else{
@@ -61,8 +59,6 @@
 	        var session = 1;
 	      }
 	      sessionNINg = window.localStorage.getItem("loggedIn");
-	      console.log(session);
-	      console.log(sessionNINg);
 	      return session;
 	   }
 
@@ -85,9 +81,9 @@
 	           serial:      device.serial
 	        }
 
+
 	        var deviceData = window.localStorage.setItem("devicePropieties", JSON.stringify(device_data));
 	        deviceData = window.localStorage.getItem("devicePropieties");
-	        console.log(deviceData);
 
 	      }
     </script>

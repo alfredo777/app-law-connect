@@ -27,12 +27,12 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <name>Law Connect</name>
+    <name>LAW CONNECT</name>
     <description>
-        Law connect
+        Encuentra asesoría en derecho fiscal y laboral de acuerdo a tus necesides.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        Brany (JARDA)
+    <author email="lawconnectapp@gmail.com" href="lawconnect.mx">
+        LAW CONNECT
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -44,4 +44,22 @@
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="orientation" value="portrait" />
+    <preference name="permissions" value="none" />
+    <preference name="prerendered-icon" value="false" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="false" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="SplashScreen" value="splash" />
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-installLocation" value="auto" />
+    <preference name="deployment-target" value="7.0" />
+    <preference name="DisallowOverscroll" value="true" />
 </widget>

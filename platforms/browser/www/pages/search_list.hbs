@@ -25,9 +25,9 @@
 				<span class="list-item__title">{{user.nombre}} {{user.apellidos}}</span>
 				<span class="list-item__subtitle">On the Internet</span>
 
-				<span class="list-item__subtitle description-list">
-				 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla auctor massa at enim aliquet feugiat. Suspendisse dui elit, sodales vel imperdiet a, molestie sed mi. 
-			</span>
+				<span class="list-item__subtitle description-list" id="lok{{userId}}" data-mi="{{user.acerca_de_mi}}" data-cur="{{user.curriculum}}">
+				  {{{trimString user.acerca_de_mi}}}
+			   </span>
 			</div>
 			
 			<script type="text/javascript">
@@ -49,13 +49,15 @@
 		   var especialidad = JSON.stringify(public_especialidad);
 		   $("#{{userId}}tabprofile").data('especialidades', especialidad);
 		   $("#{{userId}}tabprofile").click(function(){
+		   	    var curriculum = $("#lok{{userId}}").data('cur');
+		   	    var acerca_de_mi = $("#lok{{userId}}").data('mi');
 		   	    var especialidad = $("#{{userId}}tabprofile").data('especialidades');
 			    var share = {
 		    		nombre: "{{user.nombre}}",
 		    		evaluacion_por_litigio: "{{user.evaluacion_por_litigio}}",
 		    		apellidos: "{{user.apellidos}}",
-		    		acerca_de_mi: "{{user.acerca_de_mi}}",
-		    		curriculum: "{{user.curriculum}}",
+		    		acerca_de_mi: acerca_de_mi,
+		    		curriculum: curriculum,
 		    		email: "{{user.email}}",
 		    		telefono: "{{user.telefono}}",
 		    		ext: "{{user.ext}}",
@@ -64,7 +66,11 @@
 		    		destacar: "{{user.destacar}}",
 		    		direccion: "{{user.direccion}}",
 		    		avatar: "{{user.avatar}}",
-		            especialidades: JSON.parse(especialidad)
+		            especialidades: JSON.parse(especialidad),
+		            almamater: "{{user.almamater}}",
+		            cedula: "{{user.cedula}}",
+		            escolaridad: "{{user.escolaridad}}",
+		            view_token: "{{user.view_token}}"
 	    	    }
 	    	    console.log('------------>'+especialidad);
 			var json = {user: share, abogado: true, return: true};

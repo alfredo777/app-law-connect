@@ -278,20 +278,14 @@
 		    data: params_to_send,
 		    method: 'POST',
 		    success: function(data) {
-		      console.log(data);
 		      window.location.reload();
 		    },
 		    error: function(err) {
 		      callback(null, err);
 		    }
 		    });
-
-
-
 		}
 	</script>
-
-
 
 	<template id="register3.html">
 		<ons-page>
@@ -382,8 +376,6 @@
 		      	userSession = window.localStorage.setItem("userSession", JSON.stringify(data.user));
 		      	userSession = window.localStorage.getItem("userSession");
 		      	userSession = JSON.parse(userSession);
-		      	console.log(userSession);
-		      	console.log(sessionNINg);
 		      	window.location.reload();
 		    },
 		    error: function(err) {
@@ -437,6 +429,11 @@
 		  </ons-toolbar>
 		   <ons-card style="margin-top: 10px;">
 		     <h1>Políticas de privacidad</h1>
+		     <center>
+		     <img src="img/privacidad1.jpg" width="90%">
+		     <img src="img/privacidad2.jpg" width="90%">
+		     <img src="img/privacidad3.jpg" width="90%">
+		     </center>
 			 
 		   </ons-card >
 		</ons-page>
@@ -484,8 +481,6 @@ function login(){
 	      	userSession = window.localStorage.setItem("userSession", JSON.stringify(data.user));
 	      	userSession = window.localStorage.getItem("userSession");
 	      	userSession = JSON.parse(userSession);
-	      	console.log(userSession);
-	      	console.log(sessionNINg);
 	      	window.location.reload();
 	      }else{
 	      	ons.notification.alert(data.notice);
