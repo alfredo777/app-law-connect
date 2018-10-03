@@ -19,6 +19,7 @@
     <title>Law Connect</title>
 </head>
 <body id="newbody">
+
 </body>
     <script src="js/jquery-ui.min.js"></script>
 	<script src="js/handlebarsx.js"></script>
@@ -29,24 +30,25 @@
 
 	   $(document).ready(function(){
 	      var loggin = sessionLoggin();
-	      var deviceSTREAM = window.localStorage.getItem("devicePropieties");
-	      deviceSTREAM = JSON.parse(deviceSTREAM);
-	      if(loggin == 1){
-	      if(deviceSTREAM.plataforma == 'Android'){
-	      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
-	      }else{
-	      	loadpage("menu","newbody","js/json/menu-tabs.json");
-	      }
-	      
-	      }else{
-	       if(deviceSTREAM.plataforma == 'Android'){
-	      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
-	      	appendpageFree("loggin","newbody","js/json/loggin.json");
-	       }else{
-	        loadpage("menu","newbody","js/json/menu-tabs.json");
-	        appendpage("loggin","newbody","js/json/loggin.json");
-	       }
-	      }
+	      var deviceSTREAM = window.localStorage.getItem("devicePlatform");
+	      setTimeout(function(){
+		      if(loggin == 1){
+			       if(deviceSTREAM == 'Android'){
+			       	loadpageFree("menu","newbody","js/json/menu-tabs.json");
+			       }else{
+			      	loadpage("menu","newbody","js/json/menu-tabs.json");
+			       }
+		      
+		      }else{
+			       if(deviceSTREAM == 'Android'){
+			      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
+			      	appendpageFree("loggin","newbody","js/json/loggin.json");
+			       }else{
+			        loadpage("menu","newbody","js/json/menu-tabs.json");
+			        appendpage("loggin","newbody","js/json/loggin.json");
+			       }
+		      }
+	      },500);
 	    });
 
 	    function sessionLoggin(callback){
@@ -81,7 +83,8 @@
 	           serial:      device.serial
 	        }
 
-
+	        var plataforma = device.platform;
+	        var plataforma = window.localStorage.setItem("devicePlatform", plataforma);
 	        var deviceData = window.localStorage.setItem("devicePropieties", JSON.stringify(device_data));
 	        deviceData = window.localStorage.getItem("devicePropieties");
 
