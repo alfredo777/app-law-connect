@@ -12,14 +12,14 @@ function appendView(data, tpln, divloadtpl, whitparse){
 }
 
 function loadViewFree(data, tpln, divloadtpl, whitparse){
-    getTemplate(tpln, data, function(output, err) {
+    getTemplateFree(tpln, data, function(output, err) {
         $("#"+divloadtpl).html(output);
     });  
 }
 
 
 function appendViewFree(data, tpln, divloadtpl, whitparse){
-    getTemplate(tpln, data, function(output, err) {
+    getTemplateFree(tpln, data, function(output, err) {
         $("#"+divloadtpl).append(output);
     });  
 }
