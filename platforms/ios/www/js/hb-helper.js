@@ -1,27 +1,60 @@
-function loadView(data, tpln, divloadtpl){
+function loadView(data, tpln, divloadtpl, whitparse){
     getTemplate(tpln, data, function(output, err) {
     		$("#"+divloadtpl).html(output);
     });  
 }
 
 
-function appendView(data, tpln, divloadtpl){
+function appendView(data, tpln, divloadtpl, whitparse){
     getTemplate(tpln, data, function(output, err) {
         $("#"+divloadtpl).append(output);
     });  
 }
 
-function getTemplate(name, context, callback) {
+function loadViewFree(data, tpln, divloadtpl, whitparse){
+    getTemplateFree(tpln, data, function(output, err) {
+        $("#"+divloadtpl).html(output);
+    });  
+}
+
+
+function appendViewFree(data, tpln, divloadtpl, whitparse){
+    getTemplateFree(tpln, data, function(output, err) {
+        $("#"+divloadtpl).append(output);
+    });  
+}
+
+function getTemplateFree(name, context, callback, whitparse) {
   $.ajax({
     url: 'pages/'+name+'.hbs',
     cache: true,
     success: function(data) {
-      var tpl = Handlebars.compile(data),
-      output = tpl(context);
-      callback(output, null);
+       var result = $.parseJSON(context);
+       var tpl = Handlebars.compile(data),
+       output = tpl(result);
+       callback(output, null);
     },
     error: function(err) {
       callback(null, err);
+      alert(err);
+    }
+  });
+}
+
+
+function getTemplate(name, context, callback, whitparse) {
+  $.ajax({
+    url: 'pages/'+name+'.hbs',
+    cache: true,
+    success: function(data) {
+       var result = context;
+       var tpl = Handlebars.compile(data),
+       output = tpl(result);
+       callback(output, null);
+    },
+    error: function(err) {
+      callback(null, err);
+      alert(err);
     }
   });
 }
@@ -57,11 +90,10 @@ function loadpage(tpln, divloadtpl, jsonroute) {
     url: jsonroute,
     cache: true,
     success: function(data) {
-    console.log('Respuesta satisfactoria');
     loadView(data, tpln, divloadtpl);
     },
     error: function(err) {
-    console.log(err);
+      alert(err);
     }
   });
   
@@ -73,11 +105,39 @@ function appendpage(tpln, divloadtpl, jsonroute) {
     url: jsonroute,
     cache: true,
     success: function(data) {
-    console.log('Respuesta satisfactoria');
     appendView(data, tpln, divloadtpl);
     },
     error: function(err) {
-    console.log(err);
+       alert(err);
+    }
+  });
+  
+}
+
+function loadpageFree(tpln, divloadtpl, jsonroute) {
+  $.ajax({
+    url: jsonroute,
+    cache: true,
+    success: function(data) {
+    loadViewFree(data, tpln, divloadtpl);
+    },
+    error: function(err) {
+      alert(err);
+    }
+  });
+  
+}
+
+
+function appendpageFree(tpln, divloadtpl, jsonroute) {
+  $.ajax({
+    url: jsonroute,
+    cache: true,
+    success: function(data) {
+    appendViewFree(data, tpln, divloadtpl);
+    },
+    error: function(err) {
+       alert(err);
     }
   });
   
@@ -113,7 +173,7 @@ function externalpageloadSimplifyToCitas(tpln, divloadtpl, url, paramsx, methodx
     data = JSON.stringify(data);
     data = JSON.parse(data);
     citas = JSON.parse(data.citas)
-    console.log(citas)
+    console.log(citas);
     loadView({"data": citas}, tpln, divloadtpl);
     },
     error: function(err) {
@@ -156,11 +216,6 @@ function externalpageloadAbogadosConEquipos(tpln, divloadtpl, url, paramsx, meth
     data = JSON.parse(data);
     console.log(data);
     loadView({"data": data}, tpln, divloadtpl);
-   /* owner = data.owner;
-    data = JSON.parse(data.abogados);
-    console.log(data);
-    console.log(owner);
-    */
     },
     error: function(err) {
     console.log(err);
@@ -353,7 +408,7 @@ Handlebars.registerHelper('ifCurrentUser', function(userID, options) {
   console.log("usuario en session:"+ userSession);
   console.log("usuario comparado:"+ v1);
   }else{
-    userSession = false
+    userSession = false;
   }
   if(v1 === userSession){
     console.log('is current user');
@@ -374,7 +429,7 @@ Handlebars.registerHelper('notCurrentUser', function(userID, options) {
   console.log("usuario en session:"+ userSession);
   console.log("usuario comparado:"+ v1);
   }else{
-    userSession = false
+    userSession = false;
   }
   if(v1 != userSession){
     console.log('not current user');
@@ -413,7 +468,7 @@ Handlebars.registerHelper('ifAbogado', function(options) {
   userSession = JSON.parse(userSession);
   console.log(userSession);
   userSession = userSession.abogado;
-  console.log('abogado >>>>'+ userSession)
+  console.log('abogado >>>>'+ userSession);
   }else{
     userSession = false
   }
@@ -476,21 +531,21 @@ Handlebars.registerHelper('ifCond', function(v1, v2, options) {
 
 Handlebars.registerHelper('trimString', function(passedString) {
     var theString = passedString.substring(0,250);
-    return new Handlebars.SafeString(theString)
+    return new Handlebars.SafeString(theString);
 });
 
 Handlebars.registerHelper('oneLineString', function(passedString) {
     var theString = passedString.replace(/\n/g, "");
-    return new Handlebars.SafeString(theString)
+    return new Handlebars.SafeString(theString);
 });
 
 
 Handlebars.registerHelper('productionServer', function() {
     var theString = "https://access-point-law-connect.herokuapp.com";
-    return new Handlebars.SafeString(theString)
+    return new Handlebars.SafeString(theString);
 });
   
 Handlebars.registerHelper('developmentServer', function() {
     var theString = "http://192.168.1.71:3000";
-    return new Handlebars.SafeString(theString)
+    return new Handlebars.SafeString(theString);
 });

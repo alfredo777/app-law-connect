@@ -27,6 +27,9 @@
     },
     "cordova-plugin-file": {
       "PACKAGE_NAME": "com.laconnect.www"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.laconnect.www"
     }
   },
   "dependent_plugins": {

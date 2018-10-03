@@ -270,7 +270,7 @@
 
 			console.log(params_to_send);
 
-			var url = "{{{productionServer}}}/api/law/register"
+			var url = "{{{productionServer}}}/api/law/register";
 
 			$.ajax({
 		    url: url,
@@ -366,7 +366,7 @@
 
 			console.log(params_to_send);
 
-			var url = "{{{productionServer}}}/api/client/register"
+			var url = "{{{productionServer}}}/api/client/register";
 
 			//var url = "{{{developmentServer}}}/api/client/register"
 
@@ -488,7 +488,7 @@ function login(){
 	      	console.log(sessionNINg);
 	      	window.location.reload();
 	      }else{
-	      	ons.notification.alert(data.notice)
+	      	ons.notification.alert(data.notice);
 	      }
 	    },
 	    error: function(err) {
@@ -545,7 +545,5 @@ function problemsend(){
 	});
 
 }
-
-
 
 </script>

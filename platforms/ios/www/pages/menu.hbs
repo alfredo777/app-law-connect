@@ -19,14 +19,16 @@
 {{#each compose}}
 <template id="tab{{id}}">
 <ons-page id="tabcompose{{id}}" >
-
 </ons-page>
 </template>
 {{/each}}
+
 {{#each compose}}
 <script type="text/javascript">
 $(document).ready(function(){
-   	console.log(Handlebars);
+    console.log(Handlebars);
+    var deviceSTREAM = window.localStorage.getItem("devicePropieties");
+    deviceSTREAM = JSON.parse(deviceSTREAM);
     var tpl, json, idx;
     tpl = "{{Render}}";
     json = "js/json/{{Render}}.json";
@@ -34,7 +36,11 @@ $(document).ready(function(){
     console.log(tpl);
     console.log(json);
     console.log(idx);
-    loadpage(tpl,idx,json);
+    if(deviceSTREAM == 'Android'){
+    loadpageFree(tpl,idx,json); 
+    }else{
+    loadpage(tpl,idx,json);   
+    }
 });
 </script>
 {{/each}}
@@ -46,6 +52,7 @@ $(document).ready(function(){
     email: userSession.user.email
    }
    var url = "{{{productionServer}}}/api/global/notifications";
+   
    $.ajax({
     url: url,
     cache: true,
@@ -58,7 +65,7 @@ $(document).ready(function(){
     error: function(err) {
       callback(null, err);
    }
-});
+   });
 
 
  });
