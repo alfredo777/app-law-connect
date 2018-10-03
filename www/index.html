@@ -19,7 +19,7 @@
 <body>
   Prueba de compile con js, cordova y funciones de arranque.
   <a onclick="arranqueApp();">Arrancar app</a>
-  <div id="body" style="width:100%; position:absolute; overflow: auto; height: 100000px;">body</div>
+  <div id="newbody" style="width:100%; position:absolute; overflow: auto; height: 100000px;">body</div>
 </body>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
@@ -34,10 +34,10 @@
 	      var loggin = sessionLoggin();
 	      console.log(loggin);
 	      if(loggin == 1){
-	      loadpage("menu","body","js/json/menu-tabs.json");
+	      loadpage("menu","newbody","js/json/menu-tabs.json");
 	      }else{
-	      loadpage("menu","body","js/json/menu-tabs.json");
-	      /*appendpage("loggin","body","js/json/loggin.json"); */
+	      loadpage("menu","newbody","js/json/menu-tabs.json");
+	      /*appendpage("loggin","newbody","js/json/loggin.json"); */
 	      }
 	    });
 
@@ -46,10 +46,10 @@
 	   	  var loggin = sessionLoggin();
 	      console.log(loggin);
 	      if(loggin == 1){
-	      loadpage("menu","body","js/json/menu-tabs.json");
+	      loadpage("menu","newbody","js/json/menu-tabs.json");
 	      }else{
-	      loadpage("menu","body","js/json/menu-tabs.json");
-	      /*appendpage("loggin","body","js/json/loggin.json"); */
+	      loadpage("menu","newbody","js/json/menu-tabs.json");
+	      /*appendpage("loggin","newbody","js/json/loggin.json"); */
 	      }
 	   }
 

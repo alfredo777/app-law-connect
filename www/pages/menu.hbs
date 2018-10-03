@@ -19,7 +19,6 @@
 {{#each compose}}
 <template id="tab{{id}}">
 <ons-page id="tabcompose{{id}}" >
-
 </ons-page>
 </template>
 {{/each}}
@@ -46,6 +45,7 @@ $(document).ready(function(){
     email: userSession.user.email
    }
    var url = "{{{productionServer}}}/api/global/notifications";
+   
    $.ajax({
     url: url,
     cache: true,
@@ -58,7 +58,7 @@ $(document).ready(function(){
     error: function(err) {
       callback(null, err);
    }
-});
+   });
 
 
  });

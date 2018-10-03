@@ -17,6 +17,7 @@ function appendView(data, tpln, divloadtpl){
 }
 
 function getTemplate(name, context, callback) {
+  alert('ingresando template'+ name);
   $.ajax({
     url: 'pages/'+name+'.hbs',
     cache: true,
