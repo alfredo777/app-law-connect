@@ -30,16 +30,13 @@
     <script type="text/javascript">
 	   var sessionIN = window.localStorage.getItem("loggedIn");
 	   $(document).ready(function(){
-	   	  alert(Handlebars);
-	   	  var hbsx = JSON.stringify(Handlebars);
-	   	  alert(hbsx);
 	      var loggin = sessionLoggin();
 	      console.log(loggin);
 	      if(loggin == 1){
 	      loadpage("menu","newbody","js/json/menu-tabs.json");
 	      }else{
 	      loadpage("menu","newbody","js/json/menu-tabs.json");
-	       appendpage("loggin","newbody","js/json/loggin.json");
+	      appendpage("loggin","newbody","js/json/loggin.json");
 	      }
 	    });
 
