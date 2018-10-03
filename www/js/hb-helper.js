@@ -23,7 +23,8 @@ function getTemplate(name, context, callback) {
     cache: true,
     success: function(data) {
       alert(data);
-      alert(context)
+      alert(context);
+      alert(Handlebars);
       var tpl = Handlebars.compile(data),
        output = tpl(context);
        alert(tpl);
