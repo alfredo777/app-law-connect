@@ -1,22 +1,26 @@
-function loadView(data, tpln, divloadtpl){
+function loadView(data, tpln, divloadtpl, whitparse){
     getTemplate(tpln, data, function(output, err) {
     		$("#"+divloadtpl).html(output);
     });  
 }
 
 
-function appendView(data, tpln, divloadtpl){
+function appendView(data, tpln, divloadtpl, whitparse){
     getTemplate(tpln, data, function(output, err) {
         $("#"+divloadtpl).append(output);
     });  
 }
 
-function getTemplate(name, context, callback) {
+function getTemplate(name, context, callback, whitparse) {
   $.ajax({
     url: 'pages/'+name+'.hbs',
     cache: true,
     success: function(data) {
-      var result = $.parseJSON(context);
+       if(whitparse == true){
+        var result = $.parseJSON(context);
+       }else{
+        var result = data;
+       }
        var tpl = Handlebars.compile(data),
        output = tpl(result);
        callback(output, null);
@@ -54,7 +58,7 @@ function getPartial(name, context, callback){
   });
 }
 
-function loadpage(tpln, divloadtpl, jsonroute) {
+function loadpage(tpln, divloadtpl, jsonroute, whitparse = false) {
   $.ajax({
     url: jsonroute,
     cache: true,
@@ -69,7 +73,7 @@ function loadpage(tpln, divloadtpl, jsonroute) {
 }
 
 
-function appendpage(tpln, divloadtpl, jsonroute) {
+function appendpage(tpln, divloadtpl, jsonroute, whitparse = false) {
   $.ajax({
     url: jsonroute,
     cache: true,
@@ -83,7 +87,7 @@ function appendpage(tpln, divloadtpl, jsonroute) {
   
 }
 
-function externalpageload(tpln, divloadtpl, url, paramsx, methodx) {
+function externalpageload(tpln, divloadtpl, url, paramsx, methodx, whitparse = false) {
   $.ajax({
     url: url,
     cache: true,
@@ -103,7 +107,7 @@ function externalpageload(tpln, divloadtpl, url, paramsx, methodx) {
 }
 
 
-function externalpageloadSimplifyToCitas(tpln, divloadtpl, url, paramsx, methodx) {
+function externalpageloadSimplifyToCitas(tpln, divloadtpl, url, paramsx, methodx, whitparse = false) {
   $.ajax({
     url: url,
     cache: true,
@@ -123,7 +127,7 @@ function externalpageloadSimplifyToCitas(tpln, divloadtpl, url, paramsx, methodx
   
 }
 
-function externalpageloadAbogados(tpln, divloadtpl, url, paramsx, methodx) {
+function externalpageloadAbogados(tpln, divloadtpl, url, paramsx, methodx, whitparse = false) {
   $.ajax({
     url: url,
     cache: true,
@@ -145,7 +149,7 @@ function externalpageloadAbogados(tpln, divloadtpl, url, paramsx, methodx) {
   
 }
 
-function externalpageloadAbogadosConEquipos(tpln, divloadtpl, url, paramsx, methodx) {
+function externalpageloadAbogadosConEquipos(tpln, divloadtpl, url, paramsx, methodx, whitparse = false) {
   $.ajax({
     url: url,
     cache: true,
@@ -164,7 +168,7 @@ function externalpageloadAbogadosConEquipos(tpln, divloadtpl, url, paramsx, meth
   
 }
 
-function appenddexternalpageload(tpln, divloadtpl, url, paramsx, methodx) {
+function appenddexternalpageload(tpln, divloadtpl, url, paramsx, methodx, whitparse = false) {
   $.ajax({
     url: url,
     cache: true,
@@ -188,7 +192,7 @@ function appenddexternalpageload(tpln, divloadtpl, url, paramsx, methodx) {
 }
 
 
-function loadaexternalpageloadsearch(tpln, divloadtpl, url, paramsx, methodx) {
+function loadaexternalpageloadsearch(tpln, divloadtpl, url, paramsx, methodx, whitparse = false) {
   $.ajax({
     url: url,
     cache: true,
@@ -210,7 +214,7 @@ function loadaexternalpageloadsearch(tpln, divloadtpl, url, paramsx, methodx) {
   
 }
 
-function appenddexternalpageloadClientes(tpln, divloadtpl, url, paramsx, methodx) {
+function appenddexternalpageloadClientes(tpln, divloadtpl, url, paramsx, methodx, whitparse = false) {
   $.ajax({
     url: url,
     cache: true,
