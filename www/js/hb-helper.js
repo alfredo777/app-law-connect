@@ -24,7 +24,9 @@ function getTemplate(name, context, callback) {
     success: function(data) {
       alert(data);
       alert(context);
-      alert(Handlebars);
+      alert(JSON.stringify(Handlebars));
+      var data = JSON.stringify(data);
+      var data = JSON.parse(data);
       var tpl = Handlebars.compile(data),
        output = tpl(context);
        alert(tpl);
