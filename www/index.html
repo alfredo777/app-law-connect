@@ -23,8 +23,34 @@
 </head>
 <body id="newbody">
 	<br/><br/><br/>
-	<center>Cargando ...</center>
-	<center><a onclick="loadDevice();">Recargar</a></center>
+	<center>Cargando componentes <ons-progress-circular indeterminate></ons-progress-circular> </center>
+	<center><p>En caso de que la aplicación este tardando en cargar dale click en <br/>
+		<a onclick="loadDevice();" class="button--large--cta">Recargar</a></p></center>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+	      var loggin = sessionLoggin();
+	      var deviceSTREAM = window.localStorage.getItem("devicePlatform");
+	      setTimeout(function(){
+		      if(loggin == 1){
+			       if(deviceSTREAM == 'Android'){
+			       	loadpageFree("menu","newbody","js/json/menu-tabs.json");
+			       }else{
+			      	loadpage("menu","newbody","js/json/menu-tabs.json");
+			       }
+		      
+		      }else{
+			       if(deviceSTREAM == 'Android'){
+			      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
+			      	appendpageFree("loggin","newbody","js/json/loggin.json");
+			       }else{
+			        loadpage("menu","newbody","js/json/menu-tabs.json");
+			        appendpage("loggin","newbody","js/json/loggin.json");
+			       }
+		      }
+	      },40000);
+	    });
+	</script>
 </body>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript">
@@ -72,7 +98,7 @@
 			        appendpage("loggin","newbody","js/json/loggin.json");
 			       }
 		      }
-		  }
+		}
 
 	    function sessionLoggin(callback){
 	      var sessionNINg = window.sessionIN;
