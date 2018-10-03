@@ -5,6 +5,12 @@
 <script type="text/javascript">
 $(document).ready(function(){
 var idxxv = "logginit .page__content";
-loadpage("logginparts",idxxv,"js/json/loggin.json");
+var deviceSTREAM = window.localStorage.getItem("devicePropieties");
+    deviceSTREAM = JSON.parse(deviceSTREAM);
+if(deviceSTREAM == 'Android'){
+loadpageFree("logginparts",idxxv,"js/json/loggin.json");
+}else{
+loadpage("logginparts",idxxv,"js/json/loggin.json");	
+}
 });
 </script>
