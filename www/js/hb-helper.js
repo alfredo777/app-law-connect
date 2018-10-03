@@ -1,6 +1,9 @@
 function loadView(data, tpln, divloadtpl){
+    alert('iniciando load view');
+    alert(data);
+    alert(tpln);
+    alert(divloadtpl);
     getTemplate(tpln, data, function(output, err) {
-        alert('iniciando load view');
     		$("#"+divloadtpl).html(output);
     });  
 }
@@ -61,7 +64,7 @@ function loadpage(tpln, divloadtpl, jsonroute) {
     url: jsonroute,
     cache: true,
     success: function(data) {
-    alert('Respuesta satisfactoria');
+    alert('Respuesta satisfactoria'+ data);
     loadView(data, tpln, divloadtpl);
     },
     error: function(err) {
@@ -77,7 +80,7 @@ function appendpage(tpln, divloadtpl, jsonroute) {
     url: jsonroute,
     cache: true,
     success: function(data) {
-    alert('Respuesta satisfactoria');
+    alert('Respuesta satisfactoria'+ data);
     appendView(data, tpln, divloadtpl);
     },
     error: function(err) {
