@@ -1,9 +1,10 @@
     <ons-navigator swipeable id="logginNavigator" page="loggin.html"  ></ons-navigator>
     <template id="loggin.html" side="right">
 		 <ons-page>
-			<ons-toolbar>
+			<ons-toolbar style="background-color: transparent;">
 			<div class="center">Inicia Sesión</div>
 		   </ons-toolbar>
+		   <p style="font-size: 15px; line-height: 18px; padding: 15px;">Ingresa para poder agendar una cita o llamada con el equipo de asesoría en derecho laboral y fiscal ideal para ti y lleva un control de todos tus asuntos legales<b> sin ningún costo.</b></p>
 		   <ons-card style="margin-top: 10px;">
 		    <p>
 			      <ons-input id="username" style="width: 100%"  modifier="material transparent " placeholder="{{Placeuser}}" float ></ons-input>
@@ -12,7 +13,7 @@
 			      <ons-input id="password" style="width: 100%"  modifier="material transparent " type="password" placeholder="{{Pplacepassword}}" float></ons-input>
 			    </p>
 			    <p style="margin-top: 30px;">
-			      <ons-button onclick="login()" modifier="large">{{Button}}</ons-button>
+			      <ons-button onclick="login()" modifier="large" style="width: 100%;">{{Button}}</ons-button>
 			    </p>
 			  </div>
 			  <ons-list modifier="inset">

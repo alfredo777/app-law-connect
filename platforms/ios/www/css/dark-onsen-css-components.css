@@ -1423,7 +1423,7 @@ h4, h5, h6 {
   line-height: 36px;
   padding: 4px 12px;
   display: block;
-  width: 100%;
+  width: 90%;
   text-align: center;
 }
 .button--large:active {

@@ -1,15 +1,18 @@
-<ons-toolbar class="toolbar" static="true">
+<ons-toolbar class="toolbar" static="true" style="background-color: transparent;">
 	<div class="left"><ons-back-button></ons-back-button></div>
-	<div class="center">{{data.titulo}}</div>
+	<div class="center"></div>
     <div class="right">
     </div>
 </ons-toolbar>
+<p style="margin-top: 13px; font-size: 18px; text-align: center; font-weight: bold;">
+{{data.titulo}}
+</p>
 {{#ifAbogado}}
+
 <ons-fab position="bottom right" onclick="loadCreateToDO('{{data.numero_expediente}}');">
     <ons-icon icon="md-plus"></ons-icon>
 </ons-fab>
 {{/ifAbogado}}
-<br/><br/>
 <ons-card modifier="material modifier2" style="overflow:auto; min-height:300px; max-height: 3850px; ">
 	 <div class="content">
 			<i>Expediente: {{data.numero_expediente}}</i><br/><br/>
@@ -20,9 +23,9 @@
 	        <button class="button--quiet" onclick="showTabs('tab5')"> Abogados</button>
 			<div id="tab1" class="tab">
 				{{#ifCond data.variables.chart true}}
-			    <div style="width: 300px;">
-	          	<div class="w3-section w3-dark-grey" style="width:220px;">
-				  <div class="w3-green w3-green w3-center" style="width:{{ data.variables.porcentaje_de_cumplimiento}}%">{{ data.variables.porcentaje_de_cumplimiento}}% - de {{ data.variables.actividades_del_caso}} actividades.</div>
+			    <div style="width: 100%;">
+	          	<div class="w3-section w3-dark-grey" style="width:100%;">
+				  <div class="w3-green w3-green w3-center" style="width:{{ data.variables.porcentaje_de_cumplimiento}}%">{{ data.variables.porcentaje_de_cumplimiento}}% </br> de {{ data.variables.actividades_del_caso}} actividades.</div>
 			    </div>
 			    </div>
 			    {{/ifCond}}
@@ -40,8 +43,8 @@
 				      </div>
 				      
 				       <div class="expandable-content">
-				      	 <span class="list-item__subtitle"> <b>Descripcción:</b> <br/> {{todo.description}} </span><br/>
-				      	 <span class="list-item__subtitle"><b>Temporalidad:</b> <br/> {{todo.init_date}} - {{todo.finish_date}} </span> <br/>
+				      	 <span class="list-item__subtitle"> <b>Descripción:</b> <br/> {{todo.description}} </span><br/><br/>
+				      	 <span class="list-item__subtitle"><b>Temporalidad:</b> <br/> {{todo.init_date}} - {{todo.finish_date}} </span> <br/><br/><br/>
 				      	 {{#ifAbogado}}
 				      	 <ons-button input-id="delte-todo-{{todo.id}}" onclick="deleteTodo('{{todo.id}}', 'item{{todo.id}}')">Eliminar</ons-button>
 				      	 {{/ifAbogado}}
@@ -50,7 +53,7 @@
 
     				 <script type="text/javascript">
     				 	$("ons-checkbox#{{todo.id}}-check").click(function(){
-    				 		var r = confirm("Esta seguto de querer finalizar esta actividad al finalizarla sera contabilizada como realizada y no se podra volver a activar");
+    				 		var r = confirm("Al marcarse como completada, esta actividad será contabilizada como realizada y no se podrá volver a activar");
 	                        if (r == true) {
     				 		var checkedt = this.checked;
     				 		var valcheck = this.value;
@@ -96,8 +99,8 @@
 				      </div>
 				     
 				      <div class="expandable-content">
-				      	 <span class="list-item__subtitle"> <b>Descripcción:</b> <br/> {{todo.description}} </span><br/>
-				      	 <span class="list-item__subtitle"><b>Temporalidad:</b> <br/> {{todo.init_date}} - {{todo.finish_date}} </span> <br/>
+				      	 <span class="list-item__subtitle"> <b>Descripcción:</b> <br/> {{todo.description}} </span><br/><br/>
+				      	 <span class="list-item__subtitle"><b>Temporalidad:</b> <br/> {{todo.init_date}} - {{todo.finish_date}} </span> <br/><br/>
 				         <span class="list-item__subtitle"><b>Realizado el: </b> <br/> {{todo.realizado}} </span><br/><br/>
 				         {{#ifAbogado}}
 				      	 <ons-button input-id="delte-todo-{{todo.id}}" onclick="deleteTodo('{{todo.id}}', 'item{{todo.id}}')">Eliminar</ons-button>
@@ -144,13 +147,18 @@
 			    </ons-list>
 		    </div>
 		    <div id="tab5" class="tab" style="display:none;">
-		    	<p>Líder del caso</p>
+		    	<p style="font-size: 18px; color#000; padding-left: 15px; font-weight: bold;">Líder del caso</p>
 				{{#each data.abogados as |abogado|}}
-				   <div style="width:100%;">
-				   		<img src="{{abogado.square}}" width="100px" height="100px" >
+				   <ons-list-item>
+				   		 <div class="left">
+				        <img class="list-item__thumbnail" src="{{abogado.square}}">
+				      </div>
+				      <div class="center">
+				        <span class="list-item__title">{{abogado.nombre}} {{abogado.apellidos}}</span><span class="list-item__subtitle">{{abogado.email}}</span>
+				      </div>
+				   </ons-list-item>
 
-				   		<p style="font-size:8px;">{{abogado.nombre}} {{abogado.apellidos}}</p>
-				   </div>
+
 				{{/each}}
 		    	<ons-list>
 		    	<ons-list-header>Abogados</ons-list-header>

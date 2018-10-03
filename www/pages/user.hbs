@@ -42,14 +42,14 @@
 	<template id="page1.html">
 	  <ons-page>
 	  	{{#if return}}
-		    <ons-toolbar class="toolbar" modifier="transparent cover-content" static="true">
+		    <ons-toolbar class="toolbar" modifier="transparent cover-content" static="true" style="background-color: rgba(0,0,0,0.3);">
 				<div class="left"><ons-back-button></ons-back-button></div>
 				<div class="center"></div>
-			    <div class="right">
+			    <div class="right" style="padding-right: 15px;">
 			    	{{#sessionTrue}}
 			    	{{#ifCliente}}
 			    	<div id="contactButton">
-	                <ons-button-toolbar style="font-size: 12px; margin-left:-40px; color: #fff;" onclick="changeTabContact();"> CONTACTAR <ons-icon icon="fa-comment" style="font-size:30px; color:#fff;" ripple> </ons-icon></ons-toolbar-button>
+	                <ons-button-toolbar style="font-size: 12px; margin-left:-40px; color: #fff;" onclick="changeTabContact();"> CONTACTAR <ons-icon icon="fa-comment" style="font-size:30px; color:#fff; " ripple> </ons-icon></ons-toolbar-button>
 	                </div>
 	                {{/ifCliente}}
 	                {{/sessionTrue}}
@@ -72,65 +72,83 @@
 		    	<a onclick="window.plugins.socialsharing.shareViaFacebook('Mensaje via Facebook','www/logo.png', 'http://lawconnect.io', function() {console.log('share ok')}, function(errormsg){console.log(errormsg)})"><ons-icon icon="md-facebook"></ons-icon></a>
 		    </ons-speed-dial-item>
 		 </ons-speed-dial>
-	  	<img src="{{user.avatar}}" width="100%;" style="margin-top:-45px;" id="{{#ifCurrentUser user.email}}currentuseravatar{{/ifCurrentUser}}" class="avatar-profile">
+	  	<img src="{{user.avatar}}" width="100%;" style="margin-top:-55px;" id="{{#ifCurrentUser user.email}}currentuseravatar{{/ifCurrentUser}}" class="avatar-profile">
 
-	    <div class="profile-header-name">
+	    <div class="profile-header-name ">
 	    	<h1>{{user.nombre}} {{user.apellidos}}</h1>
-	    	<span class="calification-profile">9.7</span>
+	    	 {{#ifCond abogado true }}
+	 	    <span class="calification-profile">9.7</span>
+	 	      {{/ifCond}}
 	    </div>
 	  	{{#ifCurrentUser user.email}}
+	  	{{#ifCliente}}
+	  	     <div class="profile-menu" style="margin-top: 20px;">
+	 	     <ons-button modifier="quiet" onclick="changeCitas();">Citas</ons-button>
+	 	     <ons-button modifier="quiet" onclick="editarPerfil();">Editar</ons-button>
+	 	      <ons-button modifier="quiet" onclick="exit();">Salir</ons-button>
+	 	      <ons-button modifier="quiet" onclick="showPopover(this);" style="font-size: 40px; margin-top: -5px; margin-left: 150px;" ><ons-icon icon="ion-camera"></ons-icon></ons-button>
+	 	     </div>
+	 	     {{/ifCliente}}
+	    {{/ifCurrentUser}}
+
+	    	{{#ifCurrentUser user.email}}
+	    	{{#ifCond abogado true }}
 	  	     <div class="profile-menu">
 	 	     <ons-button modifier="quiet" onclick="changeCitas();">Citas</ons-button>
 	 	     <ons-button modifier="quiet" onclick="editarPerfil();">Editar</ons-button>
-	 	      {{#ifCond abogado true }}
+	 	      
 	 	     <ons-button modifier="quiet" onclick="teams();">Equipo</ons-button>
-	 	      {{/ifCond}}
+	 	      
 	 	      <ons-button modifier="quiet" onclick="exit();">Salir</ons-button>
 	 	      <ons-button modifier="quiet" onclick="showPopover(this);" style="font-size: 40px; margin-top: -5px; margin-left: 80px;" ><ons-icon icon="ion-camera"></ons-icon></ons-button>
 	 	     </div>
+	 	     {{/ifCond}}
 	    {{/ifCurrentUser}}
+
 	    {{#ifCond abogado true}}
-		 <ons-list style="{{#notCurrentUser user.email}}margin-top: 40px;{{/notCurrentUser}}">
-		  	<p class="special">Especialidades</p>
-			<ons-list-item class="specials">
+		 <ons-list style="{{#notCurrentUser user.email}}margin-top: 50px;{{/notCurrentUser}}">
+		 {{#ifCliente}}
+			    	<div style="margin-top:-70px;">
+	                </div>
+	                {{/ifCliente}}
+	      
+		  	<p class="special" style="color: #000;"><b>Especialidades</b></p>
+			<ons-list-item class="specials" style="margin-top:-20px; ">
 		  	{{#each user.especialidades}}
-		  	   <span class="uk-label" style="margin-top: -20px; ">
+		  	   <span class="uk-label" >
 		  	   	 {{nombre}}
 		  	   </span>
 		  	{{/each}}
 
 		  </ons-list-item>
-		  <ons-list-item style="padding: 0px 15px;">
-		  	<p class="graph-me">Efectividad</p>
+		  <ons-list-item style="padding: 0px 15px;" class="specials">
+		  	<p class="graph-me" style="color: #000;">Efectividad</p>
           	<div style="width: 100%;">
           	<div class="w3-section w3-dark-grey" style="width:100%; ">
 			  <div class="w3-green w3-green w3-center" style="padding: 7px 0px; width:{{user.evaluacion_por_litigio}}%">{{user.evaluacion_por_litigio}}%</div>
 		    </div>
 		    </div>
 		  </ons-list-item>
-		  <ons-list-item><b>Acerca de mí:</b> <br/><p style="padding: 0px 20px; text-align: justify;"> {{user.acerca_de_mi}}</p></ons-list-item>
-		  <ons-list-item><b>Curriculum:</b> <br/> <p style="padding: 0px 20px; text-align: justify;">{{user.curriculum}}</p></ons-list-item>
-		  <ons-list-item>
-		  	<div><p><b>Alma mater</b> 
-		  	{{user.almamater}}</p></div>
-		   </ons-list-item>
-		   <ons-list-item>
-		  	<div><p><b>Grado Académico</b>
-		  	{{user.escolaridad}}</p></div>
-		  </ons-list-item>
-		  <ons-list-item>
-		  	<div><p><b>Cédula</b>
-		  	{{user.cedula}}</p></div>
-		  </ons-list-item>
-		  <ons-list-item><b>Acerca de mí:</b> <br/> {{{user.acerca_de_mi}}}</ons-list-item>
-		  <ons-list-item><b>Curriculum:</b> <br/> {{{user.curriculum}}}</ons-list-item>
+		  <ons-list-item><!-- <b style="width: 100%; display: block;color: #000;" >Curriculum:</b>  -->
+
+		  	<p style="padding: 0px 5px; text-align: justify; width: 100%;"><b style="color: #000;">Alma mater:</b> 
+		  	{{user.almamater}}</p>
+
+		  	<p style="padding: 0px 5px; text-align: justify; width: 100%;"><b style="color: #000;">Grado Académico:</b>
+		  	{{user.escolaridad}}</p>
+
+		  	<p style="padding: 0px 5px; text-align: justify; width: 100%;"><b style="color: #000;">Cédula:</b>
+		  	{{user.cedula}}</p>
+
+		  <p style="padding: 0px 10px; text-align: justify;">{{{user.curriculum}}}</p></ons-list-item>
+		   <ons-list-item><b style="color: #000;">Acerca de mí:</b> <br/><p style="padding: 0px 10px; text-align: justify;"> {{{user.acerca_de_mi}}}</p></ons-list-item>
 		</ons-list>
 		{{else}}
-		<div style="margin-top:10px;">
+		<div style="margin-top:70px;">
 		<ons-list>
-	     <ons-list-item>{{user.nombre}} {{user.apellidos}}</ons-list-item>
-	     <ons-list-item>{{user.email}}</ons-list-item>
-	     <ons-list-item>{{user.celular}}</ons-list-item>
+	     <ons-list-item><b style="color: #000; margin-right: 10px;">Cliente:</b>  {{user.nombre}} {{user.apellidos}}</ons-list-item>
+	     <ons-list-item><b style="color: #000;margin-right: 10px;">Correo:</b>  {{user.email}}</ons-list-item>
+	     <ons-list-item><b style="color: #000;margin-right: 10px;">Celular:</b>  {{user.celular}}</ons-list-item>
 		</ons-list>
 	    </div>
 		{{/ifCond}}
@@ -153,12 +171,12 @@
 	</template>
 	<template id="page4.html">
 	  <ons-page>
-		 <ons-toolbar class="toolbar" modifier="transparent cover-content" static="true">
+		 <ons-toolbar class="toolbar" modifier="transparent cover-content" static="true" style="background-color: transparent;">
 			<div class="left"><ons-back-button></ons-back-button></div>
-			<div class="center">Contactar</div>
+			<div class="center"></div>
 	     </ons-toolbar>
 	     <ons-page>
-	     	<br/><br/><br/>
+	     	<br/>
 	     	<center>
 	     		<p style="text-align:justify; padding: 20px;">Mediante este formulario se programará una cita para una visita a nuestras oficinas o una video llamada para platicar de la razón por la que nos contacta.</p>
 	     		<input type="text" id="datepicker" name="date" class="text-input text-input--material" placeholder="Selecciona una fecha" style="width:90%;"><br/><br/><br/>
@@ -178,7 +196,7 @@
 	</template>
 	<template id="page5.html">
 	  <ons-page id="page5user">
-	  	<ons-toolbar class="toolbar" static="true">
+	  	<ons-toolbar class="toolbar" static="true" style="background-color: transparent;">
 			<div class="left"><ons-back-button onclick="changeTaUserx();"></ons-back-button></div>
 			<div class="center">Mis citas</div>
 	    </ons-toolbar>
@@ -204,7 +222,7 @@
 
 	    <input type="text" id="extedit" name="extedit" class="text-input text-input--material" placeholder="Extensión" style="width:90%;" value="{{user.ext}}"><br/><br/>
   
-        <input type="text" id="abogadoedit" name="abogadoedit" class="text-input text-input--material" placeholder="Abogado" style="width:90%;" value="{{abogado}}"><br/><br/>
+<!--         <input type="text" id="abogadoedit" name="abogadoedit" class="text-input text-input--material" placeholder="Abogado" style="width:90%;" value="{{abogado}}"><br/><br/> -->
 
 	    <ons-button class="button--cta" onclick="useredit();" modifier="large">Actualizar usuario</ons-button>
 	    </center>
@@ -236,8 +254,8 @@
  <ons-popover direction="down" id="popover">
   <div style="padding: 10px; text-align: center;">
    <ons-list>
-    <ons-list-item><ons-button modifier="quiet" onclick="cameraAvatar();" style="font-size: 20px; margin-top: -10px;"><ons-icon icon="ion-camera"></ons-icon> Tomar foto </ons-button></ons-list-item>
-    <ons-list-item><ons-button modifier="quiet" onclick="fileAvatar();" style="font-size: 20px; margin-top: -10px;"><ons-icon icon="fa-file-o"></ons-icon> Seleccionar foto </ons-button></ons-list-item>
+    <ons-list-item><ons-button modifier="quiet" onclick="cameraAvatar();" style="font-size: 12px; margin-top: -10px;"><ons-icon icon="ion-camera"></ons-icon> Tomar foto </ons-button></ons-list-item>
+    <ons-list-item><ons-button modifier="quiet" onclick="fileAvatar();" style="font-size: 12px; margin-top: -10px;"><ons-icon icon="fa-file-o"></ons-icon> Seleccionar foto </ons-button></ons-list-item>
   </div>
   </ons-lit>
 </ons-popover>

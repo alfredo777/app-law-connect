@@ -57,7 +57,7 @@ ons-toolbar:not([inline]), ons-bottom-toolbar {
 
 ons-toolbar:not([inline]) {
   top: 0;
-  background: #fff;
+  /*background-color:rgba(0,0,0,0.3);*/
 }
 
 ons-bottom-toolbar {

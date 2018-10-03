@@ -1,23 +1,148 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.laconnect.www" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>app-law-connect</name>
+    <name>LAW CONNECT</name>
     <description>
-        A blank PhoneGap app.
+        Encuentra asesoría en derecho fiscal y laboral de acuerdo a tus necesides.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="awconnectapp@gmail.com" href="lawconnect.mx">
+        LAW CONNECT
     </author>
     <content src="index.html" />
     <access origin="*" />
+
+    <icon src="res/icon.png" />
+    <splash src="res/splash.png" />
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+    <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+    <allow-intent href="itms:*" />
+    <allow-intent href="itms-apps:*" />
+    </platform>
+    <platform name="ios">
+    <config-file parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
+    <string>LAW CONNECT  would like to store a photo for your AVATAR.</string>
+    </config-file>
+    <config-file parent="NSPhotoLibraryUsageDescription" platform="ios" target="*-Info.plist">
+    <string>LAW CONNECT would like to use a photo for your AVATAR.</string>
+    </config-file>
+    </platform>
+
+
     <engine name="browser" spec="~5.0.4" />
     <engine name="android" spec="^7.1.1" />
     <plugin name="phonegap-plugin-push" spec="~2.2.3" />
     <plugin name="cordova-plugin-sim" spec="^1.3.3" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
-
-    <plugin name="cordova-plugin-file-transfer" spec="1.5.0" />
-
+    <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.1" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
 </widget>
+
+    <preference name="orientation" value="portrait" />
+    <preference name="permissions" value="none" />
+    <preference name="prerendered-icon" value="false" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="false" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="SplashScreen" value="splash" />
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-installLocation" value="auto" />
+    <preference name="deployment-target" value="7.0" />
+    <preference name="DisallowOverscroll" value="true" />
+
+
+    <platform name="android">
+        <icon src="ldpi.png" platform="android" qualifier="ldpi" />
+        <icon src="mdpi.png" platform="android" qualifier="mdpi" />
+        <icon src="hdpi.png" platform="android" qualifier="hdpi" />
+        <icon src="xhdpi.png" platform="android" qualifier="xhdpi" />
+        <icon src="xxhdpi.png" platform="android" qualifier="xxhdpi" />
+        <icon src="xxxhdpi.png" platform="android" qualifier="xxxhdpi" />
+        <icon src="fr-xxhdpi.png" platform="android" qualifier="fr-xxhdpi" />
+
+        <splash src="ldpi.png" platform="android" qualifier="ldpi" />
+        <splash src="mdpi.png" platform="android" qualifier="mdpi" />
+        <splash src="hdpi.png" platform="android" qualifier="hdpi" />
+        <splash src="xhdpi.png" platform="android" qualifier="xhdpi" />
+        <splash src="fr-xhdpi.png" platform="android" qualifier="fr-xhdpi" />
+        <splash src="portrait-xxhdpi.png" platform="android" qualifier="port-xxhdpi" />
+        <splash src="landscape-xxhdpi.png" platform="android" qualifier="land-xxhdpi" />
+        <splash src="xxxhdpi.png" platform="android" qualifier="xxxhdpi" />
+               
+    </platform>
+
+    <platform name="ios">
+        <!-- iPhone 6 / 6+ -->
+        <icon src="icon-60@3x.png" platform="ios" width="180" height="180" />
+
+        <!-- iPhone / iPod Touch  -->
+        <icon src="icon-60.png" platform="ios" width="60" height="60" />
+        <icon src="icon-60@2x.png" platform="ios" width="120" height="120" />
+
+        <!-- iPad -->
+        <icon src="icon-76.png" platform="ios" width="76" height="76" />
+        <icon src="icon-76@2x.png" platform="ios" width="152" height="152" />
+        <icon src="icon-83.5@2x.png" platform="ios" width="167" height="167" />
+
+        <!-- Settings Icon -->
+        <icon src="icon-small.png" platform="ios" width="29" height="29" />
+        <icon src="icon-small@2x.png" platform="ios" width="58" height="58" />
+        <icon src="icon-small@3x.png" platform="ios" width="87" height="87" />
+
+        <!-- Spotlight Icon -->
+        <icon src="icon-40.png" platform="ios" width="40" height="40" />
+        <icon src="icon-40@2x.png" platform="ios" width="80" height="80" />
+        <icon src="icon-40@3x.png" platform="ios" width="120" height="120" />
+
+        <!-- iPhone / iPod Touch -->
+        <icon src="icon.png" platform="ios" width="57" height="57" />
+        <icon src="icon@2x.png" platform="ios" width="114" height="114" />
+
+        <!-- iPad -->
+        <icon src="icon-72.png" platform="ios" width="72" height="72" />
+        <icon src="icon-72@2x.png" platform="ios" width="144" height="144" />
+
+        <!-- iPhone Spotlight and Settings Icon -->
+        <icon src="icon-small.png" platform="ios" width="29" height="29" />
+        <icon src="icon-small@2x.png" platform="ios" width="58" height="58" />
+
+        <!-- iPad Spotlight and Settings Icon -->
+        <icon src="icon-50.png" platform="ios" width="50" height="50" />
+        <icon src="icon-50@2x.png" platform="ios" width="100" height="100" />
+
+        <!-- iPhone and iPod touch -->
+        <splash src="Default.png" platform="ios" width="320" height="480" />
+        <splash src="Default@2x.png" platform="ios" width="640" height="960" />
+
+        <!-- iPhone 5 / iPod Touch (5th Generation) -->
+        <splash src="Default-568h@2x.png" platform="ios" width="640" height="1136" />
+
+        <!-- iPhone 6 -->
+        <splash src="Default-667h@2x.png" platform="ios" width="750" height="1334" />
+        <splash src="Default-Portrait-736h@3x.png" platform="ios" width="1242" height="2208" />
+        <splash src="Default-Landscape-736h@3x.png" platform="ios" width="2208" height="1242" />
+
+        <!-- iPad -->
+        <splash src="Default-Portrait.png" platform="ios" width="768" height="1024" />
+        <splash src="Default-Landscape.png" platform="ios" width="1024" height="768" />
+
+        <!-- Retina iPad -->
+        <splash src="Default-Portrait@2x.png" platform="ios" width="1536" height="2048" />
+        <splash src="Default-Landscape@2x.png" platform="ios" width="2048" height="1536" />
+    </platform>
