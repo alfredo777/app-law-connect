@@ -47,7 +47,7 @@ function getTemplate(name, context, callback, whitparse) {
     url: 'pages/'+name+'.hbs',
     cache: true,
     success: function(data) {
-       var result = $.parseJSON(context);
+       var result = context;
        var tpl = Handlebars.compile(data),
        output = tpl(result);
        callback(output, null);
