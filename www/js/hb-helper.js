@@ -22,10 +22,8 @@ function getTemplate(name, context, callback) {
     url: 'pages/'+name+'.hbs',
     cache: true,
     success: function(data) {
-       var source = data;
-       var template = Handlebars.compile(source);
-       alert(template);
-       var output = template(context);
+       var tpl = Handlebars.compile(data),
+       output = tpl(context);
        alert(output);
        callback(output, null);
     },
