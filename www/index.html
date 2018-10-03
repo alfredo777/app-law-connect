@@ -31,12 +31,25 @@
 
 	   $(document).ready(function(){
 	      var loggin = sessionLoggin();
+	      var deviceSTREAM = window.localStorage.getItem("devicePropieties");
+	      deviceSTREAM = JSON.parse(deviceSTREAM);
 	      console.log(loggin);
 	      if(loggin == 1){
-	      loadpageFree("menu","newbody","js/json/menu-tabs.json");
+
+	      if(deviceSTREAM == 'Android'){
+	      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
 	      }else{
-	      loadpageFree("menu","newbody","js/json/menu-tabs.json");
-	      appendpageFree("loggin","newbody","js/json/loggin.json");
+	      	loadpage("menu","newbody","js/json/menu-tabs.json");
+	      }
+	      
+	      }else{
+	       if(deviceSTREAM == 'Android'){
+	      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
+	      	appendpageFree("loggin","newbody","js/json/loggin.json");
+	       }else{
+	        loadpage("menu","newbody","js/json/menu-tabs.json");
+	        appendpage("loggin","newbody","js/json/loggin.json");
+	       }
 	      }
 	    });
 

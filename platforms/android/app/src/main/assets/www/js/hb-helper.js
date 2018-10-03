@@ -1,23 +1,55 @@
-function loadView(data, tpln, divloadtpl){
+function loadView(data, tpln, divloadtpl, whitparse){
     getTemplate(tpln, data, function(output, err) {
     		$("#"+divloadtpl).html(output);
     });  
 }
 
 
-function appendView(data, tpln, divloadtpl){
+function appendView(data, tpln, divloadtpl, whitparse){
     getTemplate(tpln, data, function(output, err) {
         $("#"+divloadtpl).append(output);
     });  
 }
 
-function getTemplate(name, context, callback) {
+function loadViewFree(data, tpln, divloadtpl, whitparse){
+    getTemplateFree(tpln, data, function(output, err) {
+        $("#"+divloadtpl).html(output);
+    });  
+}
+
+
+function appendViewFree(data, tpln, divloadtpl, whitparse){
+    getTemplateFree(tpln, data, function(output, err) {
+        $("#"+divloadtpl).append(output);
+    });  
+}
+
+function getTemplateFree(name, context, callback, whitparse) {
   $.ajax({
     url: 'pages/'+name+'.hbs',
     cache: true,
     success: function(data) {
+       var result = $.parseJSON(context);
        var tpl = Handlebars.compile(data),
-       output = tpl(context);
+       output = tpl(result);
+       callback(output, null);
+    },
+    error: function(err) {
+      callback(null, err);
+      alert(err);
+    }
+  });
+}
+
+
+function getTemplate(name, context, callback, whitparse) {
+  $.ajax({
+    url: 'pages/'+name+'.hbs',
+    cache: true,
+    success: function(data) {
+       var result = context;
+       var tpl = Handlebars.compile(data),
+       output = tpl(result);
        callback(output, null);
     },
     error: function(err) {
@@ -74,6 +106,35 @@ function appendpage(tpln, divloadtpl, jsonroute) {
     cache: true,
     success: function(data) {
     appendView(data, tpln, divloadtpl);
+    },
+    error: function(err) {
+       alert(err);
+    }
+  });
+  
+}
+
+function loadpageFree(tpln, divloadtpl, jsonroute) {
+  $.ajax({
+    url: jsonroute,
+    cache: true,
+    success: function(data) {
+    loadViewFree(data, tpln, divloadtpl);
+    },
+    error: function(err) {
+      alert(err);
+    }
+  });
+  
+}
+
+
+function appendpageFree(tpln, divloadtpl, jsonroute) {
+  $.ajax({
+    url: jsonroute,
+    cache: true,
+    success: function(data) {
+    appendViewFree(data, tpln, divloadtpl);
     },
     error: function(err) {
        alert(err);

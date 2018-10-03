@@ -16,7 +16,13 @@
 <script type="text/javascript">
 $(document).ready(function(){
 var idxx = "searchinit .page__content";
+var deviceSTREAM = window.localStorage.getItem("devicePropieties");
+    deviceSTREAM = JSON.parse(deviceSTREAM);
+if(deviceSTREAM == 'Android'){
 loadpageFree("search_init",idxx,"js/json/search.json");
+}else{
+loadpage("search_init",idxx,"js/json/search.json");	
+}
 });
 
 $('#ons-button-return').onclick = function() {
