@@ -27,7 +27,7 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <name>app-law-connect</name>
+    <name>Law Connect</name>
     <description>
         Law connect
     </description>

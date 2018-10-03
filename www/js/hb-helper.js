@@ -57,11 +57,11 @@ function loadpage(tpln, divloadtpl, jsonroute) {
     url: jsonroute,
     cache: true,
     success: function(data) {
-    console.log('Respuesta satisfactoria');
+    alert('Respuesta satisfactoria');
     loadView(data, tpln, divloadtpl);
     },
     error: function(err) {
-    console.log(err);
+      alert(err);
     }
   });
   
@@ -77,7 +77,7 @@ function appendpage(tpln, divloadtpl, jsonroute) {
     appendView(data, tpln, divloadtpl);
     },
     error: function(err) {
-    console.log(err);
+       alert(err);
     }
   });
   
@@ -156,11 +156,6 @@ function externalpageloadAbogadosConEquipos(tpln, divloadtpl, url, paramsx, meth
     data = JSON.parse(data);
     console.log(data);
     loadView({"data": data}, tpln, divloadtpl);
-   /* owner = data.owner;
-    data = JSON.parse(data.abogados);
-    console.log(data);
-    console.log(owner);
-    */
     },
     error: function(err) {
     console.log(err);

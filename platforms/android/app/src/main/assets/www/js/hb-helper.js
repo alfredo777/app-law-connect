@@ -156,11 +156,6 @@ function externalpageloadAbogadosConEquipos(tpln, divloadtpl, url, paramsx, meth
     data = JSON.parse(data);
     console.log(data);
     loadView({"data": data}, tpln, divloadtpl);
-   /* owner = data.owner;
-    data = JSON.parse(data.abogados);
-    console.log(data);
-    console.log(owner);
-    */
     },
     error: function(err) {
     console.log(err);
