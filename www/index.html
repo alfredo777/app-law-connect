@@ -84,9 +84,10 @@
 	           serial:      device.serial
 	        }
 
-	        alert(device_data);
+
 	        var deviceData = window.localStorage.setItem("devicePropieties", JSON.stringify(device_data));
 	        deviceData = window.localStorage.getItem("devicePropieties");
+	        alert(deviceData);
 	        console.log(deviceData);
 
 	      }
