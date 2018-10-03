@@ -7,8 +7,7 @@
     <author email="lawconnectapp@gmail.com" href="lawconnect.mx">
         LAW CONNECT
     </author>
-    <icon src="res/icon.png" />
-    <splash src="res/splash.png" />
+
     <content src="index.html" />
     <access origin="*" />
 
