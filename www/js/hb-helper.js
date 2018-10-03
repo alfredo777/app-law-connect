@@ -1,5 +1,6 @@
 function loadView(data, tpln, divloadtpl){
     getTemplate(tpln, data, function(output, err) {
+        alert('iniciando load view');
     		$("#"+divloadtpl).html(output);
     });  
 }
@@ -7,6 +8,7 @@ function loadView(data, tpln, divloadtpl){
 
 function appendView(data, tpln, divloadtpl){
     getTemplate(tpln, data, function(output, err) {
+         alert('iniciando append view');
         $("#"+divloadtpl).append(output);
     });  
 }
@@ -17,11 +19,13 @@ function getTemplate(name, context, callback) {
     cache: true,
     success: function(data) {
       var tpl = Handlebars.compile(data),
-      output = tpl(context);
-      callback(output, null);
+       output = tpl(context);
+       alert(output);
+       callback(output, null);
     },
     error: function(err) {
       callback(null, err);
+      alert(err);
     }
   });
 }
@@ -73,7 +77,7 @@ function appendpage(tpln, divloadtpl, jsonroute) {
     url: jsonroute,
     cache: true,
     success: function(data) {
-    console.log('Respuesta satisfactoria');
+    alert('Respuesta satisfactoria');
     appendView(data, tpln, divloadtpl);
     },
     error: function(err) {
