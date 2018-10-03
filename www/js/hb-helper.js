@@ -16,11 +16,7 @@ function getTemplate(name, context, callback, whitparse) {
     url: 'pages/'+name+'.hbs',
     cache: true,
     success: function(data) {
-       if(whitparse == true){
-        var result = $.parseJSON(context);
-       }else{
-        var result = data;
-       }
+       var result = $.parseJSON(context);
        var tpl = Handlebars.compile(data),
        output = tpl(result);
        callback(output, null);
@@ -58,7 +54,7 @@ function getPartial(name, context, callback){
   });
 }
 
-function loadpage(tpln, divloadtpl, jsonroute, whitparse = false) {
+function loadpage(tpln, divloadtpl, jsonroute) {
   $.ajax({
     url: jsonroute,
     cache: true,
@@ -73,7 +69,7 @@ function loadpage(tpln, divloadtpl, jsonroute, whitparse = false) {
 }
 
 
-function appendpage(tpln, divloadtpl, jsonroute, whitparse = false) {
+function appendpage(tpln, divloadtpl, jsonroute) {
   $.ajax({
     url: jsonroute,
     cache: true,
@@ -87,7 +83,7 @@ function appendpage(tpln, divloadtpl, jsonroute, whitparse = false) {
   
 }
 
-function externalpageload(tpln, divloadtpl, url, paramsx, methodx, whitparse = false) {
+function externalpageload(tpln, divloadtpl, url, paramsx, methodx) {
   $.ajax({
     url: url,
     cache: true,
@@ -107,7 +103,7 @@ function externalpageload(tpln, divloadtpl, url, paramsx, methodx, whitparse = f
 }
 
 
-function externalpageloadSimplifyToCitas(tpln, divloadtpl, url, paramsx, methodx, whitparse = false) {
+function externalpageloadSimplifyToCitas(tpln, divloadtpl, url, paramsx, methodx) {
   $.ajax({
     url: url,
     cache: true,
@@ -127,7 +123,7 @@ function externalpageloadSimplifyToCitas(tpln, divloadtpl, url, paramsx, methodx
   
 }
 
-function externalpageloadAbogados(tpln, divloadtpl, url, paramsx, methodx, whitparse = false) {
+function externalpageloadAbogados(tpln, divloadtpl, url, paramsx, methodx) {
   $.ajax({
     url: url,
     cache: true,
@@ -149,7 +145,7 @@ function externalpageloadAbogados(tpln, divloadtpl, url, paramsx, methodx, whitp
   
 }
 
-function externalpageloadAbogadosConEquipos(tpln, divloadtpl, url, paramsx, methodx, whitparse = false) {
+function externalpageloadAbogadosConEquipos(tpln, divloadtpl, url, paramsx, methodx) {
   $.ajax({
     url: url,
     cache: true,
@@ -168,7 +164,7 @@ function externalpageloadAbogadosConEquipos(tpln, divloadtpl, url, paramsx, meth
   
 }
 
-function appenddexternalpageload(tpln, divloadtpl, url, paramsx, methodx, whitparse = false) {
+function appenddexternalpageload(tpln, divloadtpl, url, paramsx, methodx) {
   $.ajax({
     url: url,
     cache: true,
@@ -192,7 +188,7 @@ function appenddexternalpageload(tpln, divloadtpl, url, paramsx, methodx, whitpa
 }
 
 
-function loadaexternalpageloadsearch(tpln, divloadtpl, url, paramsx, methodx, whitparse = false) {
+function loadaexternalpageloadsearch(tpln, divloadtpl, url, paramsx, methodx) {
   $.ajax({
     url: url,
     cache: true,
@@ -214,7 +210,7 @@ function loadaexternalpageloadsearch(tpln, divloadtpl, url, paramsx, methodx, wh
   
 }
 
-function appenddexternalpageloadClientes(tpln, divloadtpl, url, paramsx, methodx, whitparse = false) {
+function appenddexternalpageloadClientes(tpln, divloadtpl, url, paramsx, methodx) {
   $.ajax({
     url: url,
     cache: true,
