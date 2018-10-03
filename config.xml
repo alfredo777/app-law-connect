@@ -4,29 +4,28 @@
     <description>
         Encuentra asesoría en derecho fiscal y laboral de acuerdo a tus necesides.
     </description>
-    <author email="awconnectapp@gmail.com" href="lawconnect.mx">
+    <author email="lawconnectapp@gmail.com" href="lawconnect.mx">
         LAW CONNECT
     </author>
-    <content src="index.html" />
-    <access origin="*" />
-
     <icon src="res/icon.png" />
     <splash src="res/splash.png" />
     <content src="index.html" />
+    <access origin="*" />
+
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+
     <platform name="android">
     <allow-intent href="market:*" />
     </platform>
+
     <platform name="ios">
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
-    </platform>
-    <platform name="ios">
     <config-file parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
     <string>LAW CONNECT  would like to store a photo for your AVATAR.</string>
     </config-file>
@@ -76,7 +75,6 @@
         <icon src="xxhdpi.png" platform="android" qualifier="xxhdpi" />
         <icon src="xxxhdpi.png" platform="android" qualifier="xxxhdpi" />
         <icon src="fr-xxhdpi.png" platform="android" qualifier="fr-xxhdpi" />
-
         <splash src="ldpi.png" platform="android" qualifier="ldpi" />
         <splash src="mdpi.png" platform="android" qualifier="mdpi" />
         <splash src="hdpi.png" platform="android" qualifier="hdpi" />
@@ -85,7 +83,6 @@
         <splash src="portrait-xxhdpi.png" platform="android" qualifier="port-xxhdpi" />
         <splash src="landscape-xxhdpi.png" platform="android" qualifier="land-xxhdpi" />
         <splash src="xxxhdpi.png" platform="android" qualifier="xxxhdpi" />
-               
     </platform>
 
     <platform name="ios">
