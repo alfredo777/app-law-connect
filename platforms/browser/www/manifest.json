@@ -1,11 +1,12 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "Law Connect",
-  "short_name": "Law Connect",
+  "name": "LAW CONNECT",
+  "short_name": "LAW CONNECT",
   "version": "com.laconnect.www",
-  "description": "Law connect",
-  "author": "Brany (JARDA)",
+  "description": "Encuentra asesoría en derecho fiscal y laboral de acuerdo a tus necesides.",
+  "author": "LAW CONNECT",
   "icons": [],
+  "orientation": "portrait",
   "start_url": "index.html"
 }

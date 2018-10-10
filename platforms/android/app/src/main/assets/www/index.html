@@ -33,15 +33,14 @@
 	      deviceSTREAM = JSON.parse(deviceSTREAM);
 	      console.log(loggin);
 	      if(loggin == 1){
-
-	      if(deviceSTREAM == 'Android'){
+	      if(deviceSTREAM.plataforma == 'Android'){
 	      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
 	      }else{
 	      	loadpage("menu","newbody","js/json/menu-tabs.json");
 	      }
 	      
 	      }else{
-	       if(deviceSTREAM == 'Android'){
+	       if(deviceSTREAM.plataforma == 'Android'){
 	      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
 	      	appendpageFree("loggin","newbody","js/json/loggin.json");
 	       }else{
@@ -84,6 +83,7 @@
 	           virtual:     device.isVirtual,
 	           serial:      device.serial
 	        }
+
 
 	        var deviceData = window.localStorage.setItem("devicePropieties", JSON.stringify(device_data));
 	        deviceData = window.localStorage.getItem("devicePropieties");
