@@ -25,15 +25,12 @@
 		  	resumen_del_caso: resumen
 		  }
 
-		console.log(params_to_send);
-
 		 $.ajax({
 		    url: url,
 		    cache: true,
 		    data: params_to_send,
 		    method: 'POST',
 		    success: function(data) {
-		      console.log(data);
 		      ons.notification.alert(data.notice);
 		      updateCasos(true);
 

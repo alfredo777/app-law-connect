@@ -112,11 +112,9 @@ function loadCreateToDO(token){
 	  setTimeout(function(){
 	    token = window.localStorage.setItem("TokenToDo", token);
 	    var viewtoken = window.localStorage.getItem("TokenToDo");
-	    console.log(viewtoken);
 	  },500);
 	  changePageCasos('addtodo.html');
 	  }else{
-	  console.log('Token´s iguales');
 	  setTimeout(function(){
 	  data = {};
 	  tpln = 'crear_actividad';
@@ -150,7 +148,6 @@ function createToDo(){
 	    success: function(data) {
 	      var caso = JSON.parse(data.caso);
 	      ons.notification.alert(data.notice);
-	      console.log(caso);
 	      setTimeout(function(){
 	         loadView({"data": caso}, "caso", "vercaso .page__content");
 	         $('#addtodoback').trigger( "click" );
@@ -175,7 +172,6 @@ function viewCaso(token){
 	    method: 'POST',
 	    success: function(data) {
 	      var caso = JSON.parse(data.caso);
-	      console.log(caso);
 	      loadView({"data": caso}, "caso", "vercaso .page__content");
 	      changePageCasos("vercaso.html");
 	    },
@@ -224,7 +220,6 @@ function updateCasos(push){
 	    data: params_to_send,
 	    method: 'POST',
 	    success: function(data) {
-	      console.log(data);
 	      var casos = JSON.parse(data.casos);
 	      setTimeout(function(){
 	      appendView({"data": casos}, "list_of_casos", "casospage .page__content");
@@ -261,7 +256,6 @@ function createCaso(){
     data: params_to_send,
     method: 'POST',
     success: function(data) {
-      console.log(data);
       ons.notification.alert(data.notice);
       updateCasos(true);
 
@@ -273,7 +267,6 @@ function createCaso(){
 }
 
 function viewusersincasebeforecreate(){
-    console.log('usuarios antes de crear');
     var emails = $('#casoclientes').val();
     emails = emails.split(",");
 	var url = "{{{productionServer}}}/api/global/select_cliente_view";

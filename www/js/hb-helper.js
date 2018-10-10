@@ -76,7 +76,6 @@ function getPartial(name, context, callback){
     success: function(data) {
       var tpl = Handlebars.compile(data),
       output = tpl(context);
-      console.log(tpl);
       callback(output, null);
     },
     error: function(err) {
@@ -150,9 +149,7 @@ function externalpageload(tpln, divloadtpl, url, paramsx, methodx) {
     data: paramsx,
     method: methodx,
     success: function(data) {
-    console.log(data.notice);
     data = JSON.parse(data.abogados);
-    console.log(data);
     loadView({"data": data}, tpln, divloadtpl);
     },
     error: function(err) {
@@ -173,7 +170,6 @@ function externalpageloadSimplifyToCitas(tpln, divloadtpl, url, paramsx, methodx
     data = JSON.stringify(data);
     data = JSON.parse(data);
     citas = JSON.parse(data.citas)
-    console.log(citas);
     loadView({"data": citas}, tpln, divloadtpl);
     },
     error: function(err) {
@@ -194,8 +190,6 @@ function externalpageloadAbogados(tpln, divloadtpl, url, paramsx, methodx) {
     data = JSON.parse(data);
     owner = data.owner;
     data = JSON.parse(data.abogados);
-    console.log(data);
-    console.log(owner);
     loadView({"data": data, "owner": owner}, tpln, divloadtpl);
     },
     error: function(err) {
@@ -214,7 +208,6 @@ function externalpageloadAbogadosConEquipos(tpln, divloadtpl, url, paramsx, meth
     success: function(data) {
     data = JSON.stringify(data);
     data = JSON.parse(data);
-    console.log(data);
     loadView({"data": data}, tpln, divloadtpl);
     },
     error: function(err) {
@@ -231,12 +224,8 @@ function appenddexternalpageload(tpln, divloadtpl, url, paramsx, methodx) {
     data: paramsx,
     method: methodx,
     success: function(data) {
-    console.log(data.tags);
-    console.log(data.notice);
     var datax = JSON.parse(data.abogados);
     var tagsx = JSON.parse(data.tags);
-    console.log(datax);
-    console.log(tagsx);
     appendView({"data": datax}, tpln, divloadtpl);
     loadView({"data": tagsx}, 'tags', 'tagssearch');
     },
@@ -255,11 +244,8 @@ function loadaexternalpageloadsearch(tpln, divloadtpl, url, paramsx, methodx) {
     data: paramsx,
     method: methodx,
     success: function(data) {
-    console.log(data.notice);
     var datax = JSON.parse(data.abogados);
     var tagsx = JSON.parse(data.tags);
-    console.log(datax);
-    console.log(tagsx);
     loadView({"data": datax}, tpln, divloadtpl);
     loadView({"data": tagsx}, 'tags', 'tagssearch');
     },
@@ -277,9 +263,7 @@ function appenddexternalpageloadClientes(tpln, divloadtpl, url, paramsx, methodx
     data: paramsx,
     method: methodx,
     success: function(data) {
-    console.log(data.notice);
     data = JSON.parse(data.clientes);
-    console.log(data);
     appendView({"data": data}, tpln, divloadtpl);
     },
     error: function(err) {
@@ -377,7 +361,6 @@ Handlebars.registerHelper("xif", function (expression, options) {
 Handlebars.registerHelper("sessionTrue", function (options) {
   var Xsessioning = window.sessionIN;
   Xsessioning = String(Xsessioning);
-  console.log(Xsessioning);
   if(Xsessioning == "true"){
    var result = options.fn(this);
   }else{
@@ -403,10 +386,7 @@ Handlebars.registerHelper('ifCurrentUser', function(userID, options) {
   var userSession = window.localStorage.getItem("userSession");
   if(userSession != ''){
   userSession = JSON.parse(userSession);
-  console.log(userSession);
   userSession = userSession.user.email;
-  console.log("usuario en session:"+ userSession);
-  console.log("usuario comparado:"+ v1);
   }else{
     userSession = false;
   }
@@ -424,10 +404,7 @@ Handlebars.registerHelper('notCurrentUser', function(userID, options) {
   var userSession = window.localStorage.getItem("userSession");
   if(userSession != ''){
   userSession = JSON.parse(userSession);
-  console.log(userSession);
   userSession = userSession.user.email;
-  console.log("usuario en session:"+ userSession);
-  console.log("usuario comparado:"+ v1);
   }else{
     userSession = false;
   }
@@ -446,10 +423,7 @@ Handlebars.registerHelper('ifnotOwner', function(userID, options) {
   var userSession = window.localStorage.getItem("userSession");
   if(userSession != ''){
   userSession = JSON.parse(userSession);
-  console.log(userSession);
   userSession = userSession.user.email;
-  console.log("usuario en session:"+ userSession);
-  console.log("usuario comparado:"+ v1);
   }else{
     userSession = false
   }
@@ -466,9 +440,7 @@ Handlebars.registerHelper('ifAbogado', function(options) {
   var userSession = window.localStorage.getItem("userSession");
   if(userSession != ''){
   userSession = JSON.parse(userSession);
-  console.log(userSession);
   userSession = userSession.abogado;
-  console.log('abogado >>>>'+ userSession);
   }else{
     userSession = false
   }
@@ -486,9 +458,7 @@ Handlebars.registerHelper('ifCliente', function(options) {
   var userSession = window.localStorage.getItem("userSession");
   if(userSession != ''){
   userSession = JSON.parse(userSession);
-  console.log(userSession);
   userSession = userSession.abogado;
-  console.log('abogado >>>>'+ userSession)
   }else{
     userSession = false
   }
