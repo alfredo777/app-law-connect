@@ -384,6 +384,7 @@ Handlebars.registerHelper("sessionFalse", function (options) {
 Handlebars.registerHelper('ifCurrentUser', function(userID, options) {
   var v1 = String(userID);
   var userSession = window.localStorage.getItem("userSession");
+  alert('user session'+userSession);
   if(userSession != ''){
   userSession = JSON.parse(userSession);
   userSession = userSession.user.email;
