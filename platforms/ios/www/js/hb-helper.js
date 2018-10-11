@@ -384,6 +384,10 @@ Handlebars.registerHelper("sessionFalse", function (options) {
 Handlebars.registerHelper('ifCurrentUser', function(userID, options) {
   var v1 = String(userID);
   var userSession = window.localStorage.getItem("userSession");
+  if(String(userSession) === 'null'){
+    console.log('not currrent user '+v1);
+    return options.inverse(this);
+  }else{
   if(userSession != ''){
   userSession = JSON.parse(userSession);
   userSession = userSession.user.email;
@@ -397,11 +401,16 @@ Handlebars.registerHelper('ifCurrentUser', function(userID, options) {
     console.log('not currrent user '+v1);
     return options.inverse(this);
   }
+  }
 });
 
 Handlebars.registerHelper('notCurrentUser', function(userID, options) {
   var v1 = String(userID);
   var userSession = window.localStorage.getItem("userSession");
+  if(String(userSession) === 'null'){
+    console.log('not current user');
+    return options.fn(this);
+  }else{
   if(userSession != ''){
   userSession = JSON.parse(userSession);
   userSession = userSession.user.email;
@@ -415,60 +424,76 @@ Handlebars.registerHelper('notCurrentUser', function(userID, options) {
     console.log('is currrent user '+v1);
     return options.inverse(this);
   }
+  }
 });
 
 
 Handlebars.registerHelper('ifnotOwner', function(userID, options) {
   var v1 = String(userID);
   var userSession = window.localStorage.getItem("userSession");
-  if(userSession != ''){
-  userSession = JSON.parse(userSession);
-  userSession = userSession.user.email;
-  }else{
-    userSession = false
-  }
-  if(v1 === userSession){
-    console.log('is  owner user');
-    return options.inverse(this);
-  }else{
+  if(String(userSession) === 'null'){
     console.log('not owner user '+v1);
     return options.fn(this);
+  }else{
+    if(userSession != ''){
+    userSession = JSON.parse(userSession);
+    userSession = userSession.user.email;
+    }else{
+      userSession = false
+    }
+    if(v1 === userSession){
+      console.log('is  owner user');
+      return options.inverse(this);
+    }else{
+      console.log('not owner user '+v1);
+      return options.fn(this);
+    }
   }
 });
 
 Handlebars.registerHelper('ifAbogado', function(options) {
   var userSession = window.localStorage.getItem("userSession");
-  if(userSession != ''){
-  userSession = JSON.parse(userSession);
-  userSession = userSession.abogado;
-  }else{
-    userSession = false
-  }
-  if(userSession === false){
+  if(String(userSession) === 'null'){
     console.log('no es abogado');
     return options.inverse(this);
   }else{
-    console.log('es abogado');
-    return options.fn(this);
+    if(userSession != ''){
+    userSession = JSON.parse(userSession);
+    userSession = userSession.abogado;
+    }else{
+      userSession = false
+    }
+    if(userSession === false){
+      console.log('no es abogado');
+      return options.inverse(this);
+    }else{
+      console.log('es abogado');
+      return options.fn(this);
+    }
   }
 });
 
 
 Handlebars.registerHelper('ifCliente', function(options) {
   var userSession = window.localStorage.getItem("userSession");
-  if(userSession != ''){
-  userSession = JSON.parse(userSession);
-  userSession = userSession.abogado;
-  }else{
-    userSession = false
-  }
-  if(userSession === false){
+  if(String(userSession) === 'null'){
     console.log('no es abogado');
     return options.fn(this);
-    
   }else{
-    console.log('es abogado');
-    return options.inverse(this);
+    if(userSession != ''){
+    userSession = JSON.parse(userSession);
+    userSession = userSession.abogado;
+    }else{
+      userSession = false
+    }
+    if(userSession === false){
+      console.log('no es abogado');
+      return options.fn(this);
+      
+    }else{
+      console.log('es abogado');
+      return options.inverse(this);
+    }
   }
 });
 
