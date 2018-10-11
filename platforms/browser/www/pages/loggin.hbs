@@ -5,9 +5,8 @@
 <script type="text/javascript">
 $(document).ready(function(){
 var idxxv = "logginit .page__content";
-var deviceSTREAM = window.localStorage.getItem("devicePropieties");
-    deviceSTREAM = JSON.parse(deviceSTREAM);
-if(deviceSTREAM.plataforma == 'Android'){
+var deviceSTREAM = window.localStorage.getItem("devicePlatform");
+if(deviceSTREAM == 'Android'){
 loadpageFree("logginparts",idxxv,"js/json/loggin.json");
 }else{
 loadpage("logginparts",idxxv,"js/json/loggin.json");	

@@ -27,13 +27,12 @@
 <script type="text/javascript">
 $(document).ready(function(){
     console.log(Handlebars);
-    var deviceSTREAM = window.localStorage.getItem("devicePropieties");
-    deviceSTREAM = JSON.parse(deviceSTREAM);
+    var deviceSTREAM = window.localStorage.getItem("devicePlatform");
     var tpl, json, idx;
     tpl = "{{Render}}";
     json = "js/json/{{Render}}.json";
     idx = "tabcompose{{id}} .page__content";
-    if(deviceSTREAM.plataforma == 'Android'){
+    if(deviceSTREAM == 'Android'){
     loadpageFree(tpl,idx,json); 
     }else{
     loadpage(tpl,idx,json);   
@@ -49,14 +48,17 @@ $(document).ready(function(){
     email: userSession.user.email
    }
    var url = "{{{productionServer}}}/api/global/notifications";
-   
    $.ajax({
     url: url,
     cache: true,
     data: params_to_send,
     method: 'POST',
     success: function(data) {
+      if(data.notifications != undefined){
       loadView({"data": data}, "list_notifications", "load-notificaciones");
+      }else{
+        console.log('No hay notificaciones');
+      }
     },
     error: function(err) {
       callback(null, err);

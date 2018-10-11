@@ -8,8 +8,6 @@
     ></ons-search-input>
     <div class="tags-search-list" id="tagssearch"></div>
 </ons-list-header>
-
-
 	{{#each data as |user userId| }}
 		<ons-list-item modifier="chevron" class="list-search-item" id="{{userId}}tabprofile" data-especialidades="" tappable >
 			<div class="left">
@@ -23,8 +21,6 @@
 
 				<span class="calification">{{user.evaluacion}}</span>
 				<span class="list-item__title">{{user.nombre}} {{user.apellidos}}</span>
-				<span class="list-item__subtitle">On the Internet</span>
-
 				<span class="list-item__subtitle description-list" id="lok{{userId}}" data-mi="{{user.acerca_de_mi}}" data-cur="{{user.curriculum}}">
 				  {{{trimString user.acerca_de_mi}}}
 			   </span>
@@ -44,11 +40,11 @@
 		</ons-list-item>
 		<script type="text/javascript">
 		   $(document).ready(function(){
-
 		   console.log('************>'+public_especialidad);
 		   var especialidad = JSON.stringify(public_especialidad);
 		   $("#{{userId}}tabprofile").data('especialidades', especialidad);
 		   $("#{{userId}}tabprofile").click(function(){
+		   	    setTimeout(function(){
 		   	    var curriculum = $("#lok{{userId}}").data('cur');
 		   	    var acerca_de_mi = $("#lok{{userId}}").data('mi');
 		   	    var especialidad = $("#{{userId}}tabprofile").data('especialidades');
@@ -79,8 +75,9 @@
 	        console.log(json);
 	        loadView(json,tpl,idx);
 	        changePage("searcheduser.html");
-            });
+	        }, 700);
 
+            });
 		   });
 		</script>
 	{{/each}}

@@ -77,11 +77,11 @@
 	    <div class="profile-header-name ">
 	    	<h1>{{user.nombre}} {{user.apellidos}}</h1>
 	    	 {{#ifCond abogado true }}
-	 	    <span class="calification-profile">9.7</span>
+	 	    <span class="calification-profile">{{user.evaluacion}}</span>
 	 	      {{/ifCond}}
 	    </div>
 	  	{{#ifCurrentUser user.email}}
-	  	{{#ifCliente}}
+	  	     {{#ifCliente}}
 	  	     <div class="profile-menu" style="margin-top: 20px;">
 	 	     <ons-button modifier="quiet" onclick="changeCitas();">Citas</ons-button>
 	 	     <ons-button modifier="quiet" onclick="editarPerfil();">Editar</ons-button>
@@ -94,13 +94,13 @@
 	    	{{#ifCurrentUser user.email}}
 	    	{{#ifCond abogado true }}
 	  	     <div class="profile-menu">
-	 	     <ons-button modifier="quiet" onclick="changeCitas();">Citas</ons-button>
-	 	     <ons-button modifier="quiet" onclick="editarPerfil();">Editar</ons-button>
+	 	     <!--<ons-button modifier="quiet" onclick="changeCitas();">Citas</ons-button>
+	 	     <ons-button modifier="quiet" onclick="editarPerfil();">Editar</ons-button>-->
 	 	      
 	 	     <ons-button modifier="quiet" onclick="teams();">Equipo</ons-button>
 	 	      
 	 	      <ons-button modifier="quiet" onclick="exit();">Salir</ons-button>
-	 	      <ons-button modifier="quiet" onclick="showPopover(this);" style="font-size: 40px; margin-top: -5px; margin-left: 80px;" ><ons-icon icon="ion-camera"></ons-icon></ons-button>
+	 	     <!-- <ons-button modifier="quiet" onclick="showPopover(this);" style="font-size: 40px; margin-top: -5px; margin-left: 80px;" ><ons-icon icon="ion-camera"></ons-icon></ons-button>-->
 	 	     </div>
 	 	     {{/ifCond}}
 	    {{/ifCurrentUser}}
@@ -179,7 +179,7 @@
 	     <ons-page>
 	     	<br/>
 	     	<center>
-	     		<p style="text-align:justify; padding: 20px;">Mediante este formulario se programará una cita para una visita a nuestras oficinas o una video llamada para platicar de la razón por la que nos contacta.</p>
+	     		<p style="text-align:justify; padding: 20px;">Mediante este formulario se programará una cita para una visita a nuestras oficinas o una video llamada para platicar de la razón por la que contacta a Law Connect.</p>
 	     		<input type="text" id="datepicker" name="date" class="text-input text-input--material" placeholder="Selecciona una fecha" style="width:90%;"><br/><br/><br/>
 	     		<input type="time" id="appt-time" name="appt-time" min="9:00" max="18:00" class="text-input text-input--material"  style="width:90%;" required/><span >Horaraio para citas: 9AM a 6PM</span><br/><br/><br/>
 

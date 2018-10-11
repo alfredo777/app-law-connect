@@ -54,7 +54,11 @@ $(document).ready(function(){
     data: params_to_send,
     method: 'POST',
     success: function(data) {
+      if(data.notifications != undefined){
       loadView({"data": data}, "list_notifications", "load-notificaciones");
+      }else{
+        console.log('No hay notificaciones');
+      }
     },
     error: function(err) {
       callback(null, err);
