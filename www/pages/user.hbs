@@ -53,9 +53,14 @@
 	                </div>
 	                {{/ifCliente}}
 	                {{/sessionTrue}}
-	                {{#sessionFalse}}
+	                <!--{{#sessionFalse}}
 	                <div id="contactButton">
 	                <ons-button-toolbar style="font-size: 12px; margin-left:-40px; color: #fff;" onclick="changeTab();"> CONTACTAR <ons-icon icon="fa-comment" style="font-size:30px; color:#fff;" ripple> </ons-icon></ons-toolbar-button>
+	                </div>
+	                {{/sessionFalse}}-->
+	                {{#sessionFalse}}
+	                <div id="contactButton">
+	                <ons-button-toolbar style="font-size: 12px; margin-left:-40px; color: #fff;" onclick="changeTabContact();"> CONTACTAR <ons-icon icon="fa-comment" style="font-size:30px; color:#fff;" ripple> </ons-icon></ons-toolbar-button>
 	                </div>
 	                {{/sessionFalse}}
 	            </div>
@@ -82,9 +87,9 @@
 	    </div>
 	  	{{#ifCurrentUser user.email}}
 	  	     {{#ifCliente}}
-	  	     <div class="profile-menu" style="margin-top: 20px;">
-	 	     <ons-button modifier="quiet" onclick="changeCitas();">Citas</ons-button>
-	 	     <ons-button modifier="quiet" onclick="editarPerfil();">Editar</ons-button>
+	  	      <div class="profile-menu" style="margin-top: 20px;">
+	 	      <ons-button modifier="quiet" onclick="changeCitas();">Citas</ons-button>
+	 	      <ons-button modifier="quiet" onclick="editarPerfil();">Editar</ons-button>
 	 	      <ons-button modifier="quiet" onclick="exit();">Salir</ons-button>
 	 	      <ons-button modifier="quiet" onclick="showPopover(this);" style="font-size: 40px; margin-top: -5px; margin-left: 150px;" ><ons-icon icon="ion-camera"></ons-icon></ons-button>
 	 	     </div>
@@ -184,13 +189,28 @@
 	     		<input type="time" id="appt-time" name="appt-time" min="9:00" max="18:00" class="text-input text-input--material"  style="width:90%;" required/><span >Horaraio para citas: 9AM a 6PM</span><br/><br/><br/>
 
 	     		<textarea id="textInContact" name="asunto" class="textarea" style="width:90%;" placeholder="Asunto a tratar"></textarea><br/><br/>
-	     		<label class="checkbox">
+	     		
+				{{#sessionFalse}}
+				    <input type="text" name="nombre"  id="nombrecontact" placeholder="Nombre" class="text-input text-input--material"  style="width:90%;" ><br/><br/><br/>
+				    <input type="text" name="apellidos"  id="apellidoscontact" placeholder="Apellidos" class="text-input text-input--material"  style="width:90%;" ><br/><br/><br/>
+					<input type="text" name="user"  id="emailcontact" placeholder="Email" class="text-input text-input--material"  style="width:90%;" ><br/><br/><br/>
+					<input type="text" name="celular"  id="celcontact" placeholder="Celular" class="text-input text-input--material"  style="width:90%;" ><br/><br/><br/>
+					<input type="text" name="telefono"  id="telefonocontact" placeholder="Teléfono" class="text-input text-input--material"  style="width:90%;" ><br/><br/><br/>
+				    <input type="text" name="ext"  id="extcontact" placeholder="Extensión" class="text-input text-input--material"  style="width:90%;" ><br/><br/><br/>
+				   	<input type="text" name="direccion"  id="direccioncontact" placeholder="Dirección" class="text-input text-input--material"  style="width:90%;" ><br/><br/><br/>
+				   	<input type="text" name="usercontact" value="{{user.email}}" id="usercontact" style="display:none;">
+
+				   	<ons-button class="button--cta" onclick="contactformnotlogin();" modifier="large">Enviar Solicitud</ons-button>
+				{{/sessionFalse}}
+				{{#sessionTrue}}
+				<div style="display:none;"><label class="checkbox">
 				  <input type="checkbox" class="checkbox__input" name="programar_llamada" id="checpick">
 				  <div class="checkbox__checkmark"></div>
 				   ¿Es una llamada o video llamada ?
-				</label><br/><br/>
+				</label><br/><br/></div>
 				<input type="text" name="user" value="{{user.email}}" id="usercontact" style="display:none;">
 	     		<ons-button class="button--cta" onclick="contactform();" modifier="large">Enviar Solicitud</ons-button>
+	     		{{/sessionTrue}}
 	        </center>
 	     </ons-page>
 	  </ons-page>
@@ -298,6 +318,67 @@
 		      ons.notification.alert(text);
 		      changeTaUserx();
 		    },
+		    error: function(err) {
+		      callback(null, err);
+		    }
+		 });
+
+    }
+
+    function contactformnotlogin(){
+
+    	 var fecha = document.getElementById('datepicker').value;
+    	 var hora = document.getElementById('appt-time').value; 
+  		 var asunto = document.getElementById('textInContact').value;
+  		 var usercontact = document.getElementById('usercontact').value;
+  		 var emailcontact = document.getElementById('emailcontact').value;
+  		 var nombrecontact = document.getElementById('nombrecontact').value;
+  		 var apellidoscontact = document.getElementById('apellidoscontact').value;
+  		 var celcontact = document.getElementById('celcontact').value;
+  		 var telefonocontact = document.getElementById('telefonocontact').value;
+  		 var extcontact = document.getElementById('extcontact').value;
+  		 var direccioncontact = document.getElementById('direccioncontact').value;
+
+  		 var params_to_send = {
+  		 	fecha: fecha,
+  		 	hora: hora,
+  		 	asunto: asunto,
+  		 	email: emailcontact,
+  		 	usuario_contactado: usercontact,
+  		 	nombre: nombrecontact,
+  		 	apellidos: apellidoscontact,
+  		 	celular: celcontact,
+  		 	telefono: telefonocontact,
+  		 	ext: extcontact,
+  		 	direccion: direccioncontact
+  		 }
+
+  		 var stringx = JSON.stringify(params_to_send);
+
+  		 url ="{{{productionServer}}}/api/global/single_contact_cel"
+
+
+  		 $.ajax({
+		    url: url,
+		    cache: true,
+		    data: params_to_send,
+		    method: 'POST',
+		    success: function(data) {
+	  		  console.log(data);
+		      if(data.ingreso == true){
+		      	sessionNINg = window.localStorage.setItem("loggedIn", true);
+		      	sessionNINg = window.localStorage.getItem("loggedIn");
+		      	userSession = window.localStorage.setItem("userSession", JSON.stringify(data.user));
+		      	userSession = window.localStorage.getItem("userSession");
+		      	userSession = JSON.parse(userSession);
+		      	ons.notification.alert(data.notice);
+		      	setTimeout(function(){
+		      		window.location.reload();
+		      	},5000);
+		      }else{
+		      	ons.notification.alert(data.notice);
+		      }
+	        },
 		    error: function(err) {
 		      callback(null, err);
 		    }
