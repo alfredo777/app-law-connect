@@ -32,7 +32,7 @@
 	    <ons-tab page="page1.html" active>CV genral</ons-tab>
 	    <ons-tab page="page2.html">Info</ons-tab>
 	    <ons-tab page="page3.html">Comentarios</ons-tab>
-	    <ons-tab page="page4.html">Contactar</ons-tab>
+	    <ons-tab page="page4.html">Agenda una asesoría sin costo</ons-tab>
 	    <ons-tab page="page5.html">Lista de citas o llamadas</ons-tab>
 	    <ons-tab page="page6.html">Editar perfil</ons-tab>
 	    <ons-tab page="page7.html">Equipos</ons-tab>
@@ -49,18 +49,18 @@
 			    	{{#sessionTrue}}
 			    	{{#ifCliente}}
 			    	<div id="contactButton">
-	                <ons-button-toolbar style="font-size: 12px; margin-left:-40px; color: #fff;" onclick="changeTabContact();"> CONTACTAR <ons-icon icon="fa-comment" style="font-size:30px; color:#fff; " ripple> </ons-icon></ons-toolbar-button>
+	                <ons-button-toolbar style="font-size: 12px; margin-left:-150px; color: #fff;" onclick="changeTabContact();"> Agenda una asesoría sin costo <ons-icon icon="fa-phone" style="font-size:30px; color:#fff; " ripple> </ons-icon></ons-toolbar-button>
 	                </div>
 	                {{/ifCliente}}
 	                {{/sessionTrue}}
 	                <!--{{#sessionFalse}}
 	                <div id="contactButton">
-	                <ons-button-toolbar style="font-size: 12px; margin-left:-40px; color: #fff;" onclick="changeTab();"> CONTACTAR <ons-icon icon="fa-comment" style="font-size:30px; color:#fff;" ripple> </ons-icon></ons-toolbar-button>
+	                <ons-button-toolbar style="font-size: 12px; margin-left:-150px; color: #fff;" onclick="changeTab();"> Agenda una asesoría sin costo <ons-icon icon="fa-phone" style="font-size:30px; color:#fff;" ripple> </ons-icon></ons-toolbar-button>
 	                </div>
 	                {{/sessionFalse}}-->
 	                {{#sessionFalse}}
 	                <div id="contactButton">
-	                <ons-button-toolbar style="font-size: 12px; margin-left:-40px; color: #fff;" onclick="changeTabContact();"> CONTACTAR <ons-icon icon="fa-comment" style="font-size:30px; color:#fff;" ripple> </ons-icon></ons-toolbar-button>
+	                <ons-button-toolbar style="font-size: 12px; margin-left:-150px; color: #fff;" onclick="changeTabContact();"> Agenda una asesoría sin costo <ons-icon icon="fa-phone" style="font-size:30px; color:#fff;" ripple> </ons-icon></ons-toolbar-button>
 	                </div>
 	                {{/sessionFalse}}
 	            </div>
@@ -145,6 +145,9 @@
 		  	<p style="padding: 0px 5px; text-align: justify; width: 100%;"><b style="color: #000;">Cédula:</b>
 		  	{{user.cedula}}</p>
 
+		  	<p style="padding: 0px 5px; text-align: justify; width: 100%;"><b style="color: #000;">Despacho actual:</b>
+		  	RAND y Asociados</p>
+
 		  <p style="padding: 0px 10px; text-align: justify;">{{{user.curriculum}}}</p></ons-list-item>
 		   <ons-list-item><b style="color: #000;">Acerca de mí:</b> <br/><p style="padding: 0px 10px; text-align: justify;"> {{{user.acerca_de_mi}}}</p></ons-list-item>
 
@@ -184,13 +187,16 @@
 	     <ons-page>
 	     	<br/>
 	     	<center>
-	     		<p style="text-align:justify; padding: 20px;">Mediante este formulario se programará una cita para una visita a nuestras oficinas o una video llamada para platicar de la razón por la que contacta a Law Connect.</p>
+	     		<p style="text-align:center; padding: 20px;"><b>Agenda una llamada de asesoría sin costo</b> </p>
 	     		<input type="text" id="datepicker" name="date" class="text-input text-input--material" placeholder="Selecciona una fecha" style="width:90%;"><br/><br/><br/>
-	     		<input type="time" id="appt-time" name="appt-time" min="9:00" max="18:00" class="text-input text-input--material"  style="width:90%;" required/><span >Horaraio para citas: 9AM a 6PM</span><br/><br/><br/>
+	     		<input type="time" id="appt-time" name="appt-time" min="9:00" max="18:00" class="text-input text-input--material"  style="width:90%;" required/><span >Horaraio para recibir llamadas: 9AM a 6PM</span><br/><br/><br/>
 
-	     		<textarea id="textInContact" name="asunto" class="textarea" style="width:90%;" placeholder="Asunto a tratar"></textarea><br/><br/>
+	     		<textarea id="textInContact" name="asunto" class="textarea" style="width:90%;" placeholder="Cuéntanos un poco sobre tu problema"></textarea><br/><br/>
 	     		
 				{{#sessionFalse}}
+
+				<p style="text-align:left; padding: 20px;"><b>Necesitamos estos datos para confirmar tu solicitud:</b> </p>
+
 				    <input type="text" name="nombre"  id="nombrecontact" placeholder="Nombre" class="text-input text-input--material"  style="width:90%;" ><br/><br/><br/>
 				    <input type="text" name="apellidos"  id="apellidoscontact" placeholder="Apellidos" class="text-input text-input--material"  style="width:90%;" ><br/><br/><br/>
 					<input type="text" name="user"  id="emailcontact" placeholder="Email" class="text-input text-input--material"  style="width:90%;" ><br/><br/><br/>
@@ -203,11 +209,11 @@
 				   	<ons-button class="button--cta" onclick="contactformnotlogin();" modifier="large">Enviar Solicitud</ons-button>
 				{{/sessionFalse}}
 				{{#sessionTrue}}
-				<label class="checkbox">
+				<div style="display:none;"><label class="checkbox">
 				  <input type="checkbox" class="checkbox__input" name="programar_llamada" id="checpick">
 				  <div class="checkbox__checkmark"></div>
 				   ¿Es una llamada o video llamada ?
-				</label><br/><br/>
+				</label><br/><br/></div>
 				<input type="text" name="user" value="{{user.email}}" id="usercontact" style="display:none;">
 	     		<ons-button class="button--cta" onclick="contactform();" modifier="large">Enviar Solicitud</ons-button>
 	     		{{/sessionTrue}}
