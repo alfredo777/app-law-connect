@@ -203,11 +203,11 @@
 				   	<ons-button class="button--cta" onclick="contactformnotlogin();" modifier="large">Enviar Solicitud</ons-button>
 				{{/sessionFalse}}
 				{{#sessionTrue}}
-				<label class="checkbox">
+				<div style="display:none;"><label class="checkbox">
 				  <input type="checkbox" class="checkbox__input" name="programar_llamada" id="checpick">
 				  <div class="checkbox__checkmark"></div>
 				   ¿Es una llamada o video llamada ?
-				</label><br/><br/>
+				</label><br/><br/></div>
 				<input type="text" name="user" value="{{user.email}}" id="usercontact" style="display:none;">
 	     		<ons-button class="button--cta" onclick="contactform();" modifier="large">Enviar Solicitud</ons-button>
 	     		{{/sessionTrue}}
