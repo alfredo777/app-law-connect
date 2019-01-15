@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.laconnect.www" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>LAW CONNECT</name>
+    <name>LEGAL CONNECT</name>
     <description>
         Encuentra asesoría en derecho fiscal y laboral de acuerdo a tus necesides.
     </description>
     <author email="lawconnectapp@gmail.com" href="lawconnect.mx">
-        LAW CONNECT
+        LEGAL CONNECT
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -22,10 +22,10 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <config-file parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
-            <string>LAW CONNECT  would like to store a photo for your AVATAR.</string>
+            <string>LEGAL CONNECT  would like to store a photo for your AVATAR.</string>
         </config-file>
         <config-file parent="NSPhotoLibraryUsageDescription" platform="ios" target="*-Info.plist">
-            <string>LAW CONNECT would like to use a photo for your AVATAR.</string>
+            <string>LEGAL CONNECT would like to use a photo for your AVATAR.</string>
         </config-file>
     </platform>
     <preference name="orientation" value="portrait" />
@@ -100,7 +100,7 @@
     <plugin name="cordova-plugin-sim" spec="^1.3.3" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
-    <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.1" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.0" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
