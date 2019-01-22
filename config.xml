@@ -30,7 +30,7 @@
             <string>LEGAL CONNECT would like to use a photo for your AVATAR.</string>
         </config-file>
     </platform>
-<!--     <preference name="orientation" value="portrait" /> -->
+    <preference name="orientation" value="portrait" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="phonegap-version" value="cli-7.0.1" />
     <preference name="android-minSdkVersion" value="14" />
