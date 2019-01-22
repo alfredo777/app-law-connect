@@ -723,3 +723,29 @@ limitations under the License.
   right: 0;
   pointer-events: none
 }
+
+
+html[onsflag-iphonex-landscape] ons-splitter-side[side=“right”] .page__content > .list:not(.list–inset) > .list-header {
+padding-left: 15px;
+}
+html[onsflag-iphonex-landscape] ons-splitter-side[side=“right”] .page__content > .list:not(.list–inset) > .list-item {
+padding-left: 14px;
+}
+
+/* Suppress right safe area support for pages in left splitter sides */
+html[onsflag-iphonex-landscape] ons-splitter-side[side=“left”] .page__content > .list:not(.list–inset) {
+margin-right: 0;
+}
+html[onsflag-iphonex-landscape] ons-splitter-side[side=“left”] .page__content > .list:not(.list–inset) > .list-item–chevron:before {
+right: 16px;
+}
+html[onsflag-iphonex-landscape] ons-splitter-side[side=“left”] .page__content > .list:not(.list–inset) > .list-item > .list-item__center:last-child {
+padding-right: 6px;
+}
+html[onsflag-iphonex-landscape] ons-splitter-side[side=“left”] .page__content > .list:not(.list–inset) > .list-item > .list-item__right {
+padding-right: 12px;
+}
+html[onsflag-iphonex-landscape] ons-splitter-side[side=“left”] .page__content > .list:not(.list–inset) > .list-item > .list-item–chevron__right {
+padding-right: 30px;
+}
+}
