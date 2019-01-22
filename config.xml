@@ -39,7 +39,7 @@
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 
     <platform name="android">
-        <icon qualifier="ldpi" src="res/icons/android/drawable-ldpi-icon.png" />
+      <!--   <icon qualifier="ldpi" src="res/icons/android/drawable-ldpi-icon.png" /> -->
         <icon qualifier="mdpi" src="res/icons/android/drawable-mdpi-icon.png" />
         <icon qualifier="hdpi" src="res/icons/android/drawable-hdpi-icon.png" />
         <icon qualifier="xhdpi" src="res/icons/android/drawable-xhdpi-icon.png" />
@@ -62,8 +62,7 @@
       <platform name="ios">
         <icon height="57" platform="ios" src="res/icon/ios/icon.png" width="57" />
         <icon height="114" platform="ios" src="res/icon/ios/icon@2x.png" width="114" />
-        <icon height="40" platform="ios" src="res/icon/ios/icon-40.png" width="40" />
-         <icon height="40" platform="ios" src="res/icon/ios/icon-40.png" width="40" />
+        <!-- <icon height="40" platform="ios" src="res/icon/ios/icon-40.png" width="40" /> -->
         <icon height="80" platform="ios" src="res/icon/ios/icon-40@2x.png" width="80" />
         <icon height="50" platform="ios" src="res/icon/ios/icon-50.png" width="50" />
         <icon height="100" platform="ios" src="res/icon/ios/icon-50@2x.png" width="100" />
