@@ -98,9 +98,9 @@
         <splash height="960" platform="ios" src="res/screens/ios/Default@2x~iphone.png" width="640" />
         <splash height="480" platform="ios" src="res/screens/ios/Default~iphone.png" width="320" />
 
-        <splash height="2436" platform="ios" src="res/screens/ios/Default-2436h.png" width="1125" />
+        <splash height="2436" platform="ios" src="res/screens/ios/Default-2436h.png" width="1242" />
 
-        <splash height="1125" platform="ios" src="res/screens/ios/Default-Landscape-2436h.png" width="2436" />
+        <splash height="1242" platform="ios" src="res/screens/ios/Default-Landscape-2436h.png" width="2436" />
     </platform>
 
     <engine name="browser" spec="~5.0.4" />
