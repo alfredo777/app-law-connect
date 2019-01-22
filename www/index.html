@@ -21,6 +21,7 @@
     <script src="js/hb-helper.js"></script>
     <title>Legal Connect</title>
     
+		
 		<style type="text/css"> 
 		body{
 		    padding-top: constant(safe-area-inset-top);
@@ -31,6 +32,22 @@
 		 padding-bottom: constant(safe-area-inset-bottom); /* iOS 11.0 */
 		 padding-bottom: env(safe-area-inset-bottom); /* iOS 11.2 */
 		}
+
+		@media only screen 
+		    and (device-width : 375px) 
+		    and (device-height : 812px) 
+		    and (-webkit-device-pixel-ratio : 3) { 
+		    .tabbar{
+					height: 109px;
+				}
+
+			.page__content {
+				    top: 0;
+				    padding-top: 50px;
+				    bottom: 0;
+				}
+			}
+
 		</style> 
 </head>
 <body id="newbody">
