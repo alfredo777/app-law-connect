@@ -1,6 +1,6 @@
 <ons-navigator swipeable id="myNavigator"></ons-navigator>
 <ons-progress-bar value="20" id="progress"></ons-progress-bar>
-<ons-tabbar swipeable position="bottom" modifire="top-border" id="tabbar" animation-options="{duration: 0.2, delay: 1, timing: 'ease-in'}">
+<ons-tabbar swipeable position="bottom" modifire="top-border" id="tabbar" animation-options="{duration: 0.2, delay: 1, timing: 'ease-in'}" class="padding-footer">
   {{#foreach compose}}
       {{#if $first }}
       <ons-tab page="tab{{id}}" id="xtab{{id}}" label="{{Title}}" icon="{{Icon}}" topbar="{{topbar}}"  active>
