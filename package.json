@@ -15,7 +15,8 @@
       "cordova-plugin-x-socialsharing": {},
       "cordova-plugin-device": {},
       "cordova-plugin-file": {},
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-splashscreen": {}
     }
   },
   "dependencies": {
@@ -32,6 +33,7 @@
     "cordova-support-google-services": "^1.1.0",
     "es6-promise-plugin": "^4.2.2",
     "phonegap-plugin-multidex": "^1.0.0",
-    "phonegap-plugin-push": "~2.2.3"
+    "phonegap-plugin-push": "~2.2.3",
+    "cordova-plugin-splashscreen": "^5.0.2"
   }
 }

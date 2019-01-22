@@ -45,6 +45,9 @@
 			  document.documentElement.setAttribute('onsflag-iphonex-landscape', '');
 			}
 
+		    beforeMount();
+
+
 	      var loggin = sessionLoggin();
 	      var deviceSTREAM = window.localStorage.getItem("devicePlatform");
 	      setTimeout(function(){
@@ -134,7 +137,17 @@
 	        deviceData = window.localStorage.getItem("devicePropieties");
 
 	      }
+        
 
+        function beforeMount() {
+		  const html = document.documentElement;
+		  if (this.$ons.platform.isIPhoneX()) {
+		   html.setAttribute('onsflag-iphonex-portrait', '');
+           html.setAttribute('onsflag-iphonex-landscape', '');
+		  }else{
+		  	alert(his.$ons.platform.isIPhoneX());
+		  }
+		}
 
     </script>
 

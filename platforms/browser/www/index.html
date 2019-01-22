@@ -4,7 +4,7 @@
     <meta charset="utf-8">
  	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;  font-src 'self' https://fonts.gstatic.com data:; media-src *; img-src * data: content:; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval';">
  	<meta Access-Control-Allow-Origin: * >
-    <meta name="viewport" content="width=device-width, initial-scale=1  maximum-scale=1 user-scalable=no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, height=device-height, viewport-fit=cover">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
@@ -19,7 +19,7 @@
     <script src="js/jquery-ui.min.js"></script>
 	<script src="js/handlebarsx.js"></script>
     <script src="js/hb-helper.js"></script>
-    <title>Law Connect</title>
+    <title>Legal Connect</title>
 </head>
 <body id="newbody">
 	<br/><br/><br/>
@@ -37,8 +37,17 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript">
 	   var sessionIN = window.localStorage.getItem("loggedIn");
-
+       
 	   $(document).ready(function(){
+
+	   		if (ons.platform.isIPhoneX()) { // Utility function
+			  // Add empty attribute to the <html> element
+			  document.documentElement.setAttribute('onsflag-iphonex-landscape', '');
+			}
+
+		    beforeMount();
+
+
 	      var loggin = sessionLoggin();
 	      var deviceSTREAM = window.localStorage.getItem("devicePlatform");
 	      setTimeout(function(){
@@ -46,7 +55,8 @@
 			       if(deviceSTREAM == 'Android'){
 			       	loadpageFree("menu","newbody","js/json/menu-tabs.json");
 			       }else{
-			      	loadpage("menu","newbody","js/json/menu-tabs.json");
+			      	/*loadpage("menu","newbody","js/json/menu-tabs.json");*/
+			      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
 			       }
 		      
 		      }else{
@@ -54,8 +64,10 @@
 			      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
 			      	appendpageFree("loggin","newbody","js/json/loggin.json");
 			       }else{
-			        loadpage("menu","newbody","js/json/menu-tabs.json");
-			        appendpage("loggin","newbody","js/json/loggin.json");
+			        /*loadpage("menu","newbody","js/json/menu-tabs.json");
+			        appendpage("loggin","newbody","js/json/loggin.json");*/
+			        loadpageFree("menu","newbody","js/json/menu-tabs.json");
+			      	appendpageFree("loggin","newbody","js/json/loggin.json");
 			       }
 		      }
 	      },1000);
@@ -68,7 +80,9 @@
 			       if(deviceSTREAM == 'Android'){
 			       	loadpageFree("menu","newbody","js/json/menu-tabs.json");
 			       }else{
-			      	loadpage("menu","newbody","js/json/menu-tabs.json");
+			      	/*loadpage("menu","newbody","js/json/menu-tabs.json");*/
+			      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
+
 			       }
 		      
 		      }else{
@@ -76,8 +90,10 @@
 			      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
 			      	appendpageFree("loggin","newbody","js/json/loggin.json");
 			       }else{
-			        loadpage("menu","newbody","js/json/menu-tabs.json");
-			        appendpage("loggin","newbody","js/json/loggin.json");
+			        /*loadpage("menu","newbody","js/json/menu-tabs.json");
+			        appendpage("loggin","newbody","js/json/loggin.json");*/
+			        loadpageFree("menu","newbody","js/json/menu-tabs.json");
+			      	appendpageFree("loggin","newbody","js/json/loggin.json");
 			       }
 		      }
 		}
@@ -121,7 +137,17 @@
 	        deviceData = window.localStorage.getItem("devicePropieties");
 
 	      }
+        
 
+        function beforeMount() {
+		  const html = document.documentElement;
+		  if (this.$ons.platform.isIPhoneX()) {
+		   html.setAttribute('onsflag-iphonex-portrait', '');
+           html.setAttribute('onsflag-iphonex-landscape', '');
+		  }else{
+		  	alert(his.$ons.platform.isIPhoneX());
+		  }
+		}
 
     </script>
 
