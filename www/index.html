@@ -40,13 +40,10 @@
        
 	   $(document).ready(function(){
 
-	   		if (ons.platform.isIPhoneX()) { // Utility function
+	   	  if (ons.platform.isIPhoneX()) { // Utility function
 			  // Add empty attribute to the <html> element
 			  document.documentElement.setAttribute('onsflag-iphonex-landscape', '');
-			}
-
-		    beforeMount();
-
+		  }
 
 	      var loggin = sessionLoggin();
 	      var deviceSTREAM = window.localStorage.getItem("devicePlatform");
@@ -138,15 +135,6 @@
 
 	      }
         
-
-        function beforeMount() {
-		  const html = document.documentElement;
-		  if (this.$ons.platform.isIPhoneX()) {
-		   html.setAttribute('onsflag-iphonex-portrait', '');
-           html.setAttribute('onsflag-iphonex-landscape', '');
-		  }
-		}
-
     </script>
 
 </html>
