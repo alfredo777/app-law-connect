@@ -66,9 +66,9 @@
 	            </div>
 	    </ons-toolbar>
 	    {{/if}}
-	  	<ons-speed-dial position="bottom right" direction="up">
+	  	<ons-speed-dial position="bottom right" direction="up" >
 		    <ons-fab>
-		      <ons-icon icon="md-share"></ons-icon>
+		      <ons-icon icon="md-share" class="share-dial" style="display:none;"></ons-icon>
 		    </ons-fab>
 		    <ons-speed-dial-item>
 		      <ons-icon icon="md-twitter" onclick="window.plugins.socialsharing.shareViaTwitter('Mensaje via Twitter','www/logo.png', 'http://lawconnect.io')"></ons-icon>
@@ -180,7 +180,7 @@
 	</template>
 	<template id="page4.html">
 	  <ons-page>
-		 <ons-toolbar class="toolbar" modifier="transparent cover-content" static="true" style="background-color: transparent;">
+		 <ons-toolbar class="toolbar contact-bar" modifier="transparent cover-content" static="true" style="background-color: transparent;">
 			<div class="left"><ons-back-button></ons-back-button></div>
 			<div class="center"></div>
 	     </ons-toolbar>
