@@ -91,7 +91,7 @@
         <icon src="res/icons/ios/icon-76@2x.png" width="152" height="152"/>
         <icon src="res/icons/ios/icon-167.png" width="167" height="167"/>
         <icon src="res/icons/ios/icon-83.5@2x.png" width="167" height="167"/>
-       <splash height="2436" src="res/screens/ios/test.png" width="1125" />
+       <splash width="1125"  src="res/screens/ios/test.png" height="2436" />
         
                 
         
@@ -105,5 +105,5 @@
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-file" spec="4.0.0" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" /> 
-    <plugin name="cordova-plugin-splashscreen" source="npm" spec="^4.1.0" />       
+<!--     <plugin name="cordova-plugin-splashscreen" source="npm" spec="^4.1.0"  -->/>       
 </widget>
