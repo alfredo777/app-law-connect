@@ -91,7 +91,8 @@
         <icon src="res/icons/ios/icon-76@2x.png" width="152" height="152"/>
         <icon src="res/icons/ios/icon-167.png" width="167" height="167"/>
         <icon src="res/icons/ios/icon-83.5@2x.png" width="167" height="167"/>
-       <splash width="1125"  src="res/screens/ios/test.png" height="2436" />
+       <splash height="2436" src="res/screens/ios/test2.png" width="1125" />
+       <splash height="1125" src="res/screens/ios/test.png" width="2436" />
         
                 
         
