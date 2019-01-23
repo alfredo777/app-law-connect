@@ -32,11 +32,9 @@ $(document).ready(function(){
     tpl = "{{Render}}";
     json = "js/json/{{Render}}.json";
     idx = "tabcompose{{id}} .page__content";
-    if(deviceSTREAM == 'Android'){
-    loadpageFree(tpl,idx,json); 
-    }else{
-    loadpageFree(tpl,idx,json);   
-    }
+    setTimeout(function(){
+      loadpageFree(tpl,idx,json); 
+    },500);
 });
 </script>
 {{/each}}
