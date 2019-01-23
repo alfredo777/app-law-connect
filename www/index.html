@@ -90,12 +90,20 @@
 	      var deviceSTREAM = window.localStorage.getItem("devicePlatform");
 	      setTimeout(function(){
 		      if(loggin == 1){
+			       if(deviceSTREAM == 'Android'){
 			       	loadpageFree("menu","newbody","js/json/menu-tabs.json");
+			       }else{
+			      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
+			       }
+		      
 		      }else{
-		      		loadpageFree("menu","newbody","js/json/menu-tabs.json");
-		      	    setTimeout(function(){
-		      	        appendpageFree("loggin","newbody","js/json/loggin.json");
-		      	    },1000);
+			       if(deviceSTREAM == 'Android'){
+			      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
+			      	appendpageFree("loggin","newbody","js/json/loggin.json");
+			       }else{
+			        loadpageFree("menu","newbody","js/json/menu-tabs.json");
+			      	appendpage("loggin","newbody","js/json/loggin.json");
+			       }
 		      }
 	      },1000);
 	    });
@@ -104,12 +112,24 @@
 	    	var loggin = sessionLoggin();
 	        var deviceSTREAM = window.localStorage.getItem("devicePlatform");
 		      if(loggin == 1){
+			       if(deviceSTREAM == 'Android'){
 			       	loadpageFree("menu","newbody","js/json/menu-tabs.json");
+			       }else{
+			      	/*loadpage("menu","newbody","js/json/menu-tabs.json");*/
+			      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
+
+			       }
+		      
 		      }else{
-		      		loadpageFree("menu","newbody","js/json/menu-tabs.json");
-		      	    setTimeout(function(){
-		      	        appendpageFree("loggin","newbody","js/json/loggin.json");
-		      	    },1000);
+			       if(deviceSTREAM == 'Android'){
+			      	loadpageFree("menu","newbody","js/json/menu-tabs.json");
+			      	appendpageFree("loggin","newbody","js/json/loggin.json");
+			       }else{
+			        /*loadpage("menu","newbody","js/json/menu-tabs.json");
+			        appendpage("loggin","newbody","js/json/loggin.json");*/
+			        loadpageFree("menu","newbody","js/json/menu-tabs.json");
+			      	appendpage("loggin","newbody","js/json/loggin.json");
+			       }
 		      }
 		}
 
