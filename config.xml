@@ -15,6 +15,12 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+     <config-file parent="NSCameraUsageDescription" platform="ios" target="*-Info.plist">
+            <string>LEGAL CONNECT  would like to store a photo for your AVATAR.</string>
+        </config-file>
+        <config-file parent="NSPhotoLibraryUsageDescription" platform="ios" target="*-Info.plist">
+            <string>LEGAL CONNECT would like to use a photo for your AVATAR.</string>
+        </config-file>
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
@@ -29,6 +35,7 @@
         <config-file parent="NSPhotoLibraryUsageDescription" platform="ios" target="*-Info.plist">
             <string>LEGAL CONNECT would like to use a photo for your AVATAR.</string>
         </config-file>
+
     </platform>
     <preference name="orientation" value="portrait" />
     <preference name="DisallowOverscroll" value="true" />
