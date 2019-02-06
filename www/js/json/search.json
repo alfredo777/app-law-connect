@@ -11,6 +11,6 @@
 		{"id": 6, "title": "Mercantil - Civil", "search": "derecho fiscal","icon": "fa-edit", "class": "border-left-botton-solid"},
 		{"id": 7, "title": "Declaraciones", "search": "SAT","icon": "fa-file-text", "class": "right-solid"},
 		{"id": 8, "title": "Corporativo", "search": "derecho fiscal","icon": "fa-bank", "class": ""}
-		// {"id": 9, "title": "CFE - INFONNAVIT", "search": "fiscal","icon": "fa-home", "class": "left-solid"}
+		{"id": 9, "title": "Otros", "search": "fiscal","icon": "fa-plus", "class": "left-solid"}
 	]
 }
