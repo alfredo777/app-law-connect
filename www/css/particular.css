@@ -73,7 +73,7 @@ html{
 
 .profile-header-name{
 	color: #fff;
-	margin-top: -235px;
+	margin-top: -225px;
 	padding: 20px;
 	font-weight: bold;
 }
@@ -198,7 +198,7 @@ ons-list-header.search-header-list ons-search-input .search-input{
   z-index:1;}
 
   .special{
-  	margin-top: 70px;
+  	margin-top: 90px;
   	padding-left: 15px;
   }
 
