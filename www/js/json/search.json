@@ -8,7 +8,7 @@
 		{"id": 3, "title": "Laboral", "search": "derecho laboral","icon": "fa-briefcase", "class": "border-left-botton-solid"},
 		{"id": 4, "title": "Defensa Laboral", "search": "derecho laboral", "icon": "fa-users","class": "border-right-botton-solid"},
 		{"id": 5, "title": "Aduanal", "search": "derecho fiscal", "icon": "fa-compass","class": "bottom-solid"},
-		{"id": 6, "title": "Mercantil - Civil", "search": "derecho mercantil civil","icon": "fa-file-text", "class": "border-left-botton-solid"},
+		{"id": 6, "title": "Mercantil - Civil", "search": "derecho civil","icon": "fa-file-text", "class": "border-left-botton-solid"},
 		{"id": 7, "title": "Declaraciones", "search": "derecho fiscal","icon": "fa-bar-chart", "class": "right-solid"},
 		{"id": 8, "title": "Corporativo", "search": "derecho administrativo","icon": "fa-bank", "class": ""},
 		{"id": 9, "title": "Otros", "search": "penal familiar autor","icon": "fa-plus", "class": "left-solid"}
