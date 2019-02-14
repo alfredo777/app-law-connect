@@ -142,8 +142,8 @@
 		  	<p style="padding: 0px 5px; text-align: justify; width: 100%;"><b style="color: #000;">Grado Académico:</b>
 		  	{{user.escolaridad}}</p> -->
 
-		  	<p style="padding: 0px 5px; text-align: justify; width: 100%;"><b style="color: #000;">Cédula:</b>
-		  	{{user.cedula}}</p>
+		  <!-- 	<p style="padding: 0px 5px; text-align: justify; width: 100%;"><b style="color: #000;">Cédula:</b>
+		  	{{user.cedula}}</p> -->
 
 		  	<!-- <p style="padding: 0px 5px; text-align: justify; width: 100%;"><b style="color: #000;">Despacho actual:</b>
 		  	RAND y Asociados</p> -->
@@ -234,10 +234,10 @@
 
 	<template id="page6.html">
 	  <ons-page id="page6user">
-	  	<ons-toolbar class="toolbar contact-bar" static="true">
+	  	<!-- <ons-toolbar class="toolbar contact-bar" static="true">
 			<div class="left"><ons-back-button onclick="changeTaUserx();"></ons-back-button></div>
 			<div class="center">Editar Perfil</div>
-	    </ons-toolbar>
+	    </ons-toolbar> -->
 	    <center><br/><br/><br/><br/>
 	    <input type="text" id="nombreedit" name="nombreedit" class="text-input text-input--material" placeholder="Nombre" style="width:90%;" value="{{user.nombre}}"><br/><br/>
 
@@ -282,11 +282,11 @@
 
  <ons-popover direction="down" id="popover">
   <div style="padding: 10px; text-align: center;">
-   <ons-list>
+   <!-- <ons-list>
     <ons-list-item><ons-button modifier="quiet" onclick="cameraAvatar();" style="font-size: 12px; margin-top: -10px;"><ons-icon icon="ion-camera"></ons-icon> Tomar foto </ons-button></ons-list-item>
     <ons-list-item><ons-button modifier="quiet" onclick="fileAvatar();" style="font-size: 12px; margin-top: -10px;"><ons-icon icon="fa-file-o"></ons-icon> Seleccionar foto </ons-button></ons-list-item>
   </div>
-  </ons-lit>
+  </ons-lit> -->
 </ons-popover>
 
 
