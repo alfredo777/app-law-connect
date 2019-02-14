@@ -149,9 +149,9 @@
 		  	RAND y Asociados</p> -->
 
 		<!--   <p style="padding: 0px 10px; text-align: justify;">{{{user.curriculum}}}</p></ons-list-item> -->
-		   <ons-list-item><b style="color: #000;">Perfil:</b> <br/><p style="padding: 0px 10px; text-align: justify;"> {{{user.acerca_de_mi}}}</p></ons-list-item>
+		   <ons-list-item><b style="color: #000;">Perfil:</b> <br/><p style="padding: 0px 10px; text-align: left;"> {{{user.acerca_de_mi}}}</p></ons-list-item>
 
-		   <ons-list-item><b style="color: #000;">Experiencia:</b> <br/><p style="padding: 0px 10px; text-align: justify;"> {{{user.curriculum}}}</p></ons-list-item>
+		   <ons-list-item><b style="color: #000;">Experiencia:</b> <br/><p style="padding: 0px 10px; text-align: left;"> {{{user.curriculum}}}</p></ons-list-item>
 
 		</ons-list>
 		{{else}}
@@ -189,7 +189,16 @@
 	     <ons-page>
 	     	<br/>
 	     	<center>
-	     		<p style="text-align:center; padding: 20px;"><b>Agenda una llamada de asesoría sin costo</b> </p>
+	     		<p style="text-align:center; padding: 20px;"><b>Contáctanos ahora mismo</b> 
+	     			<div style="width: 50%;">
+	     				<a href="your link here" style="font-size: 30px;"> <i class="fa fa-phone"></i></a>
+	     			</div>
+	     			<div style="width: 50%;">
+	     				<a href="your link here" style="font-size: 30px;"> <i class="fa fa-mail"></i></a>
+	     			</div>
+	     		</p><br/><br/>
+
+	     		<p style="text-align:center; padding: 20px;"><b>Si prefieres, agenda una llamada de asesoría sin costo</b> </p>
 	     		<input type="text" id="datepicker" name="date" class="text-input text-input--material" placeholder="Selecciona una fecha" style="width:90%;"><br/><br/><br/>
 	     		<input type="time" id="appt-time" name="appt-time" min="9:00" max="18:00" class="text-input text-input--material"  style="width:90%;" required/><span >Horario para recibir llamadas: 9AM a 6PM</span><br/><br/><br/>
 
